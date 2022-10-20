@@ -36,7 +36,7 @@ user_id varchar2(50) not null -- 아이디
 -- 외래키로 설정되어서 tbl_member userid 컬럼 레코드 아이디값만 저장됨.
 );
 
-
+insert into users_auth(user_id,auth) values('user11','ROLE_ADMIN');
 
 
 

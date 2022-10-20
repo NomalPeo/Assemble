@@ -66,7 +66,7 @@ public class UsersController {
 		m.setUser_pwd(PwdChange.getPassWordToXEMD5String(m.getUser_pwd()));
 		this.usersService.insertUsers(m);
 		
-		return "/Login/login";
+		return "Login/login";
 	}//join_ok()
 	
      
@@ -133,7 +133,7 @@ public class UsersController {
              out.println("</script>");
           }else {
              session.setAttribute("id", login_id); //세션 아이디에 아이디 저장
-             return "redirect:/main"; //메인으로 이동
+             return "index_1"; //메인으로 이동
           }
        }
        

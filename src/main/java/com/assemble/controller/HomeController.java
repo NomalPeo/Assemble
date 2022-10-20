@@ -53,4 +53,22 @@ public class HomeController {
 	}
 	
 	
+	
+	@RequestMapping("/customLogin")
+	public void loginInput(String error, String logout, Model model) {
+		System.out.println("error : " + error);
+		System.out.println("logout : " + logout);
+		
+		if(error != null) {
+			model.addAttribute("error","Login Error Check Your Account");
+		}
+		if(logout != null) {
+			model.addAttribute("logout", "LogOut!!");
+		}
+	}// customLogin 매핑주소
+	@RequestMapping("/customLogout") // get방식일때 실행
+	public void logoutGET() {
+		
+	}
+	
 }

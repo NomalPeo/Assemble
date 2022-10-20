@@ -7,7 +7,7 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Users">
 
 	<select id="id_check" resultType="users">
-		select * from users where user_id = #{user_id}
+		select * from users where USER_ID = #{user_id}
 	</select>
 	
 	<insert id="m_in">

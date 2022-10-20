@@ -17,36 +17,36 @@
 <link rel="stylesheet" type="text/css"
 	href="../../resources/plugins/web-fonts-with-css/css/all.css" />
 <script>
-      $(document).ready(function(){
-         $('.slider').bxSlider({
-            controls:false,
-            pager:false,
-            auto:true
-         });
-      });
-      
-       function login_check(){
-             if($.trim($("#id").val())==""){
-                alert("아이디를 입력하세요!");
-                $("#id").val("").focus();
-                return false;
-             }
-             if($.trim($("#pw").val())==""){
-                alert("비밀번호를 입력하세요!");
-                $("#pw").val("").focus();
-                return false;
-             }
-          }//로그인 인증 유효성 검증
-          
-          //비번찾기
-          function pwd_find(){
-             $url="pwd_find";//매핑주소
-             window.open($url,"비번검색","width=400px,height=300px"+
-                   ",scrollbars=yes");
-             //open(공지창경로,공지창이름,속성) 메서드로 폭이 300픽셀,
-             //높이가 300픽셀,스크롤바가 생성되는 새로운 공지창을 만든다.
-          }
-   </script>
+	$(document).ready(function() {
+		$('.slider').bxSlider({
+			controls : false,
+			pager : false,
+			auto : true
+		});
+	});
+
+	function login_check() {
+		if ($.trim($("#id").val()) == "") {
+			alert("아이디를 입력하세요!");
+			$("#id").val("").focus();
+			return false;
+		}
+		if ($.trim($("#pw").val()) == "") {
+			alert("비밀번호를 입력하세요!");
+			$("#pw").val("").focus();
+			return false;
+		}
+	}//로그인 인증 유효성 검증
+
+	//비번찾기
+	function pwd_find() {
+		$url = "pwd_find";//매핑주소
+		window.open($url, "비번검색", "width=400px,height=300px"
+				+ ",scrollbars=yes");
+		//open(공지창경로,공지창이름,속성) 메서드로 폭이 300픽셀,
+		//높이가 300픽셀,스크롤바가 생성되는 새로운 공지창을 만든다.
+	}
+</script>
 
 </head>
 <body>
@@ -94,6 +94,8 @@
 					<a href="users_join"><input type="button" value="회원가입" /></a>
 				</div>
 			</div>
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 		</div>
 	</form>
 
