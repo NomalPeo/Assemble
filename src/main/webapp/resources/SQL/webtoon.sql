@@ -12,7 +12,8 @@ create table webtoon(
     webtoon_image2 varchar2(100),
     webtoon_image3 varchar2(100)
 );
-
+select * from webtoon;
+delete from webtoon;
 create SEQUENCE webtoon_seq
 start with 1
 increment by 1
