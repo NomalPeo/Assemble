@@ -26,14 +26,14 @@ CustomAccessDeniedHandler빈아이디 객체명 CustomAccessDenied를 생성 -->
 
 <security:http> <!-- 스프링 시큐리티가 http프로토콜(통신규약)에서 알 수 있게 하는 시작지점 -->
 
-	<security:intercept-url pattern="/" access="permitAll"/>
+	<security:intercept-url pattern="/*" access="permitAll"/>
 	<!-- pattern에 지정한 /sample/all URL매핑주소에 접근할 때 스프링 시큐리티 인터셉터를 이용해서 중간에 자료를 가로챈 다음 access속성에 접근권한
 	범위를 지정한다. permitAll은 모든 사용자 접근 권한을 허용한다. -->
 	
-	<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
+	<security:intercept-url pattern="/sample/member" access="hasRole('USER')"/>
 	<!-- ROLE_MEMBER는 로그인한 일반회원만 접근 가능-->
 	
-	<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/sample/admin" access="hasRole('ADMIN')"/>
 	<!-- 로그인 한 사용자 중에서 admin관리자 권한을 가진 사용자만 접근 가능 -->
 	
 	<!--
@@ -45,7 +45,7 @@ CustomAccessDeniedHandler빈아이디 객체명 CustomAccessDenied를 생성 -->
 	
 	<!--<security:form-login/>  시큐리티 폼 로그인 설정 : 스프링 시큐리티 자체 폼 로그인 실행-->
 	
-	<security:form-login login-page="/users_login" authentication-success-handler-ref="customLoginSuccess"/>
+	<security:form-login login-page="/Login/login" authentication-success-handler-ref="customLoginSuccess"/>
 	<!-- 커스텀 로그인 페이지로 이동하는 매핑구조 cumstomLogin등록,
 	 authentication-success-handler-ref 속성은 로그인 성공시 customLoginSuccess 빈아이디 호출-->
 	 

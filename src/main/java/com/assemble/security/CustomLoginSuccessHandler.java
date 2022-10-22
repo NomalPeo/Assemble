@@ -26,14 +26,14 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		
 		System.out.println("ROLE NAMES : " + roleNames); // 사용자 권한을 출력
 		
-		if(roleNames.contains("ROLE_ADMIN")) { // 관리자 권한 일때 
-			response.sendRedirect("index_1");
+		if(roleNames.contains("USER")) { // 관리자 권한 일때 
+			response.sendRedirect("/sample/member");
 			return;
 			
 		}
 		
-		if(roleNames.contains("ROLE_MEMBER")) { // 일반 회월일때
-			response.sendRedirect("index");
+		if(roleNames.contains("ADMIN")) { // 일반 회월일때
+			response.sendRedirect("/sample/admin");
 			return;
 		}
 		response.sendRedirect("/");

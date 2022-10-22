@@ -20,7 +20,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 		 */
 		System.out.println("Access Denied Handler");
 		System.out.println("Redirect..........");
-		response.sendRedirect("/accessErroe"); // 서블릿을 사용해서 accessError매핑주소로 이동한다.
+		response.sendRedirect("/accessErroer"); // 서블릿을 사용해서 accessError매핑주소로 이동한다.
 	}
 
 }

@@ -47,19 +47,6 @@
 				</div>
 
 				<div class="content-box">
-					<div class="title">전화번호</div>
-					<select name="user_phone1" id="user_phone1" class="phone1">
-						<c:forEach var="p" items="${phone}">
-							<option value="${p}">${p}</option>
-						</c:forEach>
-					</select>
-					<div class="sign">-</div>
-					<input type="text" name="user_phone2" id="user_phone2" size="5">
-					<div class="sign">-</div>
-					<input type="text" name="user_phone3" id="user_phone3" size="5">
-				</div>
-
-				<div class="content-box">
 					<div class="title">성별</div>
 					<div class="radio-box">
 						<div class="radio1">
@@ -72,30 +59,6 @@
 					</div>
 				</div>
 
-				<div class="content-box">
-					<div class="title">생년월일</div>
-					<input type="text" size="1" placeholder="년">
-					<div class="birthday">년</div>
-					<input type="text" size="1" placeholder="월">
-					<div class="birthday">월</div>
-					<input type="text" size="1" placeholder="일">
-					<div class="birthday">일</div>
-					<input type="date" name="birthday">
-				</div>
-
-				<div class="content-box">
-					<div class="title">이메일</div>
-					<input type="text" name="email_id" id="email_id" size="10"
-						placeholder="이메일">
-					<div class="sign">@</div>
-					<input type="text" name="email_domain" id="eamil_domain" size="10"
-						placeholder="직접입력" readonly> <select name="mail_list"
-						onchange="domain_list()">
-						<c:forEach var="mail" items="${email}">
-							<option value="${mail}">${mail}</option>
-						</c:forEach>
-					</select>
-				</div>
 
 				<div class="content-box">
 					<div class="title">닉네임</div>
@@ -107,7 +70,7 @@
 					<input type="submit" value="회원가입"> <input type="reset"
 						value="리셋" onclick="${'#user_id'}.focus();">
 				</div>
-				
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</form>
 		</div>
 	</div>

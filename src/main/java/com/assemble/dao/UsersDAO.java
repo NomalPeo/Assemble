@@ -14,4 +14,6 @@ public interface UsersDAO {
 
 	UsersVO loginCheck(String login_id);
 
+	void authinsertUser(String string);
+
 }

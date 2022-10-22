@@ -42,13 +42,33 @@ public class UserTests {
 			if(i<16) {
 				pstmt.setString(1, "user"+i); // user0~user79까지 일반사용자 회원아이디
 				pstmt.setString(3, "일반사용자"+i);
-			}else if(i<19) {
+				pstmt.setString(4, "nick"+i);
+				pstmt.setString(5, "01"+i);
+				pstmt.setString(6, "02"+i);
+				pstmt.setString(7, "03"+i);
+				pstmt.setString(8, "user"+i);
+				pstmt.setString(9, "naver.com");
 				
+			}else if(i<18) {
+				pstmt.setString(1, "manager"+i); // user0~user79까지 일반사용자 회원아이디
+				pstmt.setString(3, "관리자"+i);
+				pstmt.setString(4, "nick"+i);
+				pstmt.setString(5, "01"+i);
+				pstmt.setString(6, "02"+i);
+				pstmt.setString(7, "03"+i);
+				pstmt.setString(8, "user"+i);
+				pstmt.setString(9, "naver.com");
+			}else {
+				pstmt.setString(1, "admin"+i); // user0~user79까지 일반사용자 회원아이디
+				pstmt.setString(3, "운영자"+i);
+				pstmt.setString(4, "nick"+i);
+				pstmt.setString(5, "01"+i);
+				pstmt.setString(6, "02"+i);
+				pstmt.setString(7, "03"+i);
+				pstmt.setString(8, "user"+i);
+				pstmt.setString(9, "naver.com");
 			}
-				
-				
-				
-				
+			pstmt.executeUpdate();
 			}catch(Exception e) {
 				e.printStackTrace();
 			}finally {

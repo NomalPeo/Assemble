@@ -56,7 +56,7 @@
 		<div class="main_img_02"></div>
 		<div class="main_img_03"></div>
 	</div>
-	<form action="users_login_ok" method="post"
+	<form action="/login" method="post"
 		onsubmit="return login_check();">
 		<div class="login-container">
 			<div class="login-text">

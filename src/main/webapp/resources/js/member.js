@@ -33,25 +33,6 @@ function join_check() {
         return false;
     }
 
-    if ($.trim($("#user_phone2").val()) == "") {
-        alert("폰번호를 입력하세요!");
-        $("#user_phone02").val("").focus();
-        return false;
-    }
-    if ($.trim($("#user_phone3").val()) == "") {
-        alert("폰번호를 입력하세요!");
-        $("#user_phone03").val("").focus();
-        return false;
-    }
-    if ($.trim($("#email_id").val()) == "") {
-        alert("이메일 아이디를 입력하세요!");
-        $("#email_id").val("").focus();
-        return false;
-    }
-    /*if($.trim($("#email_domain").val())==""){
-       alert("이메일 도메인을 입력하세요!");
-       return false;
-    }*/
     if ($.trim($("#user_nickname").val()) == "") {
         alert("닉네임을 입력하세요!");
         $("#user_nickname").val("").focus();
@@ -104,7 +85,8 @@ function id_check() {
     const token = $("meta[name='_csrf']").attr("content");
     const header = $("meta[name='_csrf_header']").attr("content");
     //디버그용
-
+		
+		
 
 
     $.ajax({
@@ -149,15 +131,6 @@ function validate_userid($mem_id) {
     const pattern = new RegExp(/^[a-z0-9_]+$/); //아이디를 영문소문
     //자와 숫자 와 _조합으로 처리
     return pattern.test($mem_id);
-}
-
-//우편검색 창
-function post_check() {
-    const url = "./zip_find"; //매핑주소
-    window.open(url, "우편검색", "width=415px,height=190px," +
-        "scrollbars=yes");
-    //폭이 415 픽셀이고,높이가 190 픽셀,스크롤바가 생성되는
-    //우편번호 검색 공지창을 띄운다.
 }
 
 //메일 주소 선택과 직접입력

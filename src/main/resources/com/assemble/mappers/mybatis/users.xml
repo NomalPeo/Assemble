@@ -6,14 +6,75 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Users">
 
+<resultMap id="userMap" type="users">
+<id property="user_id" column="user_id"/>
+
+<result property="user_no" column="user_no"/>
+<result property="user_id" column="user_id"/>
+<result property="user_pwd" column="user_pwd"/>
+<result property="user_name" column="user_name"/>
+<result property="user_gender" column="user_gender"/>
+<result property="user_nickname" column="user_nickname"/>
+<result property="user_date" column="user_date"/>
+<result property="user_state" column="user_state"/>
+<result property="user_delcont" column="user_delcont"/>
+<result property="user_deldate" column="user_deldate"/>
+
+<collection property="authList" resultMap="authMap"></collection>
+</resultMap>
+
+<resultMap id="authMap" type="authvo">
+<result property="user_id" column="user_id"/>
+<result property="auth" column="auth"/>
+
+</resultMap>
+
+
+<!--<select id="read_memInfo"  parameterType="java.lang.String" resultMap="userMap">-->
+<!--	select-->
+<!--	mem.user_no,user_id, user_pwd,user_name,user_gender,user_nickname,user_date,user_state,-->
+<!--	user_delcont,user_deldate, auth FROM users mem LEFT OUTER JOIN-->
+<!--	users_auth auth on mem.user_id = auth.user_id-->
+<!--	where mem.user_id=#{login_id}-->
+<!--</select>-->
+
+	<select id="read_memInfo" parameterType="java.lang.String" resultType="userMap">
+		select mem.USER_NO,USER_ID,USER_PWD,USERNAME,USER_GENDER,USER_NICKNAME,USER_DATE,USER_STATE,USER_DELCONT,USER_DELDATE,AUTH from
+		        USERS mem LEFT OUTER JOIN USERS_AUTH auth on mem.USER_ID = AUTH.USER_ID where mem.USER_ID = #{login_id}
+	</select>
+
+
+
+
+
+
+<insert id="auth_in">
+	insert into users_auth(user_id,auth) values(#{string},'USER')
+</insert>
+
+
+<!-- 
+	mem.userid, userpw, username, enabled, regdate, updatedate, auth from tbl_member mem 
+	LEFT OUTER JOIN
+	tbl_member_auth auth on mem.userid = auth.userid
+	where mem.userid=#{id} -->
+
+
+
+
+
+
+
+
+
+
+
 	<select id="id_check" resultType="users">
-		select * from users where USER_ID = #{user_id}
+		select * from users where user_id = #{user_id}
 	</select>
 	
 	<insert id="m_in">
-		insert into users (user_no, user_id, user_pwd, user_name, user_gender, user_nickname, user_phone1, user_phone2, user_phone3, email_id, email_domain
-		, user_state, user_date) values (users_seq.nextval,#{user_id}, #{user_pwd}, #{user_name}, #{user_gender}, #{user_nickname}, #{user_phone1},
-		#{user_phone2}, #{user_phone3}, #{email_id}, #{email_domain}, 1, sysdate)
+		insert into users (user_no, user_id, user_pwd, user_name, user_gender, user_nickname, user_state, user_date) values (users_seq.nextval,#{user_id}, #{user_pwd}, #{user_name}, #{user_gender}, #{user_nickname}, 1, sysdate)
 	</insert>
 	
 	<select id="p_find" resultType="users">

@@ -14,4 +14,6 @@ public interface UsersService {
 
 	UsersVO loginCheck(String login_id);
 
+	void authinsertUsers(String string);
+
 }

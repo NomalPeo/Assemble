@@ -36,4 +36,9 @@ public class UsersDAOImpl implements UsersDAO {
 	public UsersVO loginCheck(String login_id) {
 		return this.sqlSession.selectOne("login_ck", login_id);
 	}
+
+	@Override
+	public void authinsertUser(String string) {
+		this.sqlSession.insert("auth_in", string);
+	}
 }
