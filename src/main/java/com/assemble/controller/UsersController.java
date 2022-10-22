@@ -30,10 +30,14 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/Login/login")
-    public void login() {
 
-    }//login()
+	@RequestMapping("users_login")
+	public ModelAndView login() {
+		ModelAndView m = new ModelAndView();
+		m.setViewName("login/login");
+		return m;
+	}//login()
+	
 
     @RequestMapping("join") //회원가입
     public String join(Model m) {
@@ -62,7 +66,7 @@ public class UsersController {
     }//users_id()
 
     //회원저장
-    @RequestMapping("/join_ok")
+    @RequestMapping("join_ok")
     public String join_ok(UsersVO m) {
         m.setUser_pwd(pwencoder.encode(m.getUser_pwd()));
         //m.setUser_pwd(PwdChange.getPassWordToXEMD5String(m.getUser_pwd()));
@@ -73,13 +77,13 @@ public class UsersController {
 
 
     //비밀번호찾기 공지창
-    @GetMapping("/pwd_find")
+    @GetMapping("pwd_find")
     public String pwd_find() {
         return "pwd/pwd_find"; // /WEB-INF/views/users/pwd_find.jsp
     }//pwd_find()
 
     //비번찾기 결과
-    @PostMapping("/pwd_find_ok")
+    @PostMapping("pwd_find_ok")
     public ModelAndView pwd_find_ok(String pwd_id, String pwd_name, HttpServletResponse
             response, UsersVO m) throws Exception {
         response.setContentType("text/html; charset=UTF-8");
@@ -112,7 +116,7 @@ public class UsersController {
     }//pwd_find_ok()
 
 
-    @GetMapping("/accessError") // get으로 접근하는 accessError 매핑주소가 실행
+    @GetMapping("/accessErroer") // get으로 접근하는 accessError 매핑주소가 실행
     public void accessDenied(Model model) {
         // 리턴 타입이 없는 void형이면 매핑주소가 jsp뷰페이지 파일명이 된다.
         System.out.println("access Denied");
@@ -132,7 +136,7 @@ public class UsersController {
     }//index();
 
     //로그아웃
-    @PostMapping("/users_logout")
+    @PostMapping("users_logout")
     public String users_logout(HttpServletResponse response, HttpSession session,
                                HttpServletRequest request) throws Exception {
         response.setContentType("text/html; charset=UTF-8");

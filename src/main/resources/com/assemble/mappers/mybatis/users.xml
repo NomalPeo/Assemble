@@ -30,19 +30,18 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 </resultMap>
 
 
-<!--<select id="read_memInfo"  parameterType="java.lang.String" resultMap="userMap">-->
-<!--	select-->
-<!--	mem.user_no,user_id, user_pwd,user_name,user_gender,user_nickname,user_date,user_state,-->
-<!--	user_delcont,user_deldate, auth FROM users mem LEFT OUTER JOIN-->
-<!--	users_auth auth on mem.user_id = auth.user_id-->
-<!--	where mem.user_id=#{login_id}-->
-<!--</select>-->
+<select id="read_memInfo"  parameterType="java.lang.String" resultMap="userMap">
+	select
+	mem.user_no,user_id, user_pwd,user_name,user_gender,user_nickname,user_date,user_state,
+	user_delcont,user_deldate, auth FROM users mem LEFT OUTER JOIN
+	users_auth auth on mem.user_id = auth.user_id
+	where mem.user_id=#{login_id}
+</select>
 
-	<select id="read_memInfo" parameterType="java.lang.String" resultType="userMap">
+<!-- 	<select id="read_memInfo" parameterType="java.lang.String" resultType="userMap">
 		select mem.USER_NO,USER_ID,USER_PWD,USERNAME,USER_GENDER,USER_NICKNAME,USER_DATE,USER_STATE,USER_DELCONT,USER_DELDATE,AUTH from
 		        USERS mem LEFT OUTER JOIN USERS_AUTH auth on mem.USER_ID = AUTH.USER_ID where mem.USER_ID = #{login_id}
-	</select>
-
+	</select> -->
 
 
 
@@ -51,13 +50,6 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 <insert id="auth_in">
 	insert into users_auth(user_id,auth) values(#{string},'USER')
 </insert>
-
-
-<!-- 
-	mem.userid, userpw, username, enabled, regdate, updatedate, auth from tbl_member mem 
-	LEFT OUTER JOIN
-	tbl_member_auth auth on mem.userid = auth.userid
-	where mem.userid=#{id} -->
 
 
 

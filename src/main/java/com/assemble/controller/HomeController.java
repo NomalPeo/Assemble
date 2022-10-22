@@ -53,20 +53,6 @@ public class HomeController {
 		return "index_1";
 	}
 	
-	
-	
-	@RequestMapping("/customLogin")
-	public void loginInput(String error, String logout, Model model) {
-		System.out.println("error : " + error);
-		System.out.println("logout : " + logout);
-		
-		if(error != null) {
-			model.addAttribute("error","Login Error Check Your Account");
-		}
-		if(logout != null) {
-			model.addAttribute("logout", "LogOut!!");
-		}
-	}// customLogin 매핑주소
 
 	
 	@GetMapping("/accessError") // get으로 접근하는 accessError 매핑주소가 실행
@@ -77,14 +63,12 @@ public class HomeController {
 	}
 
 	
-	@GetMapping("/customLogout") // get방식일때 실행
-	public void logoutGET() {
-		
+	@RequestMapping("/customLogout") // get방식일때 실행
+	public String logout() {
+		return "/Login/login";
 	}
+
 	
-	@PostMapping("/customLogout") // post방식일때 실행 => 같은 매핑주소라도 메서드 방식이 다르면 사용이 가능하다.
-	public void logoutPOST() {
-		
-	}
+	
 	
 }
