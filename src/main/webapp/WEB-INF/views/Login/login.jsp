@@ -3,6 +3,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="_csrf_header" content="${_csrf.headerName}">
+<meta name="_csrf" content="${_csrf.token}">
 <title></title>
 <link rel="stylesheet" type="text/css"
 	href="../../resources/css/login&join/login.css" />

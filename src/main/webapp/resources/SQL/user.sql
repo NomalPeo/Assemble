@@ -20,8 +20,8 @@ ALTER TABLE users DROP COLUMN user_phone3;
 ALTER TABLE users DROP COLUMN email_id;
 ALTER TABLE users DROP COLUMN email_domain;
 
-insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_phone1,user_phone2,user_phone3,email_id,email_domain,user_date,user_state) 
-values(users_seq.nextval,'user00','user00','홍길동',1,'홍길동','010','7156','7741','user00','naver.com',sysdate,1);
+insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_date,user_state) 
+values(users_seq.nextval,'user00','user00','홍길동',1,'홍길동',sysdate,1);
 
 select * from users;
 
@@ -47,11 +47,10 @@ select * from users_auth;
 
 
 commit;
-select
-	user.user_no,user_id, user_pwd,user_name,user_gender,user_nickname,user_date,user_state,
-	user_delcont,user_deldate, auth from users user LEFT OUTER JOIN 
-	users_auth auth on user.user_id = auth.user_id
-	where user.user_id = sdsdsd;
+select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date,user_state,auth from users mem LEFT OUTER JOIN 
+	users_auth on mem.user_id = users_auth.user_id
+	where mem.user_id='ererer';
+		select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id where mem.user_id = 'ererer'; 
 
 
 

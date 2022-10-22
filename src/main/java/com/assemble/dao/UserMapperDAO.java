@@ -4,6 +4,6 @@ import com.assemble.vo.UsersVO;
 
 public interface UserMapperDAO {
 
-	UsersVO readUser(String login_id);
+	UsersVO readUser(String username);
 
 }

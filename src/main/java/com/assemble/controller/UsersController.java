@@ -32,10 +32,18 @@ public class UsersController {
 
 
 	@RequestMapping("users_login")
-	public ModelAndView login() {
-		ModelAndView m = new ModelAndView();
-		m.setViewName("login/login");
-		return m;
+	public String login(String error, String logout, Model model) {
+		System.out.println("error : " + error);
+		System.out.println("logout : " + logout);
+		
+		if(error != null) {
+			model.addAttribute("error","Login Error Check Your Account");
+		}
+		if(logout != null) {
+			model.addAttribute("logout", "LogOut!!");
+		}
+		
+		return "Login/login";
 	}//login()
 	
 
@@ -69,7 +77,6 @@ public class UsersController {
     @RequestMapping("join_ok")
     public String join_ok(UsersVO m) {
         m.setUser_pwd(pwencoder.encode(m.getUser_pwd()));
-        //m.setUser_pwd(PwdChange.getPassWordToXEMD5String(m.getUser_pwd()));
         this.usersService.insertUsers(m);
         this.usersService.authinsertUsers(m.getUser_id().toString());
         return "Login/login";

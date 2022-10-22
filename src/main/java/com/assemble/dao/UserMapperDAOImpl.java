@@ -13,8 +13,8 @@ public class UserMapperDAOImpl implements UserMapperDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public UsersVO readUser(String login_id) {
-		return this.sqlSession.selectOne("read_memInfo",login_id);
+	public UsersVO readUser(String username) {
+		return this.sqlSession.selectOne("read_memInfo",username);
 
 	}
 
