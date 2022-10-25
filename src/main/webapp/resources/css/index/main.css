@@ -177,6 +177,26 @@
 	scale:1.2;
 	display: inline-block;
 }
+.logoutform{
+	float: right;
+}
+
+.login-join input{
+	border: none;
+	background-color: transparent;
+		transition: 0.7s;
+	font-size: 13.5px;
+	
+}
+.login-join input:hover{
+	color:	#B0C4DE;
+	font-weight: bold;
+	scale:1.2;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
 /*                                 */
 .thumbnail-slider{
 	position: relative;

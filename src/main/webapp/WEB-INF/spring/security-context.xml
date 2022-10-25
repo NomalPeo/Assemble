@@ -26,16 +26,7 @@ CustomAccessDeniedHandler빈아이디 객체명 CustomAccessDenied를 생성 -->
 
 <security:http> <!-- 스프링 시큐리티가 http프로토콜(통신규약)에서 알 수 있게 하는 시작지점 -->
 
-   <security:intercept-url pattern="/*" access="permitAll"/>
-   <!-- pattern에 지정한 /sample/all URL매핑주소에 접근할 때 스프링 시큐리티 인터셉터를 이용해서 중간에 자료를 가로챈 다음 access속성에 접근권한
-   범위를 지정한다. permitAll은 모든 사용자 접근 권한을 허용한다. -->
-   
-   <security:intercept-url pattern="/sample/member" access="hasRole('ROLE_USER')"/>
-   <!-- ROLE_MEMBER는 로그인한 일반회원만 접근 가능-->
-   
-   <security:intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
-   <!-- 로그인 한 사용자 중에서 admin관리자 권한을 가진 사용자만 접근 가능 -->
-   
+
     <security:access-denied-handler ref="customAccessDenied"/>
     <!-- 403접근 금지 에러가 발생 했을때 빈아이디 customAccessDenied를 호출한다. -->
    

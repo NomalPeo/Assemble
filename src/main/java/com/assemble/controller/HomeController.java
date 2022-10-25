@@ -37,14 +37,6 @@ public class HomeController {
 	public String home(Locale locale, Model model, HttpServletResponse response) {
 		response.setContentType("text/html;charset=UTF-8");// 브라우저에 출력되는 문자/태그, 언어코딩 타입을 설정
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
 		// serverTime 키이름에 날짜시간정보 저장
 		return "index";
 	}

@@ -42,7 +42,7 @@ public class WebtoonController {
 
 	
 
-	@PostMapping("webinsert3")
+	@PostMapping("/webinsert3")
 	public String webinsert3(HttpServletRequest request, HttpServletResponse response, WebtoonVO wb) throws Exception {
 		PrintWriter out = response.getWriter();
 		String saveFolder = request.getRealPath("/resources/upload");
@@ -52,7 +52,7 @@ public class WebtoonController {
 		MultipartRequest multi = null;
 
 		multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
-
+		
 		String webtoon_title = multi.getParameter("webtoon_title");
 		String webtoon_writer = multi.getParameter("webtoon_writer");
 		String webtoon_cont = multi.getParameter("webtoon_cont");
@@ -85,7 +85,7 @@ public class WebtoonController {
 		wb.setWebtoon_image3(webtoon_image3);
 
 		this.webtoonService.insertwebtoon(wb);
-		return "index";
+		return "/index";
 	}
 	
 
