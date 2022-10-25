@@ -22,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.assemble.service.UsersService;
 import com.assemble.vo.UsersVO;
 
+import oracle.jdbc.proxy.annotation.Post;
+
 @Controller
 public class UsersController {
     @Autowired
@@ -29,9 +31,25 @@ public class UsersController {
 
     @Autowired
     private UsersService usersService;
+    
+    //반복적인 코드 하나로 줄이기
+    public static boolean isLogin(HttpServletResponse response, HttpSession session)
+            throws Exception {
+        PrintWriter out = response.getWriter();
+        String id = (String) session.getAttribute("id");
+
+        if (id == null) {
+            out.println("<script>");
+            out.println("alert('다시 로그인 하세요!');");
+            out.println("location='users_login';");
+            out.println("</script>");
+            return false;
+        }
+        return true;
+    }
 
 
-	@RequestMapping("users_login")
+    @RequestMapping("users_login")
 	public String login(String error, String logout, Model model) {
 		System.out.println("error : " + error);
 		System.out.println("logout : " + logout);
@@ -47,13 +65,14 @@ public class UsersController {
 	}//login()
 	
 
+	@RequestMapping("/user_logout")
+	public String logout (HttpSession sesseion) {
+		sesseion.invalidate();
+		return "index_1";
+	}
     @RequestMapping("join") //회원가입
-    public String join(Model m) {
-        String[] phone = {"010", "011", "016"};
-        String[] email = {"직접입력", "gmail.com", "naver.com", "daum.net"};
+    public String join() {
 
-        m.addAttribute("phone", phone);
-        m.addAttribute("email", email);
         return "join/join";
     }//users_join()
 
@@ -65,7 +84,7 @@ public class UsersController {
 
         UsersVO db_id = this.usersService.idCheck(id);
         int re = -1;
-
+ 
         if (db_id != null) {
             re = 1;
         }
@@ -122,14 +141,6 @@ public class UsersController {
         return null;
     }//pwd_find_ok()
 
-
-    @GetMapping("/accessErroer") // get으로 접근하는 accessError 매핑주소가 실행
-    public void accessDenied(Model model) {
-        // 리턴 타입이 없는 void형이면 매핑주소가 jsp뷰페이지 파일명이 된다.
-        System.out.println("access Denied");
-        model.addAttribute("msg", "Access Denied"); // 뷰페이지에서 EL로 ${msg} 키이름을 참조해서 값을 가져온다.
-    }
-
     //로그인 인증후 메인화면
     @GetMapping("index")
     public String index(HttpServletResponse response, HttpSession session)
@@ -141,39 +152,7 @@ public class UsersController {
         }
         return null;
     }//index();
+	
 
-    //로그아웃
-    @PostMapping("users_logout")
-    public String users_logout(HttpServletResponse response, HttpSession session,
-                               HttpServletRequest request) throws Exception {
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        session.invalidate(); //세션 만료 => 로그아웃
-
-        out.println("<script>");
-        out.println("alert('로그아웃 되었습니다!');");
-        out.println("location='users_login';");
-        out.println("</script>");
-
-        return null;
-    }//users_logout()
-
-
-    //반복적인 코드 하나로 줄이기
-    public static boolean isLogin(HttpServletResponse response, HttpSession session)
-            throws Exception {
-        PrintWriter out = response.getWriter();
-        String id = (String) session.getAttribute("id");
-
-        if (id == null) {
-            out.println("<script>");
-            out.println("alert('다시 로그인 하세요!');");
-            out.println("location='users_login';");
-            out.println("</script>");
-            return false;
-        }
-        return true;
-    }
 
 }

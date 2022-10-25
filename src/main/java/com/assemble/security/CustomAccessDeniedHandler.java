@@ -16,11 +16,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 
 		/* 403접근 금지 에러가 발생한 경우 보다 더 다양한 처리를 하고 싶다면 스프링 api 인터페이스 AccessDeniedHandler 인터페이스를 
-		 * 구현해서 사용하면 된다.
-		 */
+		 * 구현해서 사용하면 된다.*/
 		System.out.println("Access Denied Handler");
 		System.out.println("Redirect..........");
-		response.sendRedirect("/accessErroer"); // 서블릿을 사용해서 accessError매핑주소로 이동한다.
+		response.sendRedirect("/accessError"); // 서블릿을 사용해서 accessError매핑주소로 이동한다.
 	}
 
 }

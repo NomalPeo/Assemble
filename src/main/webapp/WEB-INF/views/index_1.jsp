@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<meta name="_csrf_header" content="${_csrf.headerName}">
+<meta name="_csrf" content="${_csrf.token}">
 <head>
 <script
 	 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,29 +29,29 @@
 <link rel="stylesheet" type="text/css"
 	href="/resources/plugins/web-fonts-with-css/css/all.css" />
 <script>
-   $(document).ready(function() {
-      $('.slider1').bxSlider({
-         controls:false,
-         pager:false,
-         auto:true
-      });
-     
-      $('.header-plus-btn').click(function() {
-         $('.header-content').css('position', 'relative');
-         var one = $('.header-content').css('height');
+	$(document).ready(function() {
+		$('.slider1').bxSlider({
+			controls : false,
+			pager : false,
+			auto : true
+		});
 
-         if (one == "0px") {
-            $('.header-content').css('height', 170);
-         } else {
-            $('.header-content').css('height', 0);
-         }
-      });
-      
-      $('.introduce-completion-content').bxSlider();
-      $('.introduce-weekbest-content').bxSlider();
-      $('.introduce-love-content').bxSlider();
-      $('.introduce-monthbest-content').bxSlider();
-   });
+		$('.header-plus-btn').click(function() {
+			$('.header-content').css('position', 'relative');
+			var one = $('.header-content').css('height');
+
+			if (one == "0px") {
+				$('.header-content').css('height', 170);
+			} else {
+				$('.header-content').css('height', 0);
+			}
+		});
+
+		$('.introduce-completion-content').bxSlider();
+		$('.introduce-weekbest-content').bxSlider();
+		$('.introduce-love-content').bxSlider();
+		$('.introduce-monthbest-content').bxSlider();
+	});
 </script>
 </head>
 <body>
@@ -59,10 +63,10 @@
 						height="65" alt="웹툰리뷰"></a>
 				</h2>
 				<div class="selector-menu">
-					<a href="tagpage/tag.jsp"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
+					<a href="tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
 					<a href="thema/thema.jsp"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
 					<a href="FAQ/FAQ.jsp"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
-					<a href="board/freeboard.jsp"><i class="fa-solid fa-play"></i><span>사사게</span></a>
+					<a href="freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<button class="header-plus-btn" name="header-plus-btn">
 					<i class="fa-solid fa-plus"></i>
@@ -70,16 +74,18 @@
 				<div class="login-join">
 
 					<sec:authorize access="isAnonymous()">
-						<a href="users_login" class="login">로그인 </a> | <a href="join"class="join"> 회원가입</a>
-
+						<a href="users_login" class="login">로그인 </a> | <a href="join"
+							class="join"> 회원가입</a>
 					</sec:authorize>
 
 
-					<sec:authorize access="hasAnyRole('USER','ADMIN')">
-					
-					<a href="users_login" class="login">마이페이지 </a> | <a href="join"
-						class="join"> 로그아웃</a>
-					
+					<sec:authorize access="hasAnyRole('ROLE_USER')">
+						<a href="users_login" class="login">마이페이지 </a> |
+						<form method="post" action="user_logout">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+							<input type="submit" value="로그아웃" />
+						</form>
 					</sec:authorize>
 
 

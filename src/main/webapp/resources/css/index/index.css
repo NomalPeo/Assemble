@@ -6,21 +6,21 @@ html, body{
 	height:100%;
 }
 .main_img_01{
-	background-image:url(../../images/index/header-Thumbnail/main_image_01.jpg);
+	background-image:url(/resources/images/index/header-Thumbnail/main_image_01.jpg);
 	height:100%; width:100%;
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position: center;
 }
 .main_img_02{
-	background-image:url(../../images/index/header-Thumbnail/main_image_02.jpg);
+	background-image:url(/resources/images/index/header-Thumbnail/main_image_02.jpg);
 	height:100%; width:100%;
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position: center;
 }
 .main_img_03{
-	background-image:url(../../images/index/header-Thumbnail/main_image_03.jpg);
+	background-image:url(/resources/images/index/header-Thumbnail/main_image_03.jpg);
 	height:100%; width:100%;
 	background-size:cover;
 	background-repeat:no-repeat;
@@ -28,7 +28,7 @@ html, body{
 }
 .overlay{
 	height:100%; width:100%;
-	background-image:url(../../images/index/header-Thumbnail/16.png); 
+	background-image:url(/resources/images/index/header-Thumbnail/16.png); 
 	position: absolute;
 	top:0px;
 	z-index:10;

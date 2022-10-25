@@ -13,7 +13,11 @@ create sequence board_seq
 start with 1
 increment by 1
 nocache;
-
+commit;
 select * from board;
 
 select board_seq.nextval from dual;
+
+
+alter table board add board_writer varchar(38);
+alter table board modify board_hit default 0;

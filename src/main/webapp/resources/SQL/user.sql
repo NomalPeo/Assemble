@@ -50,7 +50,9 @@ commit;
 select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date,user_state,auth from users mem LEFT OUTER JOIN 
 	users_auth on mem.user_id = users_auth.user_id
 	where mem.user_id='ererer';
-		select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id where mem.user_id = 'ererer'; 
+    
+    
+select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 
 
 
 

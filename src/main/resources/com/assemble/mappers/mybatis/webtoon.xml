@@ -5,11 +5,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Webtoon">
-	<insert id="web_in" parameterType="webtoon">
-		insert into webtoon
+	<insert id="web_in" parameterType="webtoon"> insert into webtoon
 		(webtoon_no,webtoon_title,webtoon_writer,webtoon_cont,webtoon_platform,webtoon_complete
 		,webtoon_tag1,webtoon_tag2,webtoon_thumbnail,webtoon_image1,webtoon_image2,webtoon_image3)
 		values(webtoon_seq.nextval,#{webtoon_title},#{webtoon_writer},#{webtoon_cont},#{webtoon_platform},#{webtoon_complete},#{webtoon_tag1},
 		#{webtoon_tag2},#{webtoon_thumbnail},#{webtoon_image1},#{webtoon_image2},#{webtoon_image3})
 	</insert>
+	<select id="web_list" resultType="webtoon"> select * from webtoon </select>
+	<!-- 검색 전후 레코드 개수 -->
+	<select id="web_count" resultType="int">
+		select count(webtoon_no) from webtoon
+		<where>
+			<if test="find_field==''" />
+			<!-- 검색 전 -->
+			<if test="find_field=='webtoon_title'">
+				<!-- 웹툰제목 기준으로 검색할 때 -->
+				webtoon_title like #{find_name}
+			</if>
+			<if test="find_field=='webtoon_writer'">
+				<!-- 웹툰작가 기준으로 검색할 때 -->
+				webtoon_writer like #{find_name}
+			</if>
+		</where>
+	</select>
 </mapper>

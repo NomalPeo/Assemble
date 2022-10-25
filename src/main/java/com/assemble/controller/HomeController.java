@@ -32,11 +32,10 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, HttpServletResponse response) {
+		response.setContentType("text/html;charset=UTF-8");// 브라우저에 출력되는 문자/태그, 언어코딩 타입을 설정
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -46,29 +45,20 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		// serverTime 키이름에 날짜시간정보 저장
 		return "index";
 	}
 	@RequestMapping("main")
 	public String main() {
 		return "index_1";
 	}
-	
 
-	
-	@GetMapping("/accessError") // get으로 접근하는 accessError 매핑주소가 실행
-	public void accessDenied(Model model) {
-		// 리턴 타입이 없는 void형이면 매핑주소가 jsp뷰페이지 파일명이 된다.
-		System.out.println("access Denied");
-		model.addAttribute("msg", "Access Denied"); // 뷰페이지에서 EL로 ${msg} 키이름을 참조해서 값을 가져온다.
-	}
+    @GetMapping("/accessError") // get으로 접근하는 accessError 매핑주소가 실행
+    public void accessDenied(Model model) {
+        // 리턴 타입이 없는 void형이면 매핑주소가 jsp뷰페이지 파일명이 된다.
+        System.out.println("access Denied");
+        model.addAttribute("msg", "Access Denied"); // 뷰페이지에서 EL로 ${msg} 키이름을 참조해서 값을 가져온다.
+    }
 
-	
-	@RequestMapping("/customLogout") // get방식일때 실행
-	public String logout() {
-		return "/Login/login";
-	}
-
-	
-	
 	
 }

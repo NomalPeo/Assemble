@@ -3,13 +3,32 @@ package com.assemble.vo;
 public class BoardVO {
 	private int board_no;
 	private String board_title;
-	private String baord_cont;
+	private String board_writer;
+	private String board_cont;
 	private int board_type;
 	private String board_image;
 	private int board_hit;
 	private String board_date;
 	private int board_replycnt;
 	private String board_category;
+	
+	// 페이징 관련변수
+	private int startrow;
+	private int endrow;
+	
+	public int getStartrow() {
+		return startrow;
+	}
+	public void setStartrow(int startrow) {
+		this.startrow = startrow;
+	}
+	public int getEndrow() {
+		return endrow;
+	}
+	public void setEndrow(int endrow) {
+		this.endrow = endrow;
+	}
+	
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -22,11 +41,11 @@ public class BoardVO {
 	public void setBoard_title(String board_title) {
 		this.board_title = board_title;
 	}
-	public String getBaord_cont() {
-		return baord_cont;
+	public String getBoard_cont() {
+		return board_cont;
 	}
-	public void setBaord_cont(String baord_cont) {
-		this.baord_cont = baord_cont;
+	public void setBoard_cont(String board_cont) {
+		this.board_cont = board_cont;
 	}
 	public int getBoard_type() {
 		return board_type;
@@ -50,7 +69,7 @@ public class BoardVO {
 		return board_date;
 	}
 	public void setBoard_date(String board_date) {
-		this.board_date = board_date;
+		this.board_date = board_date.substring(0,10);
 	}
 	public int getBoard_replycnt() {
 		return board_replycnt;
@@ -63,6 +82,12 @@ public class BoardVO {
 	}
 	public void setBoard_category(String board_category) {
 		this.board_category = board_category;
+	}
+	public String getBoard_writer() {
+		return board_writer;
+	}
+	public void setBoard_writer(String board_writer) {
+		this.board_writer = board_writer;
 	}
 	
 	

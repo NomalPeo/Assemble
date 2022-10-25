@@ -96,10 +96,14 @@ a{
 	text-align: center;
 }
 
+.paging{
+	text-align: center;
+	padding-top : 10px;
+}
+
 .writebtn{
 	float: right;
 	margin-right: 12%;
-	padding-top: 20px;
 	margin-bottom: 20px;
 }
 .btn{

@@ -93,9 +93,14 @@
 
 			<div>
 				<div class="join">
-					<a href="users_join"><input type="button" value="회원가입" /></a>
+					<a href="join"><input type="button" value="회원가입" /></a>
 				</div>
 			</div>
+				<div>
+			<input type="checkbox" name="remember-me"/> Remember Me(자동로그인 기능)
+			<%-- 자동 로그인 기능을 구현할 때 스프링 시큐리티에서는 네임파라미터 이름을 remember-me로 한다. --%>
+		</div>
+		
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 		</div>

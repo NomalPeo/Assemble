@@ -6,6 +6,7 @@ public class AdminVO {
 	private String admin_pwd;
 	private String admin_name;
 	private String admin_date;
+	
 	public int getAdmin_no() {
 		return admin_no;
 	}

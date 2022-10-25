@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FreeBoard">
+
+	<!-- 게시판 저장 -->
+	<insert id="fb_in" parameterType="webtoon">
+		insert into board(board_no,board_title,board_writer,board_cont,board_date,board_type) 
+		values(board_seq.nextval,#{board_title},#{board_writer},#{board_cont},sysdate,1)
+	</insert>
+	
+	<!-- 게시판 목록 -->
+	<select id="fb_list" resultType="webtoon" >
+		select * from (select rowNum rNum, board_no, board_title, board_writer, board_date,
+		board_hit from (select * from board order by board_no desc))
+		where rNum &gt; = #{startrow} and rNum &lt; = #{endrow}
+	</select>
+	
+	<!-- 총레코드 개수 -->
+	<select id = "fb_count" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<!-- 게시물 내용보기 -->
+	<select id ="fb_cont" parameterType="int" resultType="webtoon">
+		select * from board where board_no = #{board_no}
+	</select>
+	
+	<!-- 게시물 조회수 증가 -->
+	<update id="fb_hit" parameterType="int">
+		update board set board_hit = board_hit+1
+		where board_no = #{board_no}
+	</update>
+	
+	<!-- 게시물 수정 -->
+	<update id="fb_edit">
+      update board set board_writer=#{board_writer}, board_title=#{board_title},
+      board_cont=#{board_cont} where board_no=#{board_no}
+    </update>
+    
+    <!-- 게시물 삭제 -->
+    <update id="fb_del">
+    	delete board where board_no=#{board_no}
+    </update>
+
+</mapper>
