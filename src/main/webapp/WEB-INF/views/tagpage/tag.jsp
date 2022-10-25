@@ -49,7 +49,7 @@
 					value="<c:out value="${wblist.webtoon_no}"/>">
 					<div class="item" id="item">
 						<div class="web-img">
-							<img src="/resources/upload/${wblist.webtoon_thumbnail}"
+							<img src="/resources/upload/${wblist.webtoon_thumbnail}" style="width:250px; height: 300px;"
 								class="thumbnail">
 						</div>
 						<div class="web-title" id="web-title">
