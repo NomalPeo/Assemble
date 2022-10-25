@@ -4,8 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<meta name="_csrf_header" content="${_csrf.headerName}">
-<meta name="_csrf" content="${_csrf.token}">
 <head>
 <script
 	 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,10 +61,10 @@
 						height="65" alt="웹툰리뷰"></a>
 				</h2>
 				<div class="selector-menu">
-					<a href="tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
-					<a href="thema/thema.jsp"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
-					<a href="webtooninsert"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
-					<a href="freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
+					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
+					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
+					<a href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
+					<a href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<button class="header-plus-btn" name="header-plus-btn">
 					<i class="fa-solid fa-plus"></i>
@@ -75,11 +73,11 @@
 				
 				<div class="login-join">
 					<sec:authorize access="isAnonymous()">
-						<a href="users_login" class="login">로그인 </a> | <a href="join"
+						<a href="/users_login" class="login">로그인 </a> | <a href="join"
 							class="join"> 회원가입</a>
 					</sec:authorize>
-					<sec:authorize access="hasAnyRole('ROLE_USER')">
-						<a href="users_login" class="login_role">마이페이지 </a> |
+					<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+						<a href="/users_login" class="login_role">마이페이지 </a> |
 						<form method="post" action="user_logout" class="logoutform">
 							<input type="hidden" name="${_csrf.parameterName}"	class="logout"
 								value="${_csrf.token}" />

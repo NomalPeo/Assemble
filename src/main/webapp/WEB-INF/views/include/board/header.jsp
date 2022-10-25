@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,13 +64,24 @@
 						width="150" height="65" alt="웹툰리뷰"></a>
 				</h2>
 				<div class="selector-menu">
-					<a href="tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a> 
-					<a href="thema/thema.jsp"><i class="fa-solid fa-play"></i><span>테마검색</span></a> 
-					<a href="FAQ/FAQ.jsp"><i class="fa-solid fa-play"></i><span>FAQ</span></a> 
-					<a href="freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
+					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a> 
+					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a> 
+					<a href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a> 
+					<a href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
-				<div class="login-join">
-					<a href="../Login/login.jsp" class="login">로그인  </a>  |  <a href="../join/join.jsp" class="join">  회원가입</a>
+			<div class="login-join">
+					<sec:authorize access="isAnonymous()">
+						<a href="users_login" class="login">로그인 </a> | <a href="join"
+							class="join"> 회원가입</a>
+					</sec:authorize>
+					<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+						<a href="users_login" class="login_role">마이페이지 </a> |
+						<form method="post" action="user_logout" class="logoutform">
+							<input type="hidden" name="${_csrf.parameterName}"	class="logout"
+								value="${_csrf.token}" />
+							<input type="submit" value="로그아웃" />
+						</form>
+					</sec:authorize>
 				</div>
 				<div style="clear: both;"></div>
 			</div>

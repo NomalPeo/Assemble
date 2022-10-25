@@ -33,7 +33,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		}
 		
 		if(roleNames.contains("ROLE_ADMIN")) { // 일반 회월일때
-			response.sendRedirect("/index_1");
+			response.sendRedirect("main");
 			return;
 		}
 		response.sendRedirect("/");

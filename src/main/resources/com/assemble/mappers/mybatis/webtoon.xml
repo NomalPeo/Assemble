@@ -5,9 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Webtoon">
-	<insert id="web_in" parameterType="webtoon"> insert into webtoon
-		(webtoon_no,webtoon_title,webtoon_writer,webtoon_cont,webtoon_platform,webtoon_complete
-		,webtoon_tag1,webtoon_tag2,webtoon_thumbnail,webtoon_image1,webtoon_image2,webtoon_image3)
+	<insert id="web_in" parameterType="webtoon">
+		insert into webtoon (webtoon_no,webtoon_title,webtoon_writer,webtoon_cont,webtoon_platform,webtoon_complete,webtoon_tag1,webtoon_tag2,webtoon_thumbnail,webtoon_image1,webtoon_image2,webtoon_image3)
 		values(webtoon_seq.nextval,#{webtoon_title},#{webtoon_writer},#{webtoon_cont},#{webtoon_platform},#{webtoon_complete},#{webtoon_tag1},
 		#{webtoon_tag2},#{webtoon_thumbnail},#{webtoon_image1},#{webtoon_image2},#{webtoon_image3})
 	</insert>

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<meta name="_csrf_header" content="${_csrf.headerName}">
-<meta name="_csrf" content="${_csrf.token}">
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/login&join/join.css">
 <script type="text/javascript" src="/resources/js/jquery.js"></script>
@@ -70,7 +68,6 @@
 					<input type="submit" value="회원가입"> <input type="reset"
 						value="리셋" onclick="${'#user_id'}.focus();">
 				</div>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</form>
 		</div>
 	</div>
