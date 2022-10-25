@@ -49,8 +49,8 @@
 					value="<c:out value="${wblist.webtoon_no}"/>">
 					<div class="item" id="item">
 						<div class="web-img">
-							<img src="/resources/upload/${wblist.webtoon_thumbnail}" style="width:250px; height: 300px;"
-								class="thumbnail">
+							<img src="/resources/upload/${wblist.webtoon_thumbnail}"
+								style="width: 250px; height: 300px;" class="thumbnail">
 						</div>
 						<div class="web-title" id="web-title">
 							<span><c:out value="${wblist.webtoon_title}" /></span>
@@ -67,30 +67,33 @@
 		<div class="popup-box">
 			<div class="content-part" id="content-part">
 				<div class="pop-text">
-					<div class="pop-title" id="pop-title"><h3>${pop.webtoon_title}</h3></div>
-					<div class="pop-author">${pop.webtoon_writer} /
+					<div class="pop-title" id="pop-title">
+						<h3>${pop.webtoon_title}</h3>
+					</div>
+					<div class="pop-author">${pop.webtoon_writer}/
 						${pop.webtoon_tag1} , ${pop.webtoon_tag2} /
 						${pop.webtoon_platform}</div>
 					<div class="pop-cont">${pop.webtoon_cont}</div>
 				</div>
 
 				<div class="pop-img">
-				<img id="pop-cont-image" src="/resources/upload/${pop.webtoon_image1}">
+					<img id="pop-cont-image"
+						src="/resources/upload/${pop.webtoon_image1}">
 					<div class="popup-btn">
 						<a id="close-btn"
 							onclick="closeLayer(<c:out value="${pop.webtoon_no}"/>)"><button>닫기</button></a>
 						<div class="arrow-btn">
-						
-						
-						<button id="next-btn" onclick="changePic(0);">
-							<span id="arrow"><i class="fa-solid fa-chevron-left"
-								style="font-size: 10px; color: black;"></i></span>
-						</button>
-						<button id="back-btn" onclick="changePic(1);">
-							<span id="arrow"><i class="fa-solid fa-chevron-right"
-								style="font-size: 10px; color: black;"></i></span>
-						</button>
-						
+
+
+							<button id="next-btn" onclick="changePic(0);">
+								<span id="arrow"><i class="fa-solid fa-chevron-left"
+									style="font-size: 10px; color: black;"></i></span>
+							</button>
+							<button id="back-btn" onclick="changePic(1);">
+								<span id="arrow"><i class="fa-solid fa-chevron-right"
+									style="font-size: 10px; color: black;"></i></span>
+							</button>
+
 						</div>
 					</div>
 

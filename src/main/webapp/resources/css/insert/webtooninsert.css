@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.whale{
+	margin: 50px auto;
+	height: 700px;
+	width: 550px;
+	background-color: #ddd;
+	border-radius: 15px;
+}
+.webtitle{
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+.webinsert{
+	text-align: center;
+}
+.webtable{
+	width: 100%;
+}
+.webinsert table td{
+	padding:0;
+	margin:0;
+}
+.webtable input{
+	size:100%;
+}
