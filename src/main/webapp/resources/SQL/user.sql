@@ -54,5 +54,11 @@ select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_dat
     
 select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 
 
+create table persistent_logins(
+    username varchar2(64) not null -- 회원아이디
+    ,series varchar2(64) primary key -- 회원비밀번호
+    ,token varchar2(64) not null -- 토큰 정보
+    ,last_used timestamp not null -- 로그인 한 날짜 시간
+);
 
 

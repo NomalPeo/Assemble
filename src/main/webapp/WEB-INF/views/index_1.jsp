@@ -654,8 +654,7 @@
 					alt="logo" />
 				<div class="footer-icon">
 					<a href="#"><i class="fa-brands fa-facebook"></i></a> <a href="#"><i
-						class="fa-brands fa-youtube"></i></a> <a href="#"><i
-						class="fa-brands fa-instagram"></i></a>
+						class="fa-brands fa-youtube"></i></a> <a href="#"><i class="fa-brands fa-instagram"></i></a>
 				</div>
 			</div>
 		</footer>
