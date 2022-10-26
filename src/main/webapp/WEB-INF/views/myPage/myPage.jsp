@@ -80,7 +80,7 @@
 				회원 탈퇴
 			</div>
 			<div class="look-page-second Withdrawal-content">
-				<a href="#">
+				<a href="users_del">
 					<button name="Withdrawal" id="Withdrawal">회원 탈퇴</button>
 				</a>
 			</div>

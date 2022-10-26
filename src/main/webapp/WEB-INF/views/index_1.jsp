@@ -27,30 +27,30 @@
 <link rel="stylesheet" type="text/css"
 	href="/resources/plugins/web-fonts-with-css/css/all.css" />
 <script>
-	$(document).ready(function() {
-		$('.slider1').bxSlider({
-			controls : false,
-			pager : false,
-			auto : true
-		});
+        $(document).ready(function () {
+            $('.slider1').bxSlider({
+                controls: false,
+                pager: false,
+                auto: true
+            });
 
-		$('.header-plus-btn').click(function() {
-			$('.header-content').css('position', 'relative');
-			var one = $('.header-content').css('height');
+            $('.header-plus-btn').click(function () {
+                $('.header-content').css('position', 'relative');
+                var one = $('.header-content').css('height');
 
-			if (one == "0px") {
-				$('.header-content').css('height', 170);
-			} else {
-				$('.header-content').css('height', 0);
-			}
-		});
+                if (one == "0px") {
+                    $('.header-content').css('height', 170);
+                } else {
+                    $('.header-content').css('height', 0);
+                }
+            });
 
-		$('.introduce-completion-content').bxSlider();
-		$('.introduce-weekbest-content').bxSlider();
-		$('.introduce-love-content').bxSlider();
-		$('.introduce-monthbest-content').bxSlider();
-	});
-</script>
+            $('.introduce-completion-content').bxSlider();
+            $('.introduce-weekbest-content').bxSlider();
+            $('.introduce-love-content').bxSlider();
+            $('.introduce-monthbest-content').bxSlider();
+        });
+    </script>
 </head>
 <body>
 	<div class="wrap">
@@ -62,31 +62,31 @@
 				</h2>
 				<div class="selector-menu">
 					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
-					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
-					<a href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
-					<a href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
+					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a> <a
+						href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a> <a
+						href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<button class="header-plus-btn" name="header-plus-btn">
 					<i class="fa-solid fa-plus"></i>
 				</button>
-				
-				
+
+
 				<div class="login-join">
 					<sec:authorize access="isAnonymous()">
 						<a href="/users_login" class="login">로그인 </a> | <a href="join"
 							class="join"> 회원가입</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
-						<a href="/users_login" class="login_role">마이페이지 </a> |
-						<form method="post" action="user_logout" class="logoutform">
-							<input type="hidden" name="${_csrf.parameterName}"	class="logout"
-								value="${_csrf.token}" />
-							<input type="submit" value="로그아웃" />
+						<a href="/myPage" class="login_role">마이페이지 </a> |
+                    <form method="post" action="user_logout"
+							class="logoutform">
+							<input type="hidden" name="${_csrf.parameterName}" class="logout"
+								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
 						</form>
 					</sec:authorize>
 				</div>
-				
-				
+
+
 				<div style="clear: both;"></div>
 
 				<div class="header-plus">
@@ -181,23 +181,21 @@
 			</form>
 		</div>
 		<!-- ------------------------------------------------------------------ -->
-
 		<div class="monthbest">
-			<span>이번달 핫한 웹툰</span>
+			<span>러브 웹툰</span>
 			<div class="introduce-monthbest-content">
 				<div class="monthbest-inner">
 					<div>
-						<a href="#"><img src="/resources/images/Thumbnail/1을줄게.jpg"></a>
+						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
 					</div>
 					<div>
-						<a href="#"><img src="/resources/images/Thumbnail/고삼무쌍.jpg"></a>
+						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
 					</div>
 					<div>
-						<a href="#"><img
-							src="/resources/images/Thumbnail/내남편과결혼해줘.jpg"></a>
+						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
 					</div>
 					<div>
-						<a href="#"><img src="/resources/images/Thumbnail/김부장.jpg"></a>
+						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
 					</div>
 					<div>
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
@@ -206,7 +204,7 @@
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
 				</div>
-				<div class="monthbest-inner">
+				<div class="love-inner">
 					<div>
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
@@ -226,7 +224,7 @@
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
 				</div>
-				<div class="monthbest-inner">
+				<div class="love-inner">
 					<div>
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
@@ -246,7 +244,7 @@
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
 				</div>
-				<div class="monthbest-inner">
+				<div class="love-inner">
 					<div>
 						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
 					</div>
@@ -266,7 +264,7 @@
 						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
 					</div>
 				</div>
-				<div class="monthbest-inner">
+				<div class="love-inner">
 					<div>
 						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
 					</div>
@@ -288,113 +286,55 @@
 				</div>
 			</div>
 		</div>
+
+
 		<!-- ------------------------------------------------------------------ -->
 
 		<div class="love">
-			<span>러브 웹툰</span>
+			<span>사랑스러운 웹툰</span>
 			<div class="introduce-love-content">
 				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="romance1" items="${wlist1 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img
+								src="/resources/upload/${romance1.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="romance2" items="${wlist2 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img
+								src="/resources/upload/${romance2.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="romance3" items="${wlist3 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img
+								src="/resources/upload/${romance3.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="romance4" items="${wlist4 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img
+									src="/resources/upload/${romance4.webtoon_thumbnail}"
+									style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
-				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-				</div>
+
 			</div>
 		</div>
+
+
+
 		<!-- ------------------------------------------------------------------ -->
 
 		<div class="completion">
@@ -611,13 +551,13 @@
 		<!-- ------------------------------------------------------------------ -->
 
 		<!-- <div class="tour-item">
-   <div class="tour-title">Raft the Grand Cayon</div>
-      <div class="tour-content">
-         <p>
-         
-         </p>
-      </div>
-   </div>-->
+<div class="tour-title">Raft the Grand Cayon</div>
+  <div class="tour-content">
+     <p>
+
+     </p>
+  </div>
+</div>-->
 		<!-- ------------------------------------------------------------------ -->
 		<div style="clear: both;"></div>
 		<div class="community-write">
@@ -651,7 +591,8 @@
 					alt="logo" />
 				<div class="footer-icon">
 					<a href="#"><i class="fa-brands fa-facebook"></i></a> <a href="#"><i
-						class="fa-brands fa-youtube"></i></a> <a href="#"><i class="fa-brands fa-instagram"></i></a>
+						class="fa-brands fa-youtube"></i></a> <a href="#"><i
+						class="fa-brands fa-instagram"></i></a>
 				</div>
 			</div>
 		</footer>

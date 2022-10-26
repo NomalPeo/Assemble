@@ -16,4 +16,10 @@ public interface UsersService {
 
 	void authinsertUsers(String string);
 
+	UsersVO getUsers(String id);
+
+	void delUser(UsersVO dm);
+
+
+
 }

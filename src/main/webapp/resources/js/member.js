@@ -96,9 +96,7 @@ function id_check() {
             "id": user_id
         },
         dataType: "json",
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader(header, token);
-        },
+        
         success: function (data) {
             console.log(data)
             const id_check_dom =  $("#idcheck");

@@ -20,7 +20,7 @@ ALTER TABLE users DROP COLUMN user_phone3;
 ALTER TABLE users DROP COLUMN email_id;
 ALTER TABLE users DROP COLUMN email_domain;
 
-insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_date,user_state) 
+insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_date,user_state)
 values(users_seq.nextval,'user00','user00','홍길동',1,'홍길동',sysdate,1);
 
 select * from users;
@@ -41,7 +41,7 @@ user_id varchar2(50) not null -- 아이디
 -- 외래키로 설정되어서 tbl_member userid 컬럼 레코드 아이디값만 저장됨.
 );
 
-insert into users_auth(user_id,auth) values('user11','ROLE_ADMIN');
+insert into users_auth(user_id,auth) values('user00','ROLE_ADMIN');
 delete from users_auth;
 select * from users_auth;
 
@@ -49,7 +49,7 @@ select * from users_auth;
 commit;
 select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date,user_state,auth from users mem LEFT OUTER JOIN 
 	users_auth on mem.user_id = users_auth.user_id
-	where mem.user_id='ererer';
+	where mem.user_id='user00';
     
     
 select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 

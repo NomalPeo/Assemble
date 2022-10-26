@@ -10,6 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(webtoon_seq.nextval,#{webtoon_title},#{webtoon_writer},#{webtoon_cont},#{webtoon_platform},#{webtoon_complete},#{webtoon_tag1},
 		#{webtoon_tag2},#{webtoon_thumbnail},#{webtoon_image1},#{webtoon_image2},#{webtoon_image3})
 	</insert>
+	
+	
+	
 	<select id="web_list" resultType="webtoon"> select * from webtoon </select>
 	<!-- 검색 전후 레코드 개수 -->
 	<select id="web_count" resultType="int">
@@ -27,4 +30,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
+	<!-- 인덱스 로맨스 웹툰 서칭 -->
+	<select id="romanceW1" resultType="webtoon">
+		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 1 and 6
+	</select>
+	<select id="romanceW2" resultType="webtoon">
+		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 7 and 12
+	</select>
+	<select id="romanceW3" resultType="webtoon">
+		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 13 and 18
+	</select>
+	<select id="romanceW4" resultType="webtoon">
+		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 19 and 24
+	</select>
+
+
+
+
 </mapper>

@@ -42,8 +42,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 		<security:csrf disabled="true"/>
 
-
-
 		<!-- <security:access-denied-handler
 			ref="customAccessDenied" /> -->
 		<!-- 403접근 금지 에러가 발생 했을때 빈아이디 customAccessDenied를 호출한다. -->
@@ -51,8 +49,8 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<!--<security:form-login/> 시큐리티 폼 로그인 설정 : 스프링 시큐리티 자체 폼 로그인 실행 -->
 
 		<security:form-login login-page="/users_login"
-			authentication-success-handler-ref="customLoginSuccess"
-			username-parameter="login_id" password-parameter="login_pwd" />
+			authentication-success-handler-ref="customLoginSuccess" login-processing-url="/login_ok"
+			username-parameter="login_id" password-parameter="login_pwd"  />
 		<!-- 커스텀 로그인 페이지로 이동하는 매핑구조 cumstomLogin등록, authentication-success-handler-ref 
 			속성은 로그인 성공시 customLoginSuccess 빈아이디 호출 -->
 

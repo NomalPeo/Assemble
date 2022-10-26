@@ -12,11 +12,27 @@ create table webtoon(
     webtoon_image2 varchar2(100),
     webtoon_image3 varchar2(100)
 );
+	select * from webtoon where webtoon_tag1 = '로맨스';
 select * from webtoon;
 delete from webtoon;
 create SEQUENCE webtoon_seq
 start with 1
 increment by 1
 nocache;
-
+commit;
 select * from webtoon;
+commit;
+	select WEBTOON_THUMBNAIL from (select * from WEBTOON where WEBTOON_TAG1 = '로맨스' ) where ROWNUM <= 5;
+
+	select WEBTOON_THUMBNAIL from (select * from WEBTOON where WEBTOON_TAG1 = '로맨스' ) where ROWNUM BETWEEN 1 and 5;
+    select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 6 and 10;
+    
+SELECT ROWNUM FROM webtoon;
+
+
+
+
+
+
+
+

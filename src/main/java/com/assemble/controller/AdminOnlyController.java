@@ -21,17 +21,18 @@ import com.oreilly.servlet.MultipartRequest;
 public class AdminOnlyController {
 	@Autowired
 	private WebtoonService webtoonService;
-	
+
 	@RequestMapping("/webtooninsert")
 	public String webtooninsert() {
 
 		return "/insert/webtooninsert";
 	}
 
-	
+
 	@RequestMapping(value="/webtooninsert1", method=RequestMethod.POST)
 	public String webtooninsert(HttpServletRequest request, HttpServletResponse response, WebtoonVO wb) throws Exception {
 		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=utf-8");
 		String saveFolder = request.getRealPath("/resources/upload");
 		System.out.println(saveFolder);
 		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기(5M)
@@ -39,7 +40,7 @@ public class AdminOnlyController {
 		MultipartRequest multi = null;
 
 		multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
-		
+
 		String webtoon_title = multi.getParameter("webtoon_title");
 		String webtoon_writer = multi.getParameter("webtoon_writer");
 		String webtoon_cont = multi.getParameter("webtoon_cont");

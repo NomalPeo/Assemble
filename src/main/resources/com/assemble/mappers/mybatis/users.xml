@@ -19,42 +19,26 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		<result property="user_state" column="user_state" />
 		<result property="user_delcont" column="user_delcont" />
 		<result property="user_deldate" column="user_deldate" />
-
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 
 	<resultMap id="authMap" type="authvo">
-		<result property="user_id" column="user_id"/>
-		<result property="auth" column="auth"/>
-
+		<result property="user_id" column="user_id" />
+		<result property="auth" column="auth" />
 	</resultMap>
 
-
 	<select id="read_memInfo" resultMap="userMap">
-		select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state,user_delcont,
-		user_deldate, auth FROM users mem 
-		LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id 
-		where mem.user_id = #{username} 
+		select mem.user_id,user_no,
+		user_pwd,user_name,user_gender,user_nickname,user_date,user_state,user_delcont,
+		user_deldate, auth FROM users mem
+		LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id
+		where mem.user_id = #{username}
 	</select>
 
-
-
-
-
-
 	<insert id="auth_in">
-		insert into users_auth(user_id,auth) values(#{string},'ROLE_USER')
+		insert into users_auth(user_id,auth)
+		values(#{string},'ROLE_USER')
 	</insert>
-
-
-
-
-
-
-
-
-
-
 
 	<select id="id_check" resultType="users">
 		select * from users where
@@ -69,15 +53,25 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="p_find" resultType="users">
-		select * from users where user_id=#{user_id} and user_name=#{user_name}
+		select * from users where
+		user_id=#{user_id} and user_name=#{user_name}
 	</select>
 
 	<update id="p_edit">
-		update users set user_pwd=#{user_pwd} where user_id=#{user_id}
+		update users set user_pwd=#{user_pwd} where
+		user_id=#{user_id}
 	</update>
 
 
 	<select id="login_ck" resultType="users">
-		select * from users where user_id=#{login_id} and user_state=1
+		select * from users where
+		user_id=#{login_id} and user_state=1
 	</select>
+
+	<select id="m_edit" parameterType="java.lang.String"
+		resultType="users"> select * from users where user_id=#{id} </select>
+		
+	<!-- 회원탈퇴 -->
+	<delete id="m_del"> update users set user_delcont=#{user_delcont},
+		user_deldate=sysdate, user_state=2 where user_id=#{user_id} </delete>
 </mapper>

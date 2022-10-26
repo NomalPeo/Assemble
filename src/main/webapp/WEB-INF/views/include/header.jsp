@@ -17,9 +17,9 @@
 <link rel="stylesheet"
 	href="//http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/index/main.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/thema/thema.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/login&join/join.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/insert/webtooninsert.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/myPage/myPage.css"/>
 <script type="text/javascript" src="/resources/js/index/jquery.1.12.4.js"></script>
 <script type="text/javascript"
 	src="/resources/plugins/bxslider/js/jquery.bxslider.js"></script>

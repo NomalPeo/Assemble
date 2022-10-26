@@ -12,4 +12,13 @@ public interface WebtoonService {
 
 	List<WebtoonVO> getWebtoonList(WebtoonVO wb);
 
+	List<WebtoonVO> RomanceGetWebtoonList1(WebtoonVO wb);
+
+	List<WebtoonVO> RomanceGetWebtoonList2(WebtoonVO wb);
+
+	List<WebtoonVO> RomanceGetWebtoonList3(WebtoonVO wb);
+
+	List<WebtoonVO> RomanceGetWebtoonList4(WebtoonVO wb);
+
 }
+

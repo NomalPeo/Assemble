@@ -546,136 +546,7 @@
 .fa-solid{
 	font-size: 25px;
 }
-/*
-.introduce-favorite{
-	overflow: hidden;
-	position: relative;
-	height: 370px;
-	width: 100%;
-	margin:auto;
-}
-.introduce-favorite span{
-	position: absolute;
-	left: 110px;
-	top:12px;
-	font-weight: bold;
-	display: inline-block;
-	font-size: 25px;
-	line-height: 32px;
-}
-.introduce-favorite span:before{
-	content:"\f005";
-	font-family: fontawesome;
-	color:yellow;
-	animation: heart 0.7s linear infinite;
-	display: inline-block;
-	position: relative;
-	left: -5px;
-	top:-1px;
-}
-@keyframes stars{
-	0%{
-		transform : scale(0.7);
-	}
-	50%{
-	transform : scale(1.2);
-	}
-	100%{transform : scale(0.7);}
-}
-.favorite-container{
-	width: 500vw;
-	transition: 0.5s;
-	margin:5px;
-}
-.favorite-container .inner{
-	width:100vw;
-	float: left;
-	display: flex;
-	justify-content: space-around;
-	margin: auto;
-	padding : 60px 50px 0 50px;
-}
-.favorite-btn{
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 10px;
-	padding: 0 10px;
-}
-.favorite-btn button{
-	opacity:0.6;
-	background-color:gray;
-	border:2px gray solid;
-	width:35px;
-	height: 7px;
-}
-.favorite-btn button:hover{
-	border: 2px black solid;
-	background-color: black;
-}
----------------------------------------------
-.introduce-love-contents{
-	overflow: hidden;
-	position: relative;
-	height: 370px;
-	margin-bottom: 30px;
-	width:100%;
-}
-.introduce-love-contents span{
-	position: absolute;
-	left: 110px;
-	top:12px;
-	font-weight: bold;
-	display: block;
-	font-size: 25px;
-	line-height: 32px;
-}
-.introduce-love-contents span:before{
-	content:"\f004";
-	font-family: fontawesome;
-	color:crimson;
-	animation: heart 0.7s linear infinite;
-	display: inline-block;
-	position: relative;
-	left: -5px;
-}
-.love-container{
-	width: 500vw;
-	transition: 0.5s;
-	margin:5px;
-}
-.love-container .inner{
-	width:100vw;
-	float: left;
-	display: flex;
-	justify-content: space-around;
-	margin: auto;
-	padding : 60px 50px 0 50px;
-}
-.love-content-btn{
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 10px;
-	padding: 0 10px;
-}
-.love-content-btn button{
-	text-align:center;
-	width:30px;
-	height: 20px;
-}
-@keyframes heart{
-	0%{
-		transform : scale(0.7);
-	}
-	50%{
-	transform : scale(1.2);
-	}
-	100%{transform : scale(0.7);}
-}
-*/
+
 .monthbest{
 	position: relative;
 	margin:0 10px;
@@ -805,7 +676,9 @@
 .love-inner{
 	display: flex;
 	justify-content: space-between;
-	padding: 0 80px;
+	padding : 0 80px;
+	height: 300px;
+	align-items: center;
 }
 .love .bx-controls-direction{
 	font-size: 40px;
@@ -852,6 +725,13 @@
 }
 .love .bx-pager div a.active{
 	background-color: black;
+}
+
+.love-inner img{
+	 	transition: 0.35s;
+}
+.love-inner img:hover{
+	transform: scale(1.2);
 }
 /*------------------------------*/
 .completion{
