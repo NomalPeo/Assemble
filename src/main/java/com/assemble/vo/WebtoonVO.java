@@ -16,7 +16,9 @@ public class WebtoonVO {
 	private String webtoon_image1;
 	private String webtoon_image2;
 	private String webtoon_image3;
-
+	private String webtoon_age;
+	
+	
 	// 페이지 관련변수
 	private int startrow; // 시작행 번호
 	private int endrow; // 끝행번호
@@ -96,6 +98,12 @@ public class WebtoonVO {
 	public void setWebtoon_image3(String webtoon_image3) {
 		this.webtoon_image3 = webtoon_image3;
 	}
+	public String getWebtoon_age() {
+		return webtoon_age;
+	}
+	public void setWebtoon_age(String webtoon_age) {
+		this.webtoon_age = webtoon_age;
+	}
 	public int getStartrow() {
 		return startrow;
 	}
@@ -120,6 +128,7 @@ public class WebtoonVO {
 	public void setFind_name(String find_name) {
 		this.find_name = find_name;
 	}
+	
 	
 	
 

@@ -13,5 +13,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.assemble.vo.WebtoonVO" alias="webtoon"/>
 		<typeAlias type="com.assemble.vo.SecurityVO" alias="security"/>
 		<typeAlias type="com.assemble.vo.AuthVO" alias="authvo"/>
+		<typeAlias type="com.assemble.vo.ReviewVO" alias="review"/>
 	</typeAliases>
 </configuration>

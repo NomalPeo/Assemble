@@ -53,11 +53,34 @@ public class HomeController {
 		List<WebtoonVO> wlist1 = this.webtoonService.RomanceGetWebtoonList2(wb);
 		List<WebtoonVO> wlist2 = this.webtoonService.RomanceGetWebtoonList3(wb);
 		List<WebtoonVO> wlist3 = this.webtoonService.RomanceGetWebtoonList4(wb);
+		
+		List<WebtoonVO> glist1 = this.webtoonService.ThrillerWebtoonList1(wb);
+		List<WebtoonVO> glist2 = this.webtoonService.ThrillerWebtoonList2(wb);
+		List<WebtoonVO> glist3= this.webtoonService.ThrillerWebtoonList3(wb);
+		List<WebtoonVO> glist4= this.webtoonService.ThrillerWebtoonList4(wb);
+
+		List<WebtoonVO> alist1 = this.webtoonService.ActionWebtoonList1(wb);
+		List<WebtoonVO> alist2 = this.webtoonService.ActionWebtoonList2(wb);
+		List<WebtoonVO> alist3= this.webtoonService.ActionWebtoonList3(wb);
+		List<WebtoonVO> alist4= this.webtoonService.ActionWebtoonList4(wb);
+
+
+
 
 		model.addAttribute("wlist1",wlist1);
 		model.addAttribute("wlist2",wlist2);
 		model.addAttribute("wlist3",wlist3);
 		model.addAttribute("wlist4",wlist4);
+		
+		model.addAttribute("glist1",glist1);
+		model.addAttribute("glist2",glist2);
+		model.addAttribute("glist3",glist3);
+		model.addAttribute("glist4",glist4);
+
+		model.addAttribute("alist1",alist1);
+		model.addAttribute("alist2",alist2);
+		model.addAttribute("alist3",alist3);
+		model.addAttribute("alist4",alist4);
 
 		return "index_1";
 		

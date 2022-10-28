@@ -587,7 +587,16 @@
 .monthbest-inner{
 	display: flex;
 	justify-content: space-between;
-	padding: 0 80px;
+	padding : 0 80px;
+	height: 300px;
+	align-items: center;
+}
+
+.monthbest-inner img{
+	transition: 0.35s;
+}
+.monthbest-inner img:hover{
+	transform: scale(1.2);
 }
 .monthbest .bx-controls-direction{
 	font-size: 40px;
@@ -783,7 +792,9 @@
 .completion-inner{
 	display: flex;
 	justify-content: space-between;
-	padding: 0 80px;
+	padding : 0 80px;
+	height: 300px;
+	align-items: center;
 }
 .completion .bx-controls-direction{
 	font-size: 40px;
@@ -831,6 +842,23 @@
 .completion .bx-pager div a.active{
 	background-color: black;
 }
+.completion-inner img{
+	transition: 0.35s;
+
+}
+.completion-inner img:hover{
+	transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
 /**/
 .weekbest{
 	position: relative;

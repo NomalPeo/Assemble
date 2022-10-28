@@ -12,6 +12,10 @@ create table webtoon(
     webtoon_image2 varchar2(100),
     webtoon_image3 varchar2(100)
 );
+alter table webtoon add webtoon_age number(10);
+
+
+
 	select * from webtoon where webtoon_tag1 = '로맨스';
 select * from webtoon;
 delete from webtoon;
@@ -29,7 +33,7 @@ commit;
     
 SELECT ROWNUM FROM webtoon;
 
-
+insert into webtoon (webtoon_age) value(15);
 
 
 

@@ -40,7 +40,7 @@ public class WebtoonController {
 	public String tagPage(Model listM, HttpServletRequest request, WebtoonVO wb) {
 
 		int page = 1;
-		int limit = 20; // 한 페이지에 보여지는 목록 개수
+		int limit = 10; // 한 페이지에 보여지는 목록 개수
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
@@ -76,8 +76,8 @@ public class WebtoonController {
 		listM.addAttribute("listcount", totalCount);
 		listM.addAttribute("find_field", find_field); // 검색 필드 저장
 		listM.addAttribute("find_name", find_name); // 검색어 저장
-
-		return "/tagpage/tag";
+		System.out.println("인서트 완료");
+		return "tagpage/tag";
 	}
 	
 	

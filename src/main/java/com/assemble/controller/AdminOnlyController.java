@@ -43,11 +43,13 @@ public class AdminOnlyController {
 
 		String webtoon_title = multi.getParameter("webtoon_title");
 		String webtoon_writer = multi.getParameter("webtoon_writer");
+		String webtton_age = multi.getParameter("webtoon_age");
 		String webtoon_cont = multi.getParameter("webtoon_cont");
 		String webtoon_tag1 = multi.getParameter("webtoon_tag1");
 		String webtoon_tag2 = multi.getParameter("webtoon_tag2");
 		int webtoon_complete = Integer.parseInt(multi.getParameter("webtoon_complete"));
 		String webtoon_platform = multi.getParameter("webtoon_platform");
+		String webtoon_age = multi.getParameter("webtoon_age");
 		File webtoon_thumbnail_ = multi.getFile("webtoon_thumbnail");
 		File webtoon_image1_ = multi.getFile("webtoon_image1");
 		File webtoon_image2_ = multi.getFile("webtoon_image2");
@@ -62,6 +64,7 @@ public class AdminOnlyController {
 
 		wb.setWebtoon_title(webtoon_title);
 		wb.setWebtoon_writer(webtoon_writer);
+		wb.setWebtoon_age(webtoon_age);
 		wb.setWebtoon_cont(webtoon_cont);
 		wb.setWebtoon_complete(webtoon_complete);
 		wb.setWebtoon_platform(webtoon_platform);

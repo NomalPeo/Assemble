@@ -25,7 +25,9 @@ public class WebtoonDaoImpl implements WebtoonDao {
 
 	@Override
 	public List<WebtoonVO> getWebtoonList(WebtoonVO wb) {
+		System.out.println("인서트1");
 		return this.sqlSession.selectList("web_list", wb);
+		
 	}
 
 	@Override
@@ -48,6 +50,42 @@ public class WebtoonDaoImpl implements WebtoonDao {
 		return this.sqlSession.selectList("romanceW4", wb);
 	}
 
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList1(WebtoonVO wb) {
+		return this.sqlSession.selectList("thrillerW1",wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList2(WebtoonVO wb) {
+		return this.sqlSession.selectList("thrillerW2",wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList3(WebtoonVO wb) {
+		return this.sqlSession.selectList("thrillerW3",wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList4(WebtoonVO wb) {
+		return this.sqlSession.selectList("thrillerW4",wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList1(WebtoonVO wb) {
+		return this.sqlSession.selectList("actionW1",wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList2(WebtoonVO wb) {
+		return this.sqlSession.selectList("actionW2",wb);	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList3(WebtoonVO wb) {
+		return this.sqlSession.selectList("actionW3",wb);	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb) {
+		return this.sqlSession.selectList("actionW4",wb);	}
 
 
 }

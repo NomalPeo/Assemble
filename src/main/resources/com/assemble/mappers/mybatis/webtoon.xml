@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Webtoon">
 	<insert id="web_in" parameterType="webtoon">
-		insert into webtoon (webtoon_no,webtoon_title,webtoon_writer,webtoon_cont,webtoon_platform,webtoon_complete,webtoon_tag1,webtoon_tag2,webtoon_thumbnail,webtoon_image1,webtoon_image2,webtoon_image3)
-		values(webtoon_seq.nextval,#{webtoon_title},#{webtoon_writer},#{webtoon_cont},#{webtoon_platform},#{webtoon_complete},#{webtoon_tag1},
-		#{webtoon_tag2},#{webtoon_thumbnail},#{webtoon_image1},#{webtoon_image2},#{webtoon_image3})
+		insert into webtoon
+		(webtoon_no, webtoon_title, webtoon_writer,
+		webtoon_cont,
+		webtoon_platform,
+		webtoon_complete, webtoon_tag1, webtoon_tag2,
+		webtoon_thumbnail, webtoon_image1,
+		webtoon_image2, webtoon_image3,
+		webtoon_age)
+		values (webtoon_seq.nextval, #{webtoon_title},
+		#{webtoon_writer},
+		#{webtoon_cont}, #{webtoon_platform},
+		#{webtoon_complete}, #{webtoon_tag1},
+		#{webtoon_tag2},
+		#{webtoon_thumbnail}, #{webtoon_image1}, #{webtoon_image2},
+		#{webtoon_image3},
+		#{webtoon_age})
 	</insert>
-	
-	
-	
-	<select id="web_list" resultType="webtoon"> select * from webtoon </select>
-	<!-- 검색 전후 레코드 개수 -->
+
+
 	<select id="web_count" resultType="int">
 		select count(webtoon_no) from webtoon
 		<where>
@@ -30,21 +40,117 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
+
+   <select id="web_list" resultType="webtoon">
+      select * from (select rowNum rNu,webtoon_no,webtoon_title,webtoon_writer,webtoon_cont,webtoon_platform,webtoon_complete
+      ,webtoon_tag1,webtoon_tag2,webtoon_thumbnail,webtoon_image1,webtoon_image2,webtoon_image3
+       from
+      (select * from webtoon
+      <where>
+         <if test="find_field==''"></if><!-- 검색 전 -->
+         <if test="find_field=='webtoon_title'"> <!-- 글제목 기준으로 검색할 때 -->
+            webtoon_title like #{find_name}    
+         </if>
+      </where>
+      order by webtoon_title))
+      where rNu &gt;= #{startrow} and
+      rNu &lt;= #{endrow}
+
+   </select>
+
+
+
 	<!-- 인덱스 로맨스 웹툰 서칭 -->
 	<select id="romanceW1" resultType="webtoon">
-		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 1 and 6
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '로맨스' or WEBTOON_TAG2 = '로맨스')
+		where rn BETWEEN 1 and 6
 	</select>
 	<select id="romanceW2" resultType="webtoon">
-		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 7 and 12
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '로맨스' or WEBTOON_TAG2 = '로맨스')
+		where rn BETWEEN 7 and 12
 	</select>
 	<select id="romanceW3" resultType="webtoon">
-		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 13 and 18
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '로맨스' or WEBTOON_TAG2 = '로맨스')
+		where rn BETWEEN 13 and
+		18
 	</select>
 	<select id="romanceW4" resultType="webtoon">
-		select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '로맨스' ) where rn BETWEEN 19 and 24
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '로맨스' or WEBTOON_TAG2 = '로맨스')
+		where rn BETWEEN 19 and
+		24
 	</select>
 
+	<select id="thrillerW1" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '스릴러' or WEBTOON_TAG2 = '스릴러')
+		where rn BETWEEN 1 and 6
+	</select>
+	<select id="thrillerW2" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '스릴러' or WEBTOON_TAG2 = '스릴러')
+		where rn BETWEEN 7 and 12
+	</select>
+	<select id="thrillerW3" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '스릴러' or WEBTOON_TAG2 = '스릴러')
+		where rn BETWEEN 13 and
+		18
+	</select>
+	<select id="thrillerW4" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '스릴러' or WEBTOON_TAG2 = '스릴러')
+		where rn BETWEEN 19 and
+		24
+	</select>
 
+	<select id="actionW1" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '액션' or WEBTOON_TAG2 = '액션')
+		where rn BETWEEN 1 and 6
+	</select>
+	<select id="actionW2" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '액션' or WEBTOON_TAG2 = '액션')
+		where rn BETWEEN 7 and 12
+	</select>
+	<select id="actionW3" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '액션' or WEBTOON_TAG2 = '액션')
+		where rn BETWEEN 13 and 18
+	</select>
+	<select id="actionW4" resultType="webtoon">
+		select WEBTOON_THUMBNAIL
+		from
+		(select rownum as rn, webtoon_thumbnail from webtoon where
+		webtoon_tag1 = '액션' or WEBTOON_TAG2 = '액션')
+		where rn BETWEEN 19 and 24
+	</select>
 
 
 </mapper>

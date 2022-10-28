@@ -21,4 +21,19 @@ public interface WebtoonDao {
     List<WebtoonVO> RomanceGetWebtoonlist4(WebtoonVO wb);
 
 
+    List<WebtoonVO> ThrillerWebtoonList1(WebtoonVO wb);
+
+    List<WebtoonVO> ThrillerWebtoonList2(WebtoonVO wb);
+
+    List<WebtoonVO> ThrillerWebtoonList3(WebtoonVO wb);
+
+    List<WebtoonVO> ThrillerWebtoonList4(WebtoonVO wb);
+
+    List<WebtoonVO> ActionWebtoonList1(WebtoonVO wb);
+
+    List<WebtoonVO> ActionWebtoonList2(WebtoonVO wb);
+
+    List<WebtoonVO> ActionWebtoonList3(WebtoonVO wb);
+
+    List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb);
 }

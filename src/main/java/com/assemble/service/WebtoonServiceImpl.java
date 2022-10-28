@@ -46,4 +46,44 @@ public class WebtoonServiceImpl implements WebtoonService {
 		return this.webtoonDao.RomanceGetWebtoonlist3(wb);
 	}
 
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList1(WebtoonVO wb) {
+		return this.webtoonDao.ThrillerWebtoonList1(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList2(WebtoonVO wb) {
+		return this.webtoonDao.ThrillerWebtoonList2(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList3(WebtoonVO wb) {
+		return this.webtoonDao.ThrillerWebtoonList3(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ThrillerWebtoonList4(WebtoonVO wb) {
+		return this.webtoonDao.ThrillerWebtoonList4(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList1(WebtoonVO wb) {
+		return this.webtoonDao.ActionWebtoonList1(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList2(WebtoonVO wb) {
+		return this.webtoonDao.ActionWebtoonList2(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList3(WebtoonVO wb) {
+		return this.webtoonDao.ActionWebtoonList3(wb);
+	}
+
+	@Override
+	public List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb) {
+		return this.webtoonDao.ActionWebtoonList4(wb);
+	}
+
 }

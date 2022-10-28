@@ -114,6 +114,14 @@
 							</select></td>
 						</tr>
 						<tr>
+							<td><select name="webtoon_age">
+								<option value="전체이용가">전체 이용가</option>
+								<option value="12">12세</option>
+								<option value="15">15세</option>
+								<option value="18">18세</option>
+							</select></td>
+						</tr>
+						<tr>
 							<td>썸네일<input type="file" name="webtoon_thumbnail" /><br>
 								메인1<input type="file" name="webtoon_image1"><br>
 								메인2<input type="file" name="webtoon_image2"><br>메인3

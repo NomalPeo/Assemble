@@ -182,107 +182,35 @@
 		</div>
 		<!-- ------------------------------------------------------------------ -->
 		<div class="monthbest">
-			<span>러브 웹툰</span>
+			<span>무섭다는 공포 웹툰</span>
 			<div class="introduce-monthbest-content">
 				<div class="monthbest-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
+					<c:forEach var="thriller1" items="${glist1 }" begin="0" end="5">
+					<div class="inner2">
+						<a href="#"><img src="/resources/upload/${thriller1.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
 					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					</c:forEach>
 				</div>
-				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+				<div class="monthbest-inner">
+					<c:forEach var="thriller2" items="${glist2 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${thriller2.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
-				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+				<div class="monthbest-inner">
+					<c:forEach var="thriller3" items="${glist3 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${thriller3.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
-				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-				</div>
-				<div class="love-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+				<div class="monthbest-inner">
+					<c:forEach var="thriller4" items="${glist4 }" begin="0" end="5">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${thriller4.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -338,107 +266,35 @@
 		<!-- ------------------------------------------------------------------ -->
 
 		<div class="completion">
-			<span>완결 웹툰</span>
+			<span>재미진 액션 웹툰</span>
 			<div class="introduce-completion-content">
 				<div class="completion-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
+					<c:forEach var="action" items="${alist1}">
+					<div class="inner2">
+						<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
 					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					</c:forEach>
 				</div>
 				<div class="completion-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="action" items="${alist2}">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 				<div class="completion-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="action" items="${alist3}">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 				<div class="completion-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-				</div>
-				<div class="completion-inner">
-					<div>
-						<a href="#"><img src="./images/Thumbnail/1을줄게.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/고삼무쌍.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/내남편과결혼해줘.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/김부장.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
-					<div>
-						<a href="#"><img src="./images/Thumbnail/나노머신.jpg"></a>
-					</div>
+					<c:forEach var="action" items="${alist4}">
+						<div class="inner2">
+							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
