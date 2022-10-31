@@ -16,9 +16,6 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		<result property="user_gender" column="user_gender" />
 		<result property="user_nickname" column="user_nickname" />
 		<result property="user_date" column="user_date" />
-		<result property="user_state" column="user_state" />
-		<result property="user_delcont" column="user_delcont" />
-		<result property="user_deldate" column="user_deldate" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 
@@ -29,8 +26,7 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="read_memInfo" resultMap="userMap">
 		select mem.user_id,user_no,
-		user_pwd,user_name,user_gender,user_nickname,user_date,user_state,user_delcont,
-		user_deldate, auth FROM users mem
+		user_pwd,user_name,user_gender,user_nickname,user_date,auth FROM users mem
 		LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id
 		where mem.user_id = #{username}
 	</select>
@@ -72,6 +68,11 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		resultType="users"> select * from users where user_id=#{id} </select>
 		
 	<!-- 회원탈퇴 -->
-	<delete id="m_del"> update users set user_delcont=#{user_delcont},
-		user_deldate=sysdate, user_state=2 where user_id=#{user_id} </delete>
+	<delete id="auth_del">
+		delete from users_auth where user_id = #{user_id}
+	</delete>
+	
+	<delete id="m_del"> 
+		delete from users where user_id=#{user_id}
+	</delete>
 </mapper>

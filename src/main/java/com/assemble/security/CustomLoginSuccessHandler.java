@@ -37,15 +37,13 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		if(roleNames.contains("ROLE_USER")) { // 관리자 권한 일때 
 			response.sendRedirect("main");
 			return;
-			
 		}
 		
 		if(roleNames.contains("ROLE_ADMIN")) { // 일반 회월일때
-			response.sendRedirect("main");
+			response.sendRedirect("/admin/adminPage");
 			return;
 		}
 		response.sendRedirect("/");
-
 	}
 
 }

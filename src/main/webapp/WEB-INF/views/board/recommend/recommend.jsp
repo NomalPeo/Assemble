@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/board/header.jsp"%>
+<%@ include file="../../include/board/header.jsp"%>
 <head>
 <title>FAQ & QnA</title>
 </head>
@@ -120,4 +120,4 @@
 
 </body>
 </html>
-<jsp:include page="../include/footer.jsp" />
+<jsp:include page="../../include/footer.jsp" />

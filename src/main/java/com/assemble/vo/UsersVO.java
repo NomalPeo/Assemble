@@ -10,9 +10,6 @@ public class UsersVO {
 	private int user_gender;
 	private String user_nickname; 
 	private String user_date;
-	private int user_state;
-	private String user_delcont;
-	private String user_deldate;
 
 	private List<AuthVO> authList;
 
@@ -72,30 +69,6 @@ public class UsersVO {
 		this.user_date = user_date;
 	}
 
-	public int getUser_state() {
-		return user_state;
-	}
-
-	public void setUser_state(int user_state) {
-		this.user_state = user_state;
-	}
-
-	public String getUser_delcont() {
-		return user_delcont;
-	}
-
-	public void setUser_delcont(String user_delcont) {
-		this.user_delcont = user_delcont;
-	}
-
-	public String getUser_deldate() {
-		return user_deldate;
-	}
-
-	public void setUser_deldate(String user_deldate) {
-		this.user_deldate = user_deldate;
-	}
-
 	public List<AuthVO> getAuthList() {
 		return authList;
 	}
@@ -103,7 +76,7 @@ public class UsersVO {
 	public void setAuthList(List<AuthVO> authList) {
 		this.authList = authList;
 	}
-	
+
 	
 	
 	

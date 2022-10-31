@@ -55,6 +55,10 @@ public class UsersServiceImpl implements UsersService {
 	public void delUser(UsersVO dm) {
 		this.usersDAO.delUser(dm);
 	}
+	@Override
+	public void authDel(String user_id) {
+		this.usersDAO.authDel(user_id);
+	}
 
 
 }

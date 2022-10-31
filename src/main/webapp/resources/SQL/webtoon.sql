@@ -12,9 +12,9 @@ create table webtoon(
     webtoon_image2 varchar2(100),
     webtoon_image3 varchar2(100)
 );
-alter table webtoon add webtoon_age number(10);
+alter table webtoon add webtoon_age varchar2(20);
 
-
+alter table webtoon drop column webtoon_age;
 
 	select * from webtoon where webtoon_tag1 = '로맨스';
 select * from webtoon;
@@ -33,7 +33,21 @@ commit;
     
 SELECT ROWNUM FROM webtoon;
 
-insert into webtoon (webtoon_age) value(15);
+commit;
+
+
+select * from webtoon where webtoon_tag1 = '스릴러' or webtoon_tag2 = '스릴러';
+
+
+select * from webtoon where webtoon_tag1 = '액션' or webtoon_tag2 = '액션' ;
+
+select WEBTOON_THUMBNAIL from (select rownum as rn, webtoon_thumbnail from webtoon where webtoon_tag1 = '스릴러' ) where rn BETWEEN 1 and 6;
+
+select * from webtoon where webtoon_tag1 = '스릴러' or webtoon_tag2 = '스릴러' ;
+
+
+
+
 
 
 

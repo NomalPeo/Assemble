@@ -20,4 +20,6 @@ public interface UsersDAO {
 
 	void delUser(UsersVO dm);
 
+	void authDel(String user_id);
+
 }

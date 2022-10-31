@@ -63,7 +63,7 @@ public class UsersController {
 			model.addAttribute("logout", "LogOut!!");
 		}
 
-		return "Login/login";
+		return "LoginJoin/Login/login";
 	}//login()
 
 	@RequestMapping("/login_ok")
@@ -86,7 +86,7 @@ public class UsersController {
 	@RequestMapping("join") //회원가입
 	public String join() {
 
-		return "join/join";
+		return "LoginJoin/join/join";
 	}//users_join()
 
 	//아이디 중복검색
@@ -111,14 +111,14 @@ public class UsersController {
 		m.setUser_pwd(pwencoder.encode(m.getUser_pwd()));
 		this.usersService.insertUsers(m);
 		this.usersService.authinsertUsers(m.getUser_id().toString());
-		return "Login/login";
+		return "LoginJoin/Login/login";
 	}//join_ok()
 
 
 	//비밀번호찾기 공지창
 	@GetMapping("pwd_find")
 	public String pwd_find() {
-		return "pwd/pwd_find"; // /WEB-INF/views/users/pwd_find.jsp
+		return "myPage/pwd/pwd_find"; // /WEB-INF/views/users/pwd_find.jsp
 	}//pwd_find()
 
 	//비번찾기 결과
@@ -147,7 +147,7 @@ public class UsersController {
 			m.setUser_pwd(pwencoder.encode(ran_pwd)); //비번 암호화
 			this.usersService.updatePwd(m); //암호화된 비번 수정
 
-			ModelAndView fm = new ModelAndView("pwd/pwd_find_ok");
+			ModelAndView fm = new ModelAndView("myPage/pwd/pwd_find_ok");
 			fm.addObject("ran_pwd", ran_pwd);
 			return fm;
 		}
@@ -161,7 +161,7 @@ public class UsersController {
 		response.setContentType("text/html; charset=UTF-8");
 
 		if (isLogin(response, session)) { //로그인 성공시
-			return "Login/login";
+			return "LoginJoin/Login/login";
 		}
 		return null;
 	}//index();
@@ -182,7 +182,7 @@ public class UsersController {
 
 		String username = principal.getName();
 		this.usersService.getUsers(username);	
-		return "del/del";
+		return "myPage/del/del";
 
 	}//User_del()
 
@@ -215,10 +215,9 @@ public class UsersController {
 				out.println("history.go(-1);");
 				out.println("</script>");
 			}else {
-				dm.setUser_id(username); dm.setUser_delcont(del_cont); //탈퇴 사유 저장
+				dm.setUser_id(username);
+				this.usersService.authDel(dm.getUser_id());
 				this.usersService.delUser(dm); //회원탈퇴
-
-				session.invalidate(); //세션 만료
 
 				out.println("<script>");
 				out.println("alert('회원 탈퇴 했습니다 !');");

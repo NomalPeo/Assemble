@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/board/header.jsp"%>
+<%@ include file="../../include/board/header.jsp"%>
 <%--상단 공통 페이지 외부 포함 파일 불러오기 --%>
 <!DOCTYPE html>
 <html>
@@ -183,4 +183,4 @@
 	</div>
 </body>
 </html>
-<jsp:include page="../include/footer.jsp" />
+<jsp:include page="../../include/footer.jsp" />

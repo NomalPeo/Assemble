@@ -36,7 +36,7 @@ public class FreeBoardController {
 		}
 		request.setAttribute("page", page);
 		
-		return "board/freeboard_write";
+		return "board/freeboard/freeboard_write";
 	} // freeboard_write()
 	
 	// 게시판 저장
@@ -77,7 +77,7 @@ public class FreeBoardController {
 		m.addAttribute("maxpage",maxpage);
 		m.addAttribute("page",page);
 		
-		return "/board/freeboard_list";
+		return "/board/freeboard/freeboard_list";
 	} // freeboard_list()
 	
 	// 게시물 내용보기
@@ -91,7 +91,7 @@ public class FreeBoardController {
 		cm.addObject("b", bc);
 		cm.addObject("cont", cont);
 		cm.addObject("page", page);
-		cm.setViewName("board/freeboard_cont");
+		cm.setViewName("board/freeboard/freeboard_cont");
 		return cm;
 	} // freeboard_cont()
 	
@@ -103,7 +103,7 @@ public class FreeBoardController {
 		
 		em.addAttribute("b", eb);
 		em.addAttribute("page", page);
-		return "board/freeboard_edit";
+		return "board/freeboard/freeboard_edit";
 	} // freeboard_edit()
 	
 	// 게시물 수정 완료

@@ -20,6 +20,8 @@ public interface UsersService {
 
 	void delUser(UsersVO dm);
 
+	void authDel(String user_id);
+
 
 
 }

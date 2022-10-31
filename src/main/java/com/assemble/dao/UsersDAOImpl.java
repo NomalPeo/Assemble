@@ -51,6 +51,11 @@ public class UsersDAOImpl implements UsersDAO {
 	public void delUser(UsersVO dm) {
 		this.sqlSession.delete("m_del", dm);
 	}
+
+	@Override
+	public void authDel(String user_id) {
+		this.sqlSession.delete("auth_del", user_id);
+	}
 	
 
 }

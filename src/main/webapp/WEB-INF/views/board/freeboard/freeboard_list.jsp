@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../include/board/header.jsp"%>
+<%@ include file="../../include/board/header.jsp"%>
 <title>자유게시판</title>
 <div class="all-freeboard">
 	<table class="freeboard-table">
@@ -101,4 +101,4 @@
 </div>
 </body>
 </html>
-<jsp:include page="../include/footer.jsp" />
+<jsp:include page="../../include/footer.jsp" />

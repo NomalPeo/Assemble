@@ -10,7 +10,18 @@ public class BoardVO {
 	private int board_hit;
 	private String board_date;
 	private int board_replycnt;
-	private String board_category;
+	private int board_category;
+	
+	
+	private String find_category;
+	
+	
+	public String getFind_category() {
+		return find_category;
+	}
+	public void setFind_category(String find_category) {
+		this.find_category = find_category;
+	}
 	
 	// 페이징 관련변수
 	private int startrow;
@@ -77,11 +88,11 @@ public class BoardVO {
 	public void setBoard_replycnt(int board_replycnt) {
 		this.board_replycnt = board_replycnt;
 	}
-	public String getBoard_category() {
+	public int getBoard_category() {
 		return board_category;
 	}
-	public void setBoard_category(String board_category) {
-		this.board_category = board_category;
+	public void setBoard_category(int category) {
+		this.board_category = category;
 	}
 	public String getBoard_writer() {
 		return board_writer;

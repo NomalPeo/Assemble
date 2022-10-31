@@ -17,11 +17,7 @@ href="/resources/css/member.css" />
        $("#del_pwd").val("").focus();
        return false;
     }
-    if($.trim($("#del_cont").val())==""){
-       alert("탈퇴 사유를 입력하세요!");
-       $("#del_cont").val("").focus();
-       return false;
-    }
+
  }
 </script>
 </head>
@@ -42,11 +38,6 @@ href="/resources/css/member.css" />
      <th>비밀번호</th>
      <td><input type="password" name="del_pwd" id="del_pwd"
      size="14" /></td>    
-    </tr>
-    <tr>
-     <th>탈퇴사유</th>
-     <td><textarea name="del_cont" id="del_cont"
-     rows="9" cols="36"></textarea></td>    
     </tr>
    </table>  
    <div id="mDel_menu">

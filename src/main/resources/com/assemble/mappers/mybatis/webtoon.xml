@@ -5,24 +5,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Webtoon">
-	<insert id="web_in" parameterType="webtoon">
-		insert into webtoon
-		(webtoon_no, webtoon_title, webtoon_writer,
-		webtoon_cont,
-		webtoon_platform,
-		webtoon_complete, webtoon_tag1, webtoon_tag2,
-		webtoon_thumbnail, webtoon_image1,
-		webtoon_image2, webtoon_image3,
-		webtoon_age)
-		values (webtoon_seq.nextval, #{webtoon_title},
-		#{webtoon_writer},
-		#{webtoon_cont}, #{webtoon_platform},
-		#{webtoon_complete}, #{webtoon_tag1},
-		#{webtoon_tag2},
-		#{webtoon_thumbnail}, #{webtoon_image1}, #{webtoon_image2},
-		#{webtoon_image3},
-		#{webtoon_age})
-	</insert>
 
 
 	<select id="web_count" resultType="int">

@@ -20,8 +20,6 @@ ALTER TABLE users DROP COLUMN user_phone3;
 ALTER TABLE users DROP COLUMN email_id;
 ALTER TABLE users DROP COLUMN email_domain;
 
-insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_date,user_state)
-values(users_seq.nextval,'user00','user00','홍길동',1,'홍길동',sysdate,1);
 
 select * from users;
 
@@ -40,6 +38,8 @@ user_id varchar2(50) not null -- 아이디
 , constraint users_auth_userid_fk foreign key(user_id) references users(user_id) 
 -- 외래키로 설정되어서 tbl_member userid 컬럼 레코드 아이디값만 저장됨.
 );
+insert into users(user_no,user_id,user_pwd,user_name,user_gender,user_nickname,user_date,user_state)
+values(users_seq.nextval,'user12','user00','홍길동',1,'홍길동',sysdate,1);
 
 insert into users_auth(user_id,auth) values('user00','ROLE_ADMIN');
 delete from users_auth;
@@ -47,12 +47,12 @@ select * from users_auth;
 
 
 commit;
-select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date,user_state,auth from users mem LEFT OUTER JOIN 
-	users_auth on mem.user_id = users_auth.user_id
-	where mem.user_id='user00';
+select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date, auth from users mem LEFT OUTER JOIN 
+	users_auth on mem.user_id = users_auth.user_id;
+update users_auth set auth = 'ROLE_ADMIN' where user_id = 'zxzxzx';
+
     
-    
-select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date,user_state, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 
+select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 
 
 create table persistent_logins(
     username varchar2(64) not null -- 회원아이디
@@ -60,5 +60,10 @@ create table persistent_logins(
     ,token varchar2(64) not null -- 토큰 정보
     ,last_used timestamp not null -- 로그인 한 날짜 시간
 );
+
+ALTER TABLE users DROP COLUMN user_state;
+ALTER TABLE users DROP COLUMN user_delcont;
+ALTER TABLE users DROP COLUMN user_deldate;
+commit;
 
 

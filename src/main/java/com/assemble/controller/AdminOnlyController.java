@@ -2,6 +2,7 @@ package com.assemble.controller;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,9 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.assemble.service.AdminBoardService;
 import com.assemble.service.WebtoonService;
-import com.assemble.vo.WebtoonVO;
+import com.assemble.vo.BoardVO;
+import com.assemble.vo.WebtoonVO;			
 import com.oreilly.servlet.MultipartRequest;
 
 @Controller
@@ -21,11 +25,49 @@ import com.oreilly.servlet.MultipartRequest;
 public class AdminOnlyController {
 	@Autowired
 	private WebtoonService webtoonService;
+	
+	@Autowired
+	private AdminBoardService adminBoardService;
+	
+	@RequestMapping("/adminPage")
+	public void adminPage(){
+		
+	}
+	@RequestMapping("/boardmanager")
+	public ModelAndView boardmanager(BoardVO vo) {
+		int category = 2;
+		vo.setBoard_type(category);
+		List<BoardVO> bList = this.adminBoardService.getList(vo);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("bList", bList);
+		mv.setViewName("admin/boardmanager");
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@RequestMapping("/webtooninsert")
 	public String webtooninsert() {
 
-		return "/insert/webtooninsert";
+		return "/admin/webtooninsert";
 	}
 
 

@@ -7,7 +7,7 @@
 <script type="text/javascript" src="/resources/js/member.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<%@include file="../include/thema/header.jsp"%>
+<%@include file="../../include/thema/header.jsp"%>
 
 <div class="all-page">
 	<div class="join-text">
@@ -73,4 +73,4 @@
 	</div>
 </div>
 
-<%@include file="../include/footer.jsp"%>
+<%@include file="../../include/footer.jsp"%>
