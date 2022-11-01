@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,21 +35,71 @@ public class AdminOnlyController {
 	public void adminPage(){
 		
 	}
+	
 	@RequestMapping("/boardmanager")
-	public ModelAndView boardmanager(BoardVO vo) {
-		int category = 2;
-		vo.setBoard_type(category);
-		List<BoardVO> bList = this.adminBoardService.getList(vo);
+	public void boardmanager() {
 		
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("bList", bList);
-		mv.setViewName("admin/boardmanager");
-		
-		return mv;
 	}
-	
-	
-	
+	@RequestMapping(value="/boardmanager1",produces="application/json")
+	public ResponseEntity<List<BoardVO>> boardmanager(HttpServletRequest request, BoardVO vo) {
+		 ResponseEntity<List<BoardVO>> entity=null;
+		int type = 1;
+		vo.setBoard_type(type);
+		
+		try {
+			 entity=new ResponseEntity<>(this.adminBoardService.getList(vo),
+					 HttpStatus.OK);//게시판 번호에 대한 댓글 목록
+		 }catch(Exception e) {
+			 e.printStackTrace();
+			 entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		 }
+		return entity;
+	}
+	@RequestMapping(value="/boardmanager2",produces="application/json")
+	public ResponseEntity<List<BoardVO>> boardmanager2(HttpServletRequest request, BoardVO vo) {
+		 ResponseEntity<List<BoardVO>> entity=null;
+		int type = 2;
+		vo.setBoard_type(type);
+		
+		try {
+			 entity=new ResponseEntity<>(this.adminBoardService.getList(vo),
+					 HttpStatus.OK);//게시판 번호에 대한 댓글 목록
+		 }catch(Exception e) {
+			 e.printStackTrace();
+			 entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		 }
+		return entity;
+	}
+	@RequestMapping(value="/boardmanager3",produces="application/json")
+	public ResponseEntity<List<BoardVO>> boardmanager3(HttpServletRequest request, BoardVO vo) {
+		 ResponseEntity<List<BoardVO>> entity=null;
+		int type = 3;
+		vo.setBoard_type(type);
+		
+		try {
+			 entity=new ResponseEntity<>(this.adminBoardService.getList(vo),
+					 HttpStatus.OK);//게시판 번호에 대한 댓글 목록
+		 }catch(Exception e) {
+			 e.printStackTrace();
+			 entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		 }
+		return entity;
+	}
+	@RequestMapping(value="/boardmanager4",produces="application/json")
+	public ResponseEntity<List<BoardVO>> boardmanager4(HttpServletRequest request, BoardVO vo) {
+		 ResponseEntity<List<BoardVO>> entity=null;
+		int type = 4;
+		vo.setBoard_type(type);
+		
+		try {
+			 entity=new ResponseEntity<>(this.adminBoardService.getList(vo),
+					 HttpStatus.OK);//게시판 번호에 대한 댓글 목록
+		 }catch(Exception e) {
+			 e.printStackTrace();
+			 entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		 }
+		return entity;
+	}
 	
 	
 	
