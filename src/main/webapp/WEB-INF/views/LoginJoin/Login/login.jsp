@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/login&join/login.css" />
+	href="/resources/css/login&join/login.css" />
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/reset.css" />
+	href="/resources/css/reset.css" />
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/index/index.css" />
+	href="/resources/css/index/index.css" />
 <script type="text/javascript"
-	src="../../resources/js/index/jquery.1.12.4.js"></script>
+	src="/resources/js/index/jquery.1.12.4.js"></script>
 <script type="text/javascript"
-	src="../../resources/plugins/bxslider/js/jquery.bxslider.js"></script>
+	src="/resources/plugins/bxslider/js/jquery.bxslider.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="../../resources/plugins/web-fonts-with-css/css/all.css" />
+	href="/resources/plugins/web-fonts-with-css/css/all.css" />
 <script>
 	$(document).ready(function() {
 		$('.slider').bxSlider({
@@ -40,7 +40,7 @@
 
 	//비번찾기
 	function pwd_find() {
-		$url = "pwd_find";//매핑주소
+		$url = "/pwd_find";//매핑주소
 		window.open($url, "비번검색", "width=400px,height=300px"
 				+ ",scrollbars=yes");
 		//open(공지창경로,공지창이름,속성) 메서드로 폭이 300픽셀,

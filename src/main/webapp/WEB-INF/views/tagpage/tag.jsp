@@ -1,252 +1,304 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/537cf02f0b.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<meta charset="UTF-8">
+<title></title>
 <link rel="stylesheet" type="text/css"
-   href="/resources/css/tagpage/tag.css">
-
-<script type="text/javascript" src="/resources/js/jquery.js"></script>
-
-
-
+	href="/resources/css/tagpage/tag.css">
+<link rel="stylesheet"
+	href="//http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/index/main.css">
+<script type="text/javascript"
+	src="/resources/js/index/jquery.1.12.4.js"></script>
+<script type="text/javascript"
+	src="/resources/plugins/bxslider/js/jquery.bxslider.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/resources/plugins/web-fonts-with-css/css/all.css" />
 <script type="text/javascript">
+$(document).ready(function() {
+   $('.slider-wrap').bxSlider({
+      controls : false,
+      pager : false,
+      auto : true,
+      minSlides:1,
+      maxSlides:3,
+      moveSlides:1
+   });
+});
 
-   
-   function openLayer(i) {
-      document.getElementById(i).style.display = "block";
-   }
-   
-   function closeLayer(i) {
-      document.getElementById(i).style.display = "none";
-   }
+function openLayer(i) {
+   document.getElementById(i).style.display = "block";
+}
 
-   
-   var num = 1;
+function closeLayer(i) {
+   document.getElementById(i).style.display = "none";
+}
 
-   function changePic(idx) {
-      if (idx) {
-         if (num == 3)
-            return;
-         num++;
-      } else {
-         if (num == 1)
-            return;
-         num--;
-      }
-      var img = document.getElementById("pop-cont-image");
-      img.setAttribute("src", "/resources/upload/");
-   }
+
 </script>
-<%@ include file="../include/header.jsp"%>
+</head>
+<body>
 
-<div class="listbox">
-   <form name="t" method="get" action="tagpage_tag">
+	<div class="wrap">
+		<header>
+			<div class="header-div">
+				<h2>
+					<a href="main"><img src="../images/index/logo.png" width="150"
+						height="65" alt="웹툰리뷰"></a>
+				</h2>
+				<div class="selector-menu">
+					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
+					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a> <a
+						href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a> <a
+						href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
+					<div class="login-join" style="margin: 0; padding: 0;">
+						<sec:authorize access="isAnonymous()">
+							<a href="/users_login" class="login">로그인 </a> | <a href="join"
+								class="join"> 회원가입</a>
+						</sec:authorize>
+						<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
+							<a href="user/myPage" class="login_role">마이페이지 </a> |
+							<a href="user_logout" class="join">로그아웃</a>
+						</sec:authorize>						
+						<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+							<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a
+								href="/user_logout" class="join"> 로그아웃</a>
+						</sec:authorize>
+					</div>
 
-      <div id="subheader">
-         <div id="menu">
-            <ul class="menu">
-               <br>
-               <li class="current"><a href="#">HOME</a></li>
-               <li><a href="#">네이버</a></li>
-               <li><a href="#">카카오</a></li>
-
-            </ul>
-         </div>
-
-         <div style="clear: both;"></div>
-
-         <div id="submenu">
-            <ul class="submenu">
-               <li class="current"><a href="#">all</a></li>
-               <li><a href="#">미완결</a></li>
-               <li><a href="#">완결</a></li>
-
-            </ul>
-         </div>
-
-         <div style="clear: both;"></div>
-
-         <div id="submenutab">
-            <ul class="submenutab">
-               <li class="current"><a href="#">all</a></li>
-               <li><a href="#">판타지</a></li>
-               <li><a href="#">드라마</a></li>
-               <li><a href="#">로맨스</a></li>
-               <li><a href="#">액션</a></li>
-               <li><a href="#">무협</a></li>
-               <li><a href="#">에피소드</a></li>
-               <li><a href="#">개그</a></li>
-               <li><a href="#">스릴러</a></li>
-               <li><a href="#">일상</a></li>
-            </ul>
-         </div>
+				</div>
+			</div>
+		</header>
+		<div style="clear: both;"></div>
 
 
-         <div style="clear: both;"></div>
-
-      </div>
-      <!-- --------------------------------------------- -->
-      
-      
-      <c:if test="${!empty wblist }">
-      <div class="tag-item">
-         <c:forEach var="wblist" items="${wblist}">
-            <a onclick="openLayer(<c:out value="${wblist.webtoon_no}"/>)"
-               value="<c:out value="${wblist.webtoon_no}"/>">
-               <div class="item" id="item">
-                  <div class="web-img">
-                     <img src="/resources/upload/${wblist.webtoon_thumbnail}"
-                        class="thumbnail" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="web-title" id="web-title">
-                     <span><b><c:out value="${wblist.webtoon_title}" /></b></span>
-                  </div>
-               </div>
-            </a>
-         </c:forEach>
-      </div>
-      </c:if>
 
 
-      <!-- --------------------------------------------- -->
 
 
-      <%-- 페이징(쪽나누기) --%>
-      <div>
-         <%-- 검색 전 페이징 --%>
-         <c:if test="${(empty find_field)&&(empty find_name)}">
-            <c:if test="${page<=1}">
-            [이전]&nbsp;
-         </c:if>
-            <c:if test="${page>1}">
-               <a href="tagpage_tag?page=${page-1}">[이전]</a>&nbsp;
-         </c:if>
-
-            <%-- 쪽번호 출력부분 --%>
-            <c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
-               <c:if test="${a==page}"><${a}></c:if>
-
-               <c:if test="${a!=page}">
-                  <a href="tagpage_tag?page=${a}">[${a}]</a>&nbsp;
-            </c:if>
-            </c:forEach>
-
-            <c:if test="${page>=maxpage}">[다음]</c:if>
-            <c:if test="${page<maxpage}">
-               <a href="tagpage_tag?page=${page+1}">[다음]</a>
-            </c:if>
-         </c:if>
-
-         <%-- 검색 후 페이징 --%>
-         <c:if test="${(!empty find_field) || (!empty find_name)}">
-            <c:if test="${page <=1}">
-            [이전]&nbsp;
-         </c:if>
-            <c:if test="${page >1}">
-               <a
-                  href="tagpage_tag?page=${page-1}&find_field=${find_field}&find_name=${find_name}">[이전]</a>&nbsp;
-         </c:if>
 
 
-            <%-- 쪽번호 출력부분 --%>
-            <c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
-               <c:if test="${a == page}"><${a}></c:if>
 
-               <c:if test="${a != page}">
-                  <a
-                     href="tagpage_tag?page=${a}&find_field=${find_field}&find_name=${find_name}">[${a}]</a>&nbsp;
-         </c:if>
-            </c:forEach>
 
-            <c:if test="${page>=maxpage}">[다음]</c:if>
-            <c:if test="${page<maxpage}">
-               <a
-                  href="tagpage_tag?page=${page+1}&find_field=${find_field}&find_name=${find_name}">[다음]</a>
-            </c:if>
-         </c:if>
 
-      </div>
+		<div class="listbox">
+			<div id="subheader">
+				<div id="menu">
+					<form action="tagpage_tag1">
+						<input type="hidden" name="webtoon_complete"
+							value="${webtoon_complete}"><input type="hidden"
+							name="webtoon_tag1" value="${webtoon_tag1}">
+						<ul class="menu">
+							<br>
+							<li><a href="/tagpage_tag?webtoon_platform=전체">전체</a></li>
+							<li><input type="submit" name="webtoon_platform" value="네이버"></li>
+							<li><input type="submit" name="webtoon_platform" value="카카오"></li>
 
-      <%-- 검색폼 --%>
-      <div>
-         <select name="find_field">
-            <option value="webtoon_title"
-               <c:if test="${find_field=='webtoon_title'}">${'selected'}</c:if>>제목
-            </option>
-            <option value="webtoon_writer"
-               <c:if test="${find_field=='webtoon_writer'}">${'selected'}</c:if>>작가
-            </option>
-         </select> <input name="find_name" id="find_name" size="14"
-            value="${find_name}" /> <input type="submit" value="검색" />
-      </div>
-   </form>
-</div>
+						</ul>
+					</form>
+				</div>
 
-<c:forEach var="pop" items="${wblist}">
-   <div class="popup-layer" id="<c:out value="${pop.webtoon_no}"/>">
-      <div class="popup-box">
-         <div class="content-part" id="content-part">
-            <div class="pop-text">
-               <div class="pop-title" id="pop-title">
-                  <h3>${pop.webtoon_title}</h3>
-               </div>
-               <div class="pop-author">
-                  <b>플랫폼 : &nbsp;${pop.webtoon_platform}<br>&nbsp;작가&nbsp;&nbsp;
-                     : &nbsp;${pop.webtoon_writer}<br> &nbsp;장르
-                     &nbsp;&nbsp;:&nbsp; <c:if test="${empty pop.webtoon_tag2}">
+				<div style="clear: both;"></div>
+
+				<div id="submenu">
+					<form action="tagpage_tag1">
+						<input type="hidden" name="webtoon_platform"
+							value="${webtoon_platform}"><input type="hidden"
+							name="webtoon_tag1" value="${webtoon_tag1}">
+
+						<ul class="submenu">
+							<li class="current"><a
+								href="/tagpage_tag?webtoon_complete=전체">전체</a></li>
+							<li><input type="submit" name="webtoon_complete" value="미완결"></li>
+							<li><input type="submit" name="webtoon_complete" value="완결"></li>
+
+						</ul>
+					</form>
+				</div>
+
+				<div style="clear: both;"></div>
+
+				<div id="submenutab">
+					<form action="tagpage_tag1">
+						<input type="hidden" name="webtoon_platform"
+							value="${webtoon_platform}"><input type="hidden"
+							name="webtoon_complete" value="${webtoon_complete}">
+						<ul class="submenutab">
+							<li class="current"><a href="/tagpage_tag?webtoon_tag1=전체">전체</a></li>
+							<li><input type="submit" name="webtoon_tag1" value="판타지"></li>
+							<li><input type="submit" name="webtoon_tag1" value="드라마"></li>
+							<li><input type="submit" name="webtoon_tag1" value="로맨스"></li>
+							<li><input type="submit" name="webtoon_tag1" value="SF"></li>
+							<li><input type="submit" name="webtoon_tag1" value="액션"></li>
+							<li><input type="submit" name="webtoon_tag1" value="무협"></li>
+							<li><input type="submit" name="webtoon_tag1" value="스포츠"></li>
+							<li><input type="submit" name="webtoon_tag1" value="코미디"></li>
+							<li><input type="submit" name="webtoon_tag1" value="스릴러"></li>
+							<li><input type="submit" name="webtoon_tag1" value="공포"></li>
+							<li><input type="submit" name="webtoon_tag1" value="일상"></li>
+						</ul>
+					</form>
+				</div>
+
+				<div style="clear: both;"></div>
+
+			</div>
+			<!-- --------------------------------------------- -->
+
+
+			<c:if test="${!empty wblist }">
+				<div class="tag-item">
+					<c:forEach var="wblist" items="${wblist}">
+						<a onclick="openLayer(<c:out value="${wblist.webtoon_no}"/>)"
+							value="<c:out value="${wblist.webtoon_no}"/>">
+							<div class="item" id="item">
+								<div class="web-img">
+									<img src="/resources/upload/${wblist.webtoon_thumbnail}"
+										class="thumbnail" style="width: 100%; height: 100%;">
+								</div>
+								<div class="web-title" id="web-title">
+									<span><b><c:out value="${wblist.webtoon_title}" /></b></span>
+								</div>
+							</div>
+						</a>
+					</c:forEach>
+				</div>
+			</c:if>
+
+
+			<!-- --------------------------------------------- -->
+
+			<%-- 검색폼 --%>
+			<div>
+				<select name="find_field">
+					<option value="webtoon_title"
+						<c:if test="${find_field=='webtoon_title'}">${'selected'}</c:if>>제목
+					</option>
+					<option value="webtoon_writer"
+						<c:if test="${find_field=='webtoon_writer'}">${'selected'}</c:if>>작가
+					</option>
+				</select> <input name="find_name" id="find_name" size="14"
+					value="${find_name}" /> <input type="submit" value="검색" />
+			</div>
+		</div>
+
+		<c:forEach var="pop" items="${wblist}">
+			<div class="popup-layer" id="<c:out value="${pop.webtoon_no}"/>">
+				<div class="popup-box">
+					<div class="content-part" id="content-part">
+						<div class="pop-text">
+							<div class="pop-title" id="pop-title">
+								<h3>${pop.webtoon_title}</h3>
+							</div>
+							<div class="pop-author">
+								<b> 플랫폼 : &nbsp;${pop.webtoon_platform}<br>
+									&nbsp;작가&nbsp;&nbsp;: &nbsp;${pop.webtoon_writer}<br>
+									&nbsp;장르&nbsp;&nbsp;:&nbsp; <c:if
+										test="${empty pop.webtoon_tag2}">
                         ${pop.webtoon_tag1}
-                     </c:if> <c:if test="${!empty pop.webtoon_tag2}">${pop.webtoon_tag1} , ${pop.webtoon_tag2}
-                     </c:if>
+                        </c:if> <c:if test="${!empty pop.webtoon_tag2}">
+                        ${pop.webtoon_tag1} , ${pop.webtoon_tag2}
+                        </c:if></b>
+							</div>
+							<div class="pop-cont">${pop.webtoon_cont}</div>
+						</div>
+						<div class="popup-btn">
+							<a id="close-btn"
+								onclick="closeLayer(<c:out value="${pop.webtoon_no}"/>)"><i
+								class="fa-solid fa-rectangle-xmark"></i></a>
+						</div>
+						<div class="total">
+							<div class="slider-wrap">
 
-                  </b>
-               </div>
-               <div class="pop-cont">${pop.webtoon_cont}</div>
-            </div>
-
-            <div class="pop-img">
-               <img id="pop-cont-image"
-                  src="/resources/upload/${pop.webtoon_image1}">
-               <div class="popup-btn">
-                  <a id="close-btn"
-                     onclick="closeLayer(<c:out value="${pop.webtoon_no}"/>)"><button>닫기</button></a>
-                  <div class="arrow-btn">
+								<div class="pop-img">
+									<img src="resources/upload/${pop.webtoon_image1 }"
+										style="height: 300px; width: 330px;">
+								</div>
 
 
-                     <button id="next-btn" onclick="changePic(0);">
-                        <span id="arrow"><i class="fa-solid fa-chevron-left"
-                           style="font-size: 10px; color: black;"></i></span>
-                     </button>
-                     <button id="back-btn" onclick="changePic(1);">
-                        <span id="arrow"><i class="fa-solid fa-chevron-right"
-                           style="font-size: 10px; color: black;"></i></span>
-                     </button>
+								<div class="pop-img">
+									<img src="resources/upload/${pop.webtoon_image2 }"
+										style="height: 300px; width: 330px;">
+								</div>
 
-                  </div>
-               </div>
+								<div class="pop-img">
+									<img src="resources/upload/${pop.webtoon_image3 }"
+										style="height: 300px; width: 330px;">
+								</div>
+							</div>
+						</div>
+					</div>
 
-            </div>
-         </div>
+					<div class="review-part">
+						<select name="rating">
+							<option value="1">★☆☆☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="4">★★★★☆</option>
+							<option value="5">★★★★★</option>
+						</select>
+						<textarea style="resize: none; padding-left: 15px;"
+							id="reviewCont"></textarea>
+						<button type="button" onclick="reviewAdd();">리뷰작성</button>
 
-         <div class="review-part">
-            <h3 class="review-title">리뷰</h3>
-            <div class="review-wrap">
+						<h3 class="review-title">리뷰</h3>
 
-               <div id="review-list">
-                  <div class="review">
-                     <div class="review-user-part">
-                        <div id="rating">
-                           <b>평점</b>
-                        </div>
-                        <div id="user">
-                           <b>작성자</b>
-                        </div>
-                     </div>
-                     <div id="review-cont">내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD내용!!!!!!!!!!!!!DDDDDDDDDD</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
 
-</c:forEach>
+
+
+						<table style="margin-top: 15px;">
+							<tr>
+								<td><i class="fa-regular fa-star"></i></td>
+								<td style="text-align: right;"><i
+									class="fa-solid fa-user-secret"></i>&nbsp;jhj931012</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div id="review-cont">
+										asdfasdfasd<br>dasfasdf<br>asdfasd<br>sadfasdf
+									</div>
+								</td>
+							</tr>
+						</table>
+
+						<table style="margin-top: 15px;">
+							<tr>
+								<td><i class="fa-regular fa-star"></i></td>
+								<td style="text-align: right;"><i
+									class="fa-solid fa-user-secret"></i>&nbsp;jhj931012</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div id="review-cont">
+										asdfasdfasd<br>dasfasdf<br>asdfasd<br>sadfasdf
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+</body>
+</html>

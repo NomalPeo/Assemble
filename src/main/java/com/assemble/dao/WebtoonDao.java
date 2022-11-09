@@ -36,4 +36,6 @@ public interface WebtoonDao {
     List<WebtoonVO> ActionWebtoonList3(WebtoonVO wb);
 
     List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb);
+
+	List<WebtoonVO> getWeblist1(WebtoonVO wb);
 }

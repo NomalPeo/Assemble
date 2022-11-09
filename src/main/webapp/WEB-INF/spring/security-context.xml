@@ -17,7 +17,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 	<bean id="bcryptPasswordEncoder"
-		class="com.assemble.security.CustomNoOpPasswordEncoder" />
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<!-- 1. 스프링 시큐리티에서 제공하는 BCryptPasswordEncoder 클래스를 이용해서 비밀번호를 암호화 한다. 2. 
 		bcrypt는 비밀번호를 저장하는 용도로 설계된 것으로 특정 문자열을 암호화한다. 체크하는 쪽에서는 암호화 된 패스워드인지 확인하고 
 		다시 원본비번으로 되돌리지는(복호화) 못한다. 3. 스프링 시큐리티 api안에 포함되어 있다. -->
@@ -34,19 +34,13 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 			가로챈 다음 access속성에 접근권한 범위를 지정한다. permitAll은 모든 사용자 접근 권한을 허용한다. -->
 
 		<security:intercept-url
-			pattern="/sample/member" access="hasRole('ROLE_MEMBER')" />
+			pattern="/user/*" access="hasRole('ROLE_MEMBER')" />
 		<!-- ROLE_MEMBER는 로그인한 일반회원만 접근 가능 -->
 
 		<security:intercept-url pattern="/admin/*"
 			access="hasRole('ROLE_ADMIN')" />
 
 		<security:csrf disabled="true"/>
-
-		<!-- <security:access-denied-handler
-			ref="customAccessDenied" /> -->
-		<!-- 403접근 금지 에러가 발생 했을때 빈아이디 customAccessDenied를 호출한다. -->
-
-		<!--<security:form-login/> 시큐리티 폼 로그인 설정 : 스프링 시큐리티 자체 폼 로그인 실행 -->
 
 		<security:form-login login-page="/users_login"
 			authentication-success-handler-ref="customLoginSuccess" login-processing-url="/login_ok"

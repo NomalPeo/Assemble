@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.assemble.service.FreeBoardService;
 import com.assemble.vo.BoardVO;
+import com.assemble.vo.UsersVO;
 
 @Controller
 public class FreeBoardController {
@@ -129,6 +130,8 @@ public class FreeBoardController {
 	
 	// 첨부파일
 			
+
+	
 }
 
 

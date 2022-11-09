@@ -23,9 +23,147 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{webtoon_image3},
 		#{webtoon_age})
 	</insert>
-	
-	
+
 	<select id="adminBoard_List" resultType="board">
-		select * from board where board_type = #{board_type}
+		select * from (select * from
+		(select * from board
+		<where>
+			<if test="board_type ==''">
+				board_type = 1 or board_type = 2 or board_type =3 or
+				board_type = 4
+			</if>
+			<if test="board_type != ''">
+				board_type = #{board_type}
+			</if>
+		</where>
+		order by board_no desc
+		))
 	</select>
+	<!-- <select id="adminBoard_List" resultType="board"> select * from board 
+		where board_type = #{board_type} order by board_no desc </select> -->
+
+	<select id="admin_board" resultType="board">
+		select * from board where
+		board_no = #{board_no}
+	</select>
+
+
+	<select id="board_c" resultType="board">
+		select count(*) from board
+	</select>
+
+	<update id="content_hit">
+		update board set board_hit = board_hit + 1 where
+		board_no = #{board_no}
+	</update>
+
+
+
+	<select id="adminBoard_reply" resultType="reply">
+		select * from reply
+		where board_reply_bno =#{board_no}
+	</select>
+
+	<delete id="adminReply_del">
+		delete from reply where board_reply_rno =
+		#{board_rno}
+	</delete>
+
+	<insert id="admin_reply_insert">
+		insert into reply
+		(board_reply_rno,board_reply_cont,board_regdate,board_reply_bno,board_reply_writer)
+		values
+		(rno_seq.nextval,#{board_reply_cont},sysdate,#{board_reply_bno},#{board_reply_writer})
+	</insert>
+
+
+	<resultMap id="userMap" type="users">
+		<id property="user_id" column="user_id" />
+
+		<result property="user_id" column="user_id" />
+		<result property="user_no" column="user_no" />
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_gender" column="user_gender" />
+		<result property="user_nickname" column="user_nickname" />
+		<result property="user_date" column="user_date" />
+		<result property="user_date" column="user_date" />
+		<result property="startrow" column="startrow" />
+		<result property="endrow" column="endrow" />
+
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+
+	<resultMap id="authMap" type="authvo">
+		<result property="user_id" column="user_id" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<select id="admin_user_list" resultMap="userMap">
+		select * from(select rowNum rNum,
+		mem.user_id,user_no,
+		user_pwd,user_name,user_gender,user_nickname,user_date,auth FROM users mem
+		LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id
+		<where>
+			<if test="find_field == ''">
+			rNum &gt;= #{startrow} and rNum &lt;= #{endrow} 
+			</if>
+			<if test="find_field == 'user_id'">
+				mem.user_id like #{find_name}
+			</if>
+		</where>
+		order by user_no) where
+  rowNum &gt;= #{startrow} and rowNum &lt;= #{endrow} 
+	</select>
+
+	<select id="admin_user_count" resultType="int">
+		select count(*) from users
+		<where>
+			<if test="find_field == ''">
+			</if>
+			<if test="find_field == 'user_id'">
+				mem.user_id like #{find_name}
+			</if>
+		</where>
+	</select>
+
+	<delete id="admin_user_del">
+		delete from users where user_id =#{user_id}
+	</delete>
+
+	<delete id="admin_user_auth_del">
+		delete from users_auth where user_id = #{user_id}
+	</delete>
+
+	<update id="user_security_edit">
+		update users set user_nickname=#{user_nickname} where user_id=#{user_id}
+	</update>
+
+<!-- 	<update id="auth_username_edit">
+		update users_auth set user_id = #{user_id} where user_id=#{user_id}
+	</update>
+	
+	<update id="reply_username_edit">
+		update review set user_id =#{user_id}
+	</update>
+	
+	<update id="authoritiesname_edit">
+		update AUTHORITIES set username = #{user_id}
+	</update>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </mapper>

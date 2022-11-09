@@ -13,6 +13,45 @@ public class UsersVO {
 
 	private List<AuthVO> authList;
 
+	private int startrow;
+	private int endrow;
+	
+    private String find_name;
+    private String find_field;
+	
+	
+	public String getFind_name() {
+		return find_name;
+	}
+
+	public void setFind_name(String find_name) {
+		this.find_name = find_name;
+	}
+
+	public String getFind_field() {
+		return find_field;
+	}
+
+	public void setFind_field(String find_field) {
+		this.find_field = find_field;
+	}
+
+	public int getStartrow() {
+		return startrow;
+	}
+
+	public void setStartrow(int startrow) {
+		this.startrow = startrow;
+	}
+
+	public int getEndrow() {
+		return endrow;
+	}
+
+	public void setEndrow(int endrow) {
+		this.endrow = endrow;
+	}
+
 	public int getUser_no() {
 		return user_no;
 	}

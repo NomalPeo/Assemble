@@ -19,8 +19,9 @@
 				class="webinsert div">웹툰 등록</a>
 		</div>
 		<div class="bottom">
-			<a href="/admin/boardmanager" class="board div">게시물 관리</a> <a href="/user_logout"
-				class="logout div">로그아웃</a>
+			<a href="/admin/boardmanager" class="board div">게시물 관리</a> 
+			<a href="/admin/user_manager" class="logout div">회원관리</a> 
+			<a href="/user_logout" class="user div">로그아웃</a>
 		</div>
 	</div>
 </body>

@@ -35,5 +35,7 @@ public interface WebtoonService {
 	List<WebtoonVO> ActionWebtoonList3(WebtoonVO wb);
 
 	List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb);
+
+	List<WebtoonVO> getWebtoonList1(WebtoonVO wb);
 }
 

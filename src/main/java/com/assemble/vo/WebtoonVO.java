@@ -9,7 +9,7 @@ public class WebtoonVO {
 	private String webtoon_writer;
 	private String webtoon_cont;
 	private String webtoon_platform;
-	private int webtoon_complete;
+	private String webtoon_complete;
 	private String webtoon_tag1;
 	private String webtoon_tag2;
 	private String webtoon_thumbnail;
@@ -56,10 +56,10 @@ public class WebtoonVO {
 	public void setWebtoon_platform(String webtoon_platform) {
 		this.webtoon_platform = webtoon_platform;
 	}
-	public int getWebtoon_complete() {
+	public String getWebtoon_complete() {
 		return webtoon_complete;
 	}
-	public void setWebtoon_complete(int webtoon_complete) {
+	public void setWebtoon_complete(String webtoon_complete) {
 		this.webtoon_complete = webtoon_complete;
 	}
 	public String getWebtoon_tag1() {

@@ -1,10 +1,7 @@
 package com.assemble.controller;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.anything;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Principal;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.assemble.service.UsersService;
 import com.assemble.vo.UsersVO;
 
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 public class UsersController {
@@ -73,7 +69,7 @@ public class UsersController {
 		if(dm == null) {
 			session.invalidate();
 		}
-		
+
 		return "index_1";
 	}
 
@@ -107,19 +103,21 @@ public class UsersController {
 
 	//회원저장
 	@RequestMapping("join_ok")
-	public String join_ok(UsersVO m) {
-		m.setUser_pwd(pwencoder.encode(m.getUser_pwd()));
+	public String join_ok(UsersVO m, HttpServletRequest request) {
+		String user_pwd = pwencoder.encode(request.getParameter("user_pwd"));
+		System.out.println(user_pwd);
+		m.setUser_pwd(user_pwd);
 		this.usersService.insertUsers(m);
 		this.usersService.authinsertUsers(m.getUser_id().toString());
 		return "LoginJoin/Login/login";
 	}//join_ok()
-
-
+	
 	//비밀번호찾기 공지창
 	@GetMapping("pwd_find")
 	public String pwd_find() {
 		return "myPage/pwd/pwd_find"; // /WEB-INF/views/users/pwd_find.jsp
 	}//pwd_find()
+
 
 	//비번찾기 결과
 	@PostMapping("pwd_find_ok")
@@ -154,7 +152,20 @@ public class UsersController {
 		return null;
 	}//pwd_find_ok()
 
-	//로그인 인증후 메인화면
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@GetMapping("index")
 	public String index(HttpServletResponse response, HttpSession session)
 			throws Exception {
@@ -165,68 +176,6 @@ public class UsersController {
 		}
 		return null;
 	}//index();
-
-	//마이페이지
-	@GetMapping("/myPage")
-	public ModelAndView mypage() {
-		ModelAndView my = new ModelAndView();
-		my.setViewName("myPage/myPage");
-		return my;
-	}//login()
-
-	//회원탈퇴 폼
-	@RequestMapping("/users_del")
-	public String users_del(HttpServletResponse response,Principal principal)
-			throws Exception{
-		response.setContentType("text/html; charset=UTF-8");
-
-		String username = principal.getName();
-		this.usersService.getUsers(username);	
-		return "myPage/del/del";
-
-	}//User_del()
-
-	/*회원 탈퇴 완료*/
-	@PostMapping("users_del_ok")
-	public String users_del_ok(HttpServletResponse response, HttpSession session,Principal principal,
-			HttpServletRequest request,
-			@RequestParam("del_pwd") String del_pwd,String del_cont, UsersVO dm) 
-					throws Exception{
-
-		response.setContentType("text/html; charset=UTF-8");
-
-		request.setCharacterEncoding("UTF-8");
-
-		PrintWriter out=response.getWriter();
-		String username = principal.getName(); //세션 아이다값을 구함
-
-		if(username == null) {
-			out.println("<script>");
-			out.println("alert('다시 로그인 하세요!');");
-			out.println("locaction='users_login';");
-			out.println("</script>");	
-		}else {
-			del_pwd=pwencoder.encode(del_pwd); //비번을 암호화
-			UsersVO db_pwd=this.usersService.getUsers(username);
-
-			if(!db_pwd.getUser_pwd().equals(del_pwd)) {
-				out.println("<script>");
-				out.println("alert('비번이 다릅니다!');");
-				out.println("history.go(-1);");
-				out.println("</script>");
-			}else {
-				dm.setUser_id(username);
-				this.usersService.authDel(dm.getUser_id());
-				this.usersService.delUser(dm); //회원탈퇴
-
-				out.println("<script>");
-				out.println("alert('회원 탈퇴 했습니다 !');");
-				out.println("location='users_login';");
-				out.println("</script>");
-			}//inner if else
-		}//outer if else
-		return null;	
-	}//users_del_ok()
 
 
 

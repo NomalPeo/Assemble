@@ -1,5 +1,7 @@
 package com.assemble.vo;
 
+import java.util.List;
+
 public class BoardVO {
 	private int board_no;
 	private String board_title;
@@ -13,20 +15,27 @@ public class BoardVO {
 	private int board_category;
 	
 	
-	private String find_category;
-	
-	
-	public String getFind_category() {
-		return find_category;
-	}
-	public void setFind_category(String find_category) {
-		this.find_category = find_category;
-	}
-	
 	// 페이징 관련변수
 	private int startrow;
 	private int endrow;
 	
+	private String find_field;
+	private String find_name;
+	
+	
+	
+	public String getFind_field() {
+		return find_field;
+	}
+	public void setFind_field(String find_field) {
+		this.find_field = find_field;
+	}
+	public String getFind_name() {
+		return find_name;
+	}
+	public void setFind_name(String find_name) {
+		this.find_name = find_name;
+	}
 	public int getStartrow() {
 		return startrow;
 	}

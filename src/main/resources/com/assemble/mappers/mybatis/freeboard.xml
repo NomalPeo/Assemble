@@ -7,13 +7,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="FreeBoard">
 
 	<!-- 게시판 저장 -->
-	<insert id="fb_in" parameterType="webtoon">
+	<insert id="fb_in" parameterType="board">
 		insert into board(board_no,board_title,board_writer,board_cont,board_date,board_type) 
 		values(board_seq.nextval,#{board_title},#{board_writer},#{board_cont},sysdate,1)
 	</insert>
 	
 	<!-- 게시판 목록 -->
-	<select id="fb_list" resultType="webtoon" >
+	<select id="fb_list" resultType="board" >
 		select * from (select rowNum rNum, board_no, board_title, board_writer, board_date,
 		board_hit from (select * from board order by board_no desc))
 		where rNum &gt; = #{startrow} and rNum &lt; = #{endrow}
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 게시물 내용보기 -->
-	<select id ="fb_cont" parameterType="int" resultType="webtoon">
+	<select id ="fb_cont" parameterType="int" resultType="board">
 		select * from board where board_no = #{board_no}
 	</select>
 	

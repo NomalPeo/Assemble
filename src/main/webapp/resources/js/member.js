@@ -82,12 +82,6 @@ function id_check() {
         id_check_dom.val('').focus();
         return false;
     }
-    const token = $("meta[name='_csrf']").attr("content");
-    const header = $("meta[name='_csrf_header']").attr("content");
-    //디버그용
-		
-		
-
 
     $.ajax({
         type: "POST",
@@ -100,8 +94,7 @@ function id_check() {
         success: function (data) {
             console.log(data)
             const id_check_dom =  $("#idcheck");
-
-                        if (data ==1) {
+            		if (data ==1) {
                 const newtext = '<font color="red" size="3"><b>중복 아이디입니다.</b></font>';
                 id_check_dom.text('');
                 id_check_dom.show();
@@ -109,7 +102,7 @@ function id_check() {
                 $("#user_id").val('').focus();
                 return false;
             
-            } else {
+            }else{
                 const newtext = '<font color="blue" size="3"><b>사용가능한 아이디입니다.</b></font>';
                 id_check_dom.text('');
                 id_check_dom.show();

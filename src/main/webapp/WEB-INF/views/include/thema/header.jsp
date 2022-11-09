@@ -68,16 +68,20 @@
 				</div>
 				<div class="login-join">
 					<sec:authorize access="isAnonymous()">
-						<a href="users_login" class="login">로그인 </a> | <a href="join"
+						<a href="/users_login" class="login">로그인 </a> | <a href="join"
 							class="join"> 회원가입</a>
 					</sec:authorize>
-					<sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
-						<a href="users_login" class="login_role">마이페이지 </a> |
-						<form method="post" action="user_logout" class="logoutform">
-							<input type="hidden" name="${_csrf.parameterName}"	class="logout"
-								value="${_csrf.token}" />
-							<input type="submit" value="로그아웃" />
+					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
+						<a href="user/myPage" class="login_role">마이페이지 </a> |
+                    <form method="post" action="user_logout"
+							class="logoutform">
+							<input type="hidden" name="${_csrf.parameterName}" class="logout"
+								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
 						</form>
+					</sec:authorize>
+					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a href="/user_logout"
+							class="join"> 로그아웃</a>
 					</sec:authorize>
 				</div>
 				<div style="clear: both;"></div>

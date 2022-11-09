@@ -6,7 +6,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Data
 public class AuthVO {
     private String user_id;
     private String auth;
@@ -32,9 +31,11 @@ public class AuthVO {
     }
 
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return auth;
+	}
 
+    
 }

@@ -29,9 +29,7 @@ public class CustomUser extends User{
 	}
 	public CustomUser(String login_id, String login_pwd, Collection<? extends GrantedAuthority> 
 	authorities) {
-		/*GrantedAuthority를 상속받은 자손타입으로만 제네릭 타입 형변환(제네릭 와일드카드 문자)을
-		 * 허용하면서 권한 목록을 구함
-		 */
+	
 		super(login_id, login_pwd,authorities); // 부모의 오버로딩 된 생성자를 호출하면서 아이디, 비번, 권한 목록을 전달한다.
 	}
 }

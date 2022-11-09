@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.user_table {
+	margin: auto;
+	text-align: center;
+	border-collapse: collapse;
+	width: 1000px;
+	margin-top: 20px;
+}
+
+.user_table th {
+	background-color: gray;
+}
+
+.user_table tr:nth-child(even):hover {
+	background-color: #ddd;
+}
+
+.topchoice {
+	background-color: white;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+
+.topchoice a {
+	text-decoration: none;
+	border: 2px solid black;
+	font-weight: bold;
+	display: inline-block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 10px;
+	background-color: white;
+	margin-right: 15px;
+}
+
+.topchoice a:last-child {
+	margin-right: 0;
+}
+
+.topchoice a:hover {
+	opacity: 0.5;
+}

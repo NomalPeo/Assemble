@@ -1,0 +1,47 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding:0;
+}
+.all{
+	border:1px solid black;
+	width:700px;
+	margin:auto;
+	margin-top: 50px;
+}
+.typeButton{
+	text-align: center;
+	height: 150px;
+	line-height: 150px;
+}
+.typeButton button{
+	border: none;
+	border-radius:10px;
+	text-decoration: none;
+	padding:15px 20px;
+	font-size: 20px;
+}
+.typeButton button:hover{
+	color: red;
+	cursor: pointer;
+}
+.boardMain{
+}
+#board{
+	border-collapse:collapse;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+}
+.headers{
+	background-color: #ddd;
+}
+#board th,td{
+	border-bottom: 1px solid gray;
+}
+.headers th:first-child {
+	width: 100px;
+}
+.headers th:last-child {
+	width: 100px;
+}

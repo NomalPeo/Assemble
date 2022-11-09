@@ -35,6 +35,16 @@ SELECT ROWNUM FROM webtoon;
 
 commit;
 
+alter table webtoon add tmp_column varchar2(20);
+update webtoon set tmp_column=webtoon_complete;
+
+alter table webtoon drop column webtoon_complete;
+
+alter table webtoon rename column tmp_column to webtoon_complete;
+
+update webtoon set webtoon_complete='미완결' where webtoon_complete='1';
+
+update webtoon set webtoon_complete='완결' where webtoon_complete='2';
 
 select * from webtoon where webtoon_tag1 = '스릴러' or webtoon_tag2 = '스릴러';
 

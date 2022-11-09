@@ -15,13 +15,4 @@ public interface UsersService {
 	UsersVO loginCheck(String login_id);
 
 	void authinsertUsers(String string);
-
-	UsersVO getUsers(String id);
-
-	void delUser(UsersVO dm);
-
-	void authDel(String user_id);
-
-
-
 }

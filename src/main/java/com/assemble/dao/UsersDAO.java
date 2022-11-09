@@ -15,11 +15,5 @@ public interface UsersDAO {
 	UsersVO loginCheck(String login_id);
 
 	void authinsertUser(String string);
-	
-	UsersVO getUsers(String id);
-
-	void delUser(UsersVO dm);
-
-	void authDel(String user_id);
 
 }

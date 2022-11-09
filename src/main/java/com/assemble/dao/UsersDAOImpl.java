@@ -42,20 +42,5 @@ public class UsersDAOImpl implements UsersDAO {
 		this.sqlSession.insert("auth_in", string);
 	}
 	
-	@Override
-	public UsersVO getUsers(String id) {
-		return this.sqlSession.selectOne("m_edit", id);
-	}
-
-	@Override
-	public void delUser(UsersVO dm) {
-		this.sqlSession.delete("m_del", dm);
-	}
-
-	@Override
-	public void authDel(String user_id) {
-		this.sqlSession.delete("auth_del", user_id);
-	}
-	
 
 }

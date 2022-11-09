@@ -87,5 +87,10 @@ public class WebtoonDaoImpl implements WebtoonDao {
 	public List<WebtoonVO> ActionWebtoonList4(WebtoonVO wb) {
 		return this.sqlSession.selectList("actionW4",wb);	}
 
+	@Override
+	public List<WebtoonVO> getWeblist1(WebtoonVO wb) {
+		return this.sqlSession.selectList("web_list1", wb);
+	}
+
 
 }

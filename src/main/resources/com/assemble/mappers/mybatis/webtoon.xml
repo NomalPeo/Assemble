@@ -37,8 +37,28 @@
       order by webtoon_title))
       where rNu &gt;= #{startrow} and
       rNu &lt;= #{endrow}
-
    </select>
+
+
+
+	  <select id="web_list1" resultType="webtoon">
+      select * from webtoon
+      <where>
+         <if test="webtoon_platform == ''" />
+         <if test="webtoon_platform != ''">
+            webtoon_platform = #{webtoon_platform}
+         </if>
+         <if test="webtoon_complete == ''" />
+         <if test="webtoon_complete != ''">
+            and webtoon_complete = #{webtoon_complete}
+         </if>
+         <if test="webtoon_tag1 == ''" />
+         <if test="webtoon_tag1 != ''">
+            and (webtoon_tag1 = #{webtoon_tag1} or webtoon_tag2 = #{webtoon_tag1})
+         </if>
+      </where>
+   </select>
+	
 
 
 

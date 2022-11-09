@@ -86,4 +86,9 @@ public class WebtoonServiceImpl implements WebtoonService {
 		return this.webtoonDao.ActionWebtoonList4(wb);
 	}
 
+	@Override
+	public List<WebtoonVO> getWebtoonList1(WebtoonVO wb) {
+		return this.webtoonDao.getWeblist1(wb);
+	}
+
 }

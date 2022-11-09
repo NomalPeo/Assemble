@@ -24,7 +24,7 @@ href="/resources/css/member.css" />
 <body>
  <div id="mDel_wrap">
   <h2 class="mDel_title">회원탈퇴</h2>
-  <form method="post" action="users_del_ok"
+  <form method="post" action="/user/users_del_ok"
   onsubmit="return del_check();">
    <table id="mDel_t">
     <tr>

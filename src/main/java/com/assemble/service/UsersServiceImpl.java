@@ -46,19 +46,5 @@ public class UsersServiceImpl implements UsersService {
 	} 
 	
 
-	@Override
-	public UsersVO getUsers(String id) {
-		return this.usersDAO.getUsers(id);
-	}
-
-	@Override
-	public void delUser(UsersVO dm) {
-		this.usersDAO.delUser(dm);
-	}
-	@Override
-	public void authDel(String user_id) {
-		this.usersDAO.authDel(user_id);
-	}
-
 
 }

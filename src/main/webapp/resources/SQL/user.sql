@@ -5,10 +5,7 @@ create table users(
     user_name varchar2(50) not null,
     user_gender number(10) not null,
     user_nickname varchar2(50) not null,
-    user_date date,
-    user_state int default 1,
-    user_delcont varchar2(4000),
-    user_deldate date
+    user_date date
 );
 
 ALTER TABLE users MODIFY(user_pwd VARCHAR2(200));
@@ -23,7 +20,11 @@ ALTER TABLE users DROP COLUMN email_domain;
 
 select * from users;
 
-delete from users;
+delete from users where user_id = 'member11';
+
+delete from users_auth where user_id = 'member11';
+
+commit;
 
 create sequence users_seq
 start with 1
@@ -49,10 +50,15 @@ select * from users_auth;
 commit;
 select mem.user_id,user_no,user_pwd,user_name,user_gender,user_nickname,user_date, auth from users mem LEFT OUTER JOIN 
 	users_auth on mem.user_id = users_auth.user_id;
-update users_auth set auth = 'ROLE_ADMIN' where user_id = 'zxzxzx';
+delete from users_auth where user_id ='user00';
+delete from users where user_id = 'user00';
 
+update users_auth set auth = 'ROLE_ADMIN' where user_id = 'user00';
+commit;
     
 select mem.user_id,user_no, user_pwd,user_name,user_gender,user_nickname,user_date, auth FROM users mem LEFT OUTER JOIN users_auth auth on mem.user_id = auth.user_id; 
+
+
 
 create table persistent_logins(
     username varchar2(64) not null -- 회원아이디
@@ -65,5 +71,23 @@ ALTER TABLE users DROP COLUMN user_state;
 ALTER TABLE users DROP COLUMN user_delcont;
 ALTER TABLE users DROP COLUMN user_deldate;
 commit;
+
+select * from users;
+select * from (select rowNum rNum,
+		mem.user_id,user_no,
+		user_pwd,user_name,user_gender,user_nickname,user_date,auth FROM users mem
+		LEFT OUTER JOIN users_auth auth on (mem.user_id = auth.user_id)
+		where mem.user_id like 'user00'	
+		order by user_no) where rNum >='1' and rNum <='12' order by rNum desc;
+commit;
+select * from users where user_no = '83';
+
+
+
+
+
+update users_auth set auth = 'ROLE_ADMIN' where user_id ='ghghgh';
+rollback;
+
 
 

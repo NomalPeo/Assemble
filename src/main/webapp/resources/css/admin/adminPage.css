@@ -1,110 +1,141 @@
 @charset "UTF-8";
+
 * {
 	margin: 0;
 	padding: 0;
 }
-
+body{
+	height: 100vh;
+	width:100vw;
+}
 .whale {
 	position: relative;
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 	background-color: gray;
 }
+
 .top {
 	position: absolute;
 	top: 50%;
-	left:50%;
-	transform: translate(-50%,-100%);
-	
+	left: 50%;
+	transform: translate(-50%, -100%);
 }
 
 .bottom {
 	position: absolute;
 	bottom: 50%;
 	left: 50%;
-	transform: translate(-50%,100%);
+	transform: translate(-50%, 100%);
 }
+
 .div {
 	border-radius: 20px;
-	margin:30px;
+	margin: 30px;
 	display: inline-block;
-	height: 200px;
-	width: 200px;
-	background-color: white	;
-	line-height: 250px;
+	height: 150px;
+	width: 150px;
+	background-color: white;
+	line-height: 200px;
 	text-align: center;
-	transition:0.5s;
+	transition: 0.5s;
 	text-decoration: none;
 }
-.div:hover{
-	transform : scale(1.2);
+
+.div:hover {
+	transform: scale(1.2);
 }
+
 .home {
-		position: relative;
-	
+	position: relative;
 }
-.home:before{
+
+.home:before {
 	content: "\e900";
- font-family: "xeicon";
+	font-family: "xeicon";
 	position: absolute;
-	display:inline-block;
-	top:-25%;
-	left:40%;
+	display: inline-block;
+	top: -25%;
+	left: 37%;
 	font-size: 40px;
 }
+
 .home:visited {
 	color: black;
 }
+
 .home:link {
 	color: black;
 }
+
 .webinsert {
-		position: relative;
-	
+	position: relative;
 }
-.webinsert:before{
-	content:"\eb7a";
+
+.webinsert:before {
+	content: "\eb7a";
 	font-family: "xeicon";
 	position: absolute;
-	display:inline-block;
-	top:-25%;
-	left:40%;
+	display: inline-block;
+	top: -25%;
+	left: 37%;
 	font-size: 40px;
 }
+
 .webinsert:visited {
 	color: black;
 }
+
 .board {
 	position: relative;
 }
-.board:before{
+
+.board:before {
 	content: "\eb14";
 	font-family: "xeicon";
 	position: absolute;
-	display:inline-block;
-	top:-25%;
-	left:40%;
+	display: inline-block;
+	top: -25%;
+	left: 37%;
 	font-size: 40px;
 }
+
 .board:visited {
 	color: black;
 }
+
 .logout {
-		position: relative;
-	
+	position: relative;
 }
+
 .logout:before {
-	content: "\e972";
+	content: "\e9f4";
 	font-family: "xeicon";
 	position: absolute;
-	display:inline-block;
-	top:-25%;
-	left:40%;
+	display: inline-block;
+	top: -25%;
+	left: 37%;
 	font-size: 40px;
 }
+
 .logout:visited {
 	color: black;
 }
 
+.user {
+	position: relative;
+}
 
+.user:before {
+	content: "\e972";
+	font-family: "xeicon";
+	position: absolute;
+	display: inline-block;
+	top: -25%;
+	left: 37%;
+	font-size: 40px;
+}
 
+.user:visited {
+	color: black;
+}

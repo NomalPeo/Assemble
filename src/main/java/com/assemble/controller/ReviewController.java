@@ -18,16 +18,5 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	@RequestMapping(value="/tag", method = RequestMethod.GET)
-	public String review_write(HttpServletRequest request){
-		return "tagpage/tag";
-	}
-	
-	@RequestMapping(value ="/tag", method = RequestMethod.POST)
-	public ModelAndView review_write_ok(ReviewVO r, RedirectAttributes rttr) {
-		
-		this.reviewService.insertReview(r);
-		rttr.addFlashAttribute("msg","SUCCESS");
-		return new ModelAndView("redirect:/tag");
-	}
+
 }
