@@ -1,32 +1,17 @@
 package com.assemble.controller;
 
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Calendar;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.assemble.service.WebtoonService;
 import com.assemble.vo.WebtoonVO;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WebtoonController {
@@ -91,7 +76,6 @@ public class WebtoonController {
 		listM.addAttribute("listcount", totalCount);
 		listM.addAttribute("find_field", find_field); // 검색 필드 저장
 		listM.addAttribute("find_name", find_name); // 검색어 저장
-		System.out.println("인서트 완료");
 		return "tagpage/tag";
 	}
 
@@ -151,8 +135,9 @@ public class WebtoonController {
 		listM.addAttribute("listcount", totalCount);
 		listM.addAttribute("find_field", find_field); // 검색 필드 저장
 		listM.addAttribute("find_name", find_name); // 검색어 저장
-		System.out.println("인서트 완료");
+
 		return "tagpage/tag";
 	}
+
 
 }

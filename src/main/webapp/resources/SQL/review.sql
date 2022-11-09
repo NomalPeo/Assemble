@@ -1,14 +1,27 @@
 create table review(
-   review_no number(38) primary key, -- review 테이블 pk
-   review_cont varchar2(4000) not null, -- 리뷰 내용
-   review_rating number(38) not null, -- 별점
-   review_like number(38) default 0, -- 리뷰 좋아요
-   review_regdate date, -- 등록 날짜
-   review_updatedate date, -- 수정 날짜
-   user_id varchar2(50), -- user 테이블 fk
-   webtoon_title varchar2(50) -- webtoon 테이블 fk
+   review_no number(38) primary key, -- review ?뀒?씠釉? pk
+   review_cont varchar2(4000) not null, -- 由щ럭 ?궡?슜
+   review_like number(38) default 0, -- 由щ럭 醫뗭븘?슂
+   review_regdate date, -- ?벑濡? ?궇吏?
+   review_updatedate date, -- ?닔?젙 ?궇吏?
+   review_id varchar2(50), -- user ?뀒?씠釉? fk
+   review_thumbnail varchar2(50) -- webtoon ?뀒?씠釉? fk
 );
 
-alter table review add constraint review_user_id_fk foreign key(user_id) references users(user_id);
+create SEQUENCE review_seq
+start with 1
+increment by 1
+nocache;
 
-alter table review add constraint review_webtoon_title_fk foreign key(webtoon_title) references webtoon(webtoon_title);
+select review_seq.nextval from dual
+
+alter table review drop column review_rating;
+
+select * from review
+
+select * from review r, webtoon w where r.review_thumbnail = '검빨로 레벨업.jpg'
+
+delete review
+
+
+commit

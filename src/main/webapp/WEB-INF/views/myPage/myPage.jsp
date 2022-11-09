@@ -105,7 +105,7 @@
 					<li><button class="Change-Password" type="button" id="box2">비밀번호
 							변경</button></li>
 					<li><button class="wishlist" type="button"
-							onclick="location='#';">찜 목록</button></li>
+							onclick="location.href='/wish';">찜 목록</button></li>
 					<li><button class="View-post" type="button"
 							onclick="location='#';">작성글 관리</button></li>
 					<li><button class="login-history" type="button" id="box3">로그인
@@ -129,8 +129,7 @@
 								placeholder="닉네임"><br> <br>
 							<div class="Security-Information">아이디 확인</div>
 							<input type="text" name="user_id" id="ID" size="50"
-								placeholder="ID"><br> <br>
-							<br> <br>
+								placeholder="ID"><br> <br> <br> <br>
 							<br> <br>
 							<div class="Security-change">
 								<input type="submit" value="변경사항 저장"> <input
@@ -140,7 +139,8 @@
 					</div>
 				</form>
 				<!--  -->
-				<form action="/user/PasswordChange" method="post" onsubmit="return pwd_check();">
+				<form action="/user/PasswordChange" method="post"
+					onsubmit="return pwd_check();">
 					<div class="look-page-title Change-Password-title">
 						<div class="look-page-first">
 							<div class="look-page-common">비밀번호 변경</div>
@@ -157,8 +157,8 @@
 							<input type="password" size="50" class="password" id="password_3"
 								name="password_3" placeholder="새 비밀번호 확인"> <br> <br>
 							<div class="password-change">
-								<input type="submit" value="변경사항 저장">
-								<input type="reset" value="취소">
+								<input type="submit" value="변경사항 저장"> <input
+									type="reset" value="취소">
 							</div>
 						</div>
 					</div>

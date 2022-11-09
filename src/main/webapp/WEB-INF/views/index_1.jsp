@@ -11,6 +11,9 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet"
@@ -24,39 +27,42 @@
 <link rel="stylesheet" type="text/css"
 	href="/resources/plugins/web-fonts-with-css/css/all.css" />
 <script>
-        $(document).ready(function () {
-            $('.slider1').bxSlider({
-                controls: false,
-                pager: false,
-                auto: true
-            });
+	$(document).ready(function() {
+		$('.slider1').bxSlider({
+			controls : false,
+			pager : false,
+			auto : true
+		});
 
-            $('.header-plus-btn').click(function () {
-                $('.header-content').css('position', 'relative');
-                var one = $('.header-content').css('height');
+		$('.header-plus-btn').click(function() {
+			$('.header-content').css('position', 'relative');
+			var one = $('.header-content').css('height');
 
-                if (one == "0px") {
-                    $('.header-content').css('height', 170);
-                } else {
-                    $('.header-content').css('height', 0);
-                }
-            });
+			if (one == "0px") {
+				$('.header-content').css('height', 170);
+			} else {
+				$('.header-content').css('height', 0);
+			}
+		});
 
-            $('.introduce-completion-content').bxSlider({
-            	touchEnabled : (navigator.maxTouchPoints > 0)
-            });
-            $('.introduce-weekbest-content').bxSlider({
-            	touchEnabled : (navigator.maxTouchPoints > 0)
-            });
-            $('.introduce-love-content').bxSlider({
-            	touchEnabled : (navigator.maxTouchPoints > 0)
-            });
-            $('.introduce-monthbest-content').bxSlider({
-            	touchEnabled : (navigator.maxTouchPoints > 0)
-            });
-            
-        });
-    </script>
+		$('.introduce-completion-content').bxSlider({
+			touchEnabled : (navigator.maxTouchPoints > 0),
+			touchEnabled : false
+		});
+		$('.introduce-weekbest-content').bxSlider({
+			touchEnabled : (navigator.maxTouchPoints > 0),
+			touchEnabled : false
+		});
+		$('.introduce-love-content').bxSlider({
+			touchEnabled : (navigator.maxTouchPoints > 0),
+			touchEnabled : false
+		});
+		$('.introduce-monthbest-content').bxSlider({
+			touchEnabled : (navigator.maxTouchPoints > 0),
+			touchEnabled : false
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -83,16 +89,16 @@
 							class="join"> 회원가입</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
-						<a href="user/myPage" class="login_role">마이페이지 </a> |
-                    <form method="post" action="/user_logout"
+						<a href="/user/myPage" class="login_role">마이페이지 </a> |
+                    <form method="post" action="user_logout"
 							class="logoutform">
 							<input type="hidden" name="${_csrf.parameterName}" class="logout"
 								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
 						</form>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
-						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a href="/user_logout"
-							class="join"> 로그아웃</a>
+						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a
+							href="/user_logout" class="join"> 회원가입</a>
 					</sec:authorize>
 				</div>
 
@@ -156,19 +162,19 @@
 					</div>
 				</div>
 				<div class="thumbnail-inner">
-					<div>
+					<div style="text-align: center;">
 						<a href="#"><img
 							src="/resources/images/index/header-Thumbnail/main_image_01.jpg"></a>
 					</div>
 				</div>
 				<div class="thumbnail-inner">
-					<div>
+					<div style="text-align: center;">
 						<a href="#"><img
 							src="/resources/images/index/header-Thumbnail/main_image_02.jpg"></a>
 					</div>
 				</div>
 				<div class="thumbnail-inner">
-					<div>
+					<div style="text-align: center;">
 						<a href="#"><img
 							src="/resources/images/index/header-Thumbnail/main_image_03.jpg"></a>
 					</div>
@@ -177,17 +183,33 @@
 		</div>
 		<!-- ------------------------------------------------------------------ -->
 		<div class="tag-selector">
-			<a class="action-icon" href="#"></a> <a class="ghost-icon" href="#"></a>
-			<a class="love-icon" href="#"></a> <a class="school-icon" href="#"></a>
-			<a class="robot-icon" href="#"></a>
+			<a class="action-icon"
+				href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=액션"></a>
+			<a class="ghost-icon"
+				href="tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=공포"></a>
+			<a class="love-icon"
+				href="tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=로맨스"></a>
+			<a class="school-icon"
+				href="tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=드라마"></a>
+			<a class="robot-icon"
+				href="tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=SF"></a>
 		</div>
 		<!-- ------------------------------------------------------------------ -->
 		<div class="search">
-			<form>
-				<input type="text"
+			<form action="tagpage_tag">
+				<select name="find_field">
+					<option value="webtoon_title"
+						<c:if test="${find_field=='webtoon_title'}">${'selected'}</c:if>>
+					</option>
+					<!-- <input type="text"
 					style="width: 600px; height: 40px; font-size: 30px; font-size: 15px;"
-					placeholder="웹툰 검색"> <a href="#"><i
-					class="fa-solid fa-magnifying-glass"></i></a>
+					placeholder="웹툰 검색">
+					<a href="#"><i class="fa-solid fa-magnifying-glass"></i></a> -->
+				</select><input name="find_name" id="find_name" size="50" placeholder="웹툰 검색"
+					value="${find_name}" />
+				<button type="submit" class="search-btn">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
 			</form>
 		</div>
 		<!-- ------------------------------------------------------------------ -->
@@ -196,29 +218,37 @@
 			<div class="introduce-monthbest-content">
 				<div class="monthbest-inner">
 					<c:forEach var="thriller1" items="${glist1 }" begin="0" end="5">
-					<div class="inner2">
-						<a href="#"><img src="/resources/upload/${thriller1.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
-					</div>
+						<div class="inner2">
+							<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+								src="/resources/upload/${thriller1.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
+						</div>
 					</c:forEach>
 				</div>
 				<div class="monthbest-inner">
 					<c:forEach var="thriller2" items="${glist2 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${thriller2.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+								src="/resources/upload/${thriller2.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
 				<div class="monthbest-inner">
 					<c:forEach var="thriller3" items="${glist3 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${thriller3.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+						<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+								src="/resources/upload/${thriller3.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
 				<div class="monthbest-inner">
 					<c:forEach var="thriller4" items="${glist4 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${thriller4.webtoon_thumbnail}"	style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+								src="/resources/upload/${thriller4.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
@@ -234,7 +264,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance1" items="${wlist1 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img
+							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance1.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -243,7 +273,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance2" items="${wlist2 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img
+							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance2.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -252,7 +282,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance3" items="${wlist3 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img
+							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance3.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -261,9 +291,9 @@
 				<div class="love-inner">
 					<c:forEach var="romance4" items="${wlist4 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="#"><img
-									src="/resources/upload/${romance4.webtoon_thumbnail}"
-									style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
+								src="/resources/upload/${romance4.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
@@ -280,29 +310,37 @@
 			<div class="introduce-completion-content">
 				<div class="completion-inner">
 					<c:forEach var="action" items="${alist1}">
-					<div class="inner2">
-						<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
-					</div>
+						<div class="inner2">
+							<a href="/content?webtoon_thumbnail=${action.webtoon_thumbnail}"><img
+								src="/resources/upload/${action.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
+						</div>
 					</c:forEach>
 				</div>
 				<div class="completion-inner">
 					<c:forEach var="action" items="${alist2}">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${action.webtoon_thumbnail}"><img
+								src="/resources/upload/${action.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
 				<div class="completion-inner">
 					<c:forEach var="action" items="${alist3}">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${action.webtoon_thumbnail}"><img
+								src="/resources/upload/${action.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>
 				<div class="completion-inner">
 					<c:forEach var="action" items="${alist4}">
 						<div class="inner2">
-							<a href="#"><img src="/resources/upload/${action.webtoon_thumbnail}"style="width: 200px; height: 250px;"></a>
+							<a href="/content?webtoon_thumbnail=${action.webtoon_thumbnail}"><img
+								src="/resources/upload/${action.webtoon_thumbnail}"
+								style="width: 200px; height: 250px;"></a>
 						</div>
 					</c:forEach>
 				</div>

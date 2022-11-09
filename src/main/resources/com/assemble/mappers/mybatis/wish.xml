@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Wish">
+
+
+	<insert id="w_in" parameterType="wish">
+		insert into
+		wish(wish_title,wish_id, wish_thumbnail)
+		values(#{wish_title},#{wish_id}, #{wish_thumbnail})
+	</insert>
+
+
+	<resultMap type="webtoon" id="webtoonVo">
+		<result property="webtoon_no" column="webtoon_no" />
+		<result property="webtoon_title" column="webtoon_title" />
+		<result property="webtoon_writer" column="webtoon_writer" />
+		<result property="webtoon_cont" column="webtoon_cont" />
+		<result property="webtoon_platform" column="webtoon_paltform" />
+		<result property="webtoon_complete" column="webtoon_complete" />
+		<result property="webtoon_tag1" column="webtoon_tag1" />
+		<result property="webtoon_tag2" column="webtoon_tag2" />
+		<result property="webtoon_thumbnail" column="webtoon_thumbnail" />
+		<result property="webtoon_image1" column="webtoon_image1" />
+		<result property="webtoon_image2" column="webtoon_image2" />
+		<result property="webtoon_image3" column="webtoon_image3" />
+		<result property="webtoon_age" column="webtoon_age" />
+	</resultMap>
+
+	<resultMap type="users" id="userVo">
+		<result property="user_id" column="user_id" />
+		<result property="user_no" column="user_no" />
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_gender" column="user_gender" />
+		<result property="user_nickname" column="user_nickname" />
+		<result property="user_date" column="user_date" />
+	</resultMap>
+
+	<resultMap type="wish" id="wishMap">
+		<result property="wish_title" column="wish_title" />
+		<result property="wish_user" column="wish_user" />
+		<result property="wish_thumbnail" column="wish_thumbnail" />
+		<collection property="userVo" resultMap="userVo" />
+		<collection property="webtoonVo" resultMap="webtoonVo" />
+	</resultMap>
+
+
+	<select id="w_list" resultType="wish" resultMap="wishMap">
+		select * from
+		wish
+		where wish_id = #{wish_id}
+	</select>
+
+	<delete id="w_del">
+		delete from wish where wish_title=#{wish_title}
+	</delete>
+
+	<!-- 테마 리스트2 -->
+
+	<select id="th2_in" resultType="wish" resultMap="wishMap">
+		select * from
+		(select * from webtoon, (select count(wish_title) as cnt , wish_title
+		from wish group by wish_title having count(wish_title) > 0)
+		where
+		webtoon_title = wish_title order by cnt desc) where rownum between 1
+		and 3
+	</select>
+
+	<!-- 테마 리스트3 -->
+
+	<select id="th3_in" resultType="wish" resultMap="wishMap">
+		select * from
+		(select * from webtoon, (select count(wish_title) as cnt, wish_title
+		from (select * from wish, (select * from users where user_gender = 1)
+		where wish_id = user_id)
+		group by wish_title having count(wish_title) > 0) where wish_title =
+		webtoon_title order by cnt desc) where rownum between 1 and 3
+	</select>
+	
+	<!-- 테마 리스트4 -->
+
+	<select id="th4_in" resultType="wish" resultMap="wishMap">
+		select * from
+		(select * from webtoon, (select count(wish_title) as cnt, wish_title
+		from (select * from wish, (select * from users where user_gender = 2)
+		where wish_id = user_id)
+		group by wish_title having count(wish_title) > 0) where wish_title =
+		webtoon_title order by cnt desc) where rownum between 1 and 3
+	</select>
+
+</mapper>
+        

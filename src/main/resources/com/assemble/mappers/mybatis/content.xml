@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="content">
+
+	<select id="content" parameterType="String" resultType="webtoon">
+		select *
+		from webtoon where webtoon_thumbnail = #{webtoon_thumbnail}
+	</select>
+
+	<select id="content2" resultType="webtoon">
+		select * from (select rownum as
+		rn, w.webtoon_title, w.webtoon_thumbnail, w.webtoon_tag1 from webtoon
+		w inner join (select webtoon_thumbnail, webtoon_tag1 from webtoon
+		where webtoon_thumbnail = #{webtoon_thumbnail}) w2
+		on w.webtoon_tag1 = w2.webtoon_tag1 where not w.webtoon_thumbnail =
+		#{webtoon_thumbnail}) where rn between 1 and 5
+	</select>
+
+</mapper>

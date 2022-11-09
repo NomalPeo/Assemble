@@ -7,7 +7,21 @@ public class ReviewVO {
 	private int review_like;
 	private String review_regdate;
 	private String review_updatedate;
-	private String webtoon_title;
+	private String review_thumbnail;
+	private String review_id;
+	
+	public String getReview_thumbnail() {
+		return review_thumbnail;
+	}
+	public void setReview_thumbnail(String review_thumbnail) {
+		this.review_thumbnail = review_thumbnail;
+	}
+	public String getReview_id() {
+		return review_id;
+	}
+	public void setReview_id(String review_id) {
+		this.review_id = review_id;
+	}
 	public int getReview_no() {
 		return review_no;
 	}
@@ -44,12 +58,7 @@ public class ReviewVO {
 	public void setReview_updatedate(String review_updatedate) {
 		this.review_updatedate = review_updatedate;
 	}
-	public String getWebtoon_title() {
-		return webtoon_title;
-	}
-	public void setWebtoon_title(String webtoon_title) {
-		this.webtoon_title = webtoon_title;
-	}
+	
 	
 	
 	

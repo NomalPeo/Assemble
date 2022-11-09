@@ -14,5 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.assemble.vo.SecurityVO" alias="security"/>
 		<typeAlias type="com.assemble.vo.AuthVO" alias="authvo"/>
 		<typeAlias type="com.assemble.vo.ReviewVO" alias="review"/>
+		<typeAlias type="com.assemble.vo.ThemaVO" alias="thema"/>
+<typeAlias type="com.assemble.vo.WishVO" alias="wish"/>
 	</typeAliases>
 </configuration>

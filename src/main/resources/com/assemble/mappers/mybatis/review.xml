@@ -5,7 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Review">
+	
 	<insert id="review_in">
-		insert into review(review_no, review_cont, review_rating, review_like, review_regdate, review_updatedate, ) values(review_seq.nextval, ?, ?)
+		insert into review(review_no,review_thumbnail,review_id,review_cont, review_like, review_regdate) 
+	values(review_seq.nextval,#{review_thumbnail},#{review_id},#{review_cont}, #{review_like}, sysdate) 
 	</insert>
+	
+
+	
+	<select id="rev_list" resultType="review">
+		select * from review where review_thumbnail = #{review_thumbnail}
+	</select>
+	
+	<delete id="rev_del">
+		delete review where review_no = #{review_no}
+	</delete>
 </mapper>

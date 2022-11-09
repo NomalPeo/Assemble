@@ -1,0 +1,867 @@
+@charset "UTF-8";
+
+textarea {
+   overflow: auto;
+}
+
+img {
+   border-style: none;
+
+}
+
+button {
+   background: none;
+   border: none;
+}
+
+input, button {
+   overflow: visible;
+}
+
+button, select {
+   text-transform: none;
+}
+
+a {
+   background-color: transparent;
+   color: inherit;
+   text-decoration: inherit;
+}
+
+ol, ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#cwarp {
+   min_height: 100%;
+   display: flex;
+   flex-direction: column;
+   width: 1200px;
+   margin: 0 auto;
+}
+
+.Layout {
+   position: relative;
+   dispaly: flex;
+   flex-direction: column;
+   -webkit-box-flex: 1;
+   flex-grow: 1;
+   align-items: center;
+   width: 75rem;
+   margin-left: auto;
+   margin-relght: auto;
+}
+
+.ContentLayout {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   -webkt-box-flex: 1;
+   flex-grow: 1;
+   padding-left: 7.625rem;
+   padding-right: 7.625rem;
+   margin-top: 5%;
+}
+
+.ContentMainPage {
+   height: 100%;
+   display: flex;
+   flex: 1 1 0%;
+}
+
+.leftContentMainContainer {
+   width: 20rem;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 1.75rem;
+}
+
+.rightContentMainContainer {
+   width: 39.5rem;
+   margin-left: 4px;
+   margin-bottom: 1.75rem;
+   display: flex;
+   flex-direction: column;
+}
+
+.upperleftContentMainContainer {
+   background-color: #f7f7f7;
+}
+
+.upperleft {
+   width: 20rem;
+}
+
+.upperleftOverview {
+   position: relative;
+   min-height: inherit;
+   width: 320px;
+}
+
+.upperleftOverview::before {
+   content: "";
+   display: block;
+   height: 80px;
+}
+
+.ContentOverview {
+   position: absolute;
+   overflow: hidden;
+   top: 0px;
+   left: 0px;
+   width: 20rem;
+   height: 20rem;
+}
+
+.imageContentOverView {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+}
+
+.ContentOverview-ContentOverview {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   background: rgba(0, 0, 0, 0.3);
+   backdrop-filter: blur(24px);
+}
+
+.ContentOverview-ContentOverview2 {
+   position: absolute;
+   left: 0px;
+   bottom: 0px;
+   width: 320px;
+   height: 160px;
+   position: absolute;
+   left: 0px;
+   bottom: 0px;
+   width: 320px;
+   height: 160px;
+   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #f7f7f7 100%);
+}
+
+.ContentOverview3 {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 20rem;
+   height: 20rem;
+}
+
+.ContentOverview4 { 
+   --tw-bg-opacity: 1;
+   background-color: rgba(0, 0, 0, var(- -tw-bg-opacity));
+   object-fit: cover;
+   visibility: hidden;
+   width: 20rem;
+   height: 20rem;
+}
+
+.ContentOverviewThumbnail {
+   margin-left: auto;
+   margin-right: auto;
+   width: 160px;
+}
+
+.ContentOverviewThumbnail2 {
+   position: relative;
+   border-radius: 0.1875rem;
+   overflow: hidden;
+}
+
+.ThumbnailImage:after {
+   position: relative;
+   padding-bottom: 143%;
+   content: "";
+   display: block;
+}
+
+.ThumbnailImage2 {
+   position: absolute;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   user-select: none;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   background-color: rgba(153, 153, 153, 0.15);
+   display: none;
+}
+
+.ThumbnailImage3 {
+   position: absolute;
+   background-color: rgba(0, 0, 0, var(- -tw-bg-opacity));
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   user-select: none;
+   visibility: visible;
+}
+
+.PosterImage:after {
+   content: "";
+   padding-bottom: 143%;
+   display: block;
+}
+
+.ThumbnailImage:after {
+   content: "";
+   padding-bottom: 143%;
+   display: block;
+}
+
+.ContentOverviewInfo {
+   position: relative;
+   text-align: center;
+   padding-top: 1.5rem;
+   margin-left: 2rem;
+   margin-right: 2rem;
+}
+
+.Text-ContentOverviewInfo {
+   -tw-text-opacity: 1;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+   text-overflow: ellipsis;
+   color: #222;
+   font-size: 21px;
+   font-weight: 700;
+   line-height: 26px;
+}
+
+.ContentOverviewInfo2 {
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+   color: #222;
+   margin-top: 1rem;
+   -webkit-box-align: center;
+   align-items: center;
+}
+
+.Icon-ContentOverviewInfo {
+   pointer-events: none;
+   margin-right: 0.1875rem;
+}
+
+
+.Separator-ContentOverviewInfo {
+   display: inline;
+   vertical-align: middle;
+   cursor: default;
+   user-select: none;
+}
+
+.ContentOverviewInfo3 {
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+   -tw-text-opacity: 1;
+   -webkit-box-align: center;
+   align-items: center;
+   margin-top: 0.25rem;
+   flex-direction: column;
+   color: #7a7a7a;
+   opacity: 1;
+}
+
+.Text-Separator-ContentOverviewInfo{
+    font-size: 16px;
+    font-weight: 1000;
+    line-height: 16px
+}
+.Publishing-ContentOverviewInfo {
+   margin-top: 0.25rem;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px   
+}
+
+.Text-Publishing-ContentOverviewInfo {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   text-align: left;
+}
+
+.ContentOverviewInfo4 {
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+   margin-top: 1rem;
+}
+
+.Shortcuts {
+   display: flex;
+   flex-direction: column;
+   margin: 8px 2rem 2rem;
+}
+
+.ShortcutsAction {
+   display: flex;
+   width: 100%;
+   -webkit-box-pack: center;
+   justify-content: center;
+   border-radius: 0.125rem;
+   overflow: hidden;
+}
+
+.ShortcutsMainAction {
+width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    background-color: #d7d7d7;;
+    border-radius: 0.125rem;
+    user-select: none;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;}
+
+.ShortcutsLink {
+   font-size: 12px;
+   font-weight: 700;
+   line-height: 16px;
+}
+
+.lowerleftContentMainContainer {
+   background-color: #f7f7f7;
+   flex: 1 1 0%;
+   margin-top: 0.25rem;
+}
+
+.rightContentMainContainer {
+   width: 39.5rem;
+   margin-left: 4px;
+   margin-bottom: 1.75rem;
+   display: flex;
+   flex-direction: column;
+}
+
+.MainTab-ContentMainContainer {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   width: 100%;
+   padding: 1.75rem 1rem 0rem;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   background-color: #f7f7f7;
+}
+
+.MainTab {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 100%;
+}
+
+.Main-Tab {
+   position: relative;
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   align-items: center;
+}
+
+.MainTabIntroduction1 {
+   height: 2rem;
+   width: fit-content;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   padding: 0.4375rem 0.875rem;
+   border-radius: 1rem;
+   user-select: none;
+   background-color: rgba(0, 0, 0, 0);
+   z-index: 10;
+}
+
+.MainTabIntroduction2 {
+   display: flex;
+   position: relative;
+   max-width: 100%;
+}
+
+.MainTabIntroduction3 {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   font-size: 16px;
+   font-weight: 700;
+   color: #222;
+}
+
+.MainTab-title-Introduction {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   font-size: 20px;
+   font-weight: 700;
+   line-height: 18px;
+   color: #222;
+   
+}
+
+.ContentDetailTabContainer {
+   color: #222;
+   word-break: keep-all;
+   padding-bottom: 1rem;
+   background-color: #f7f7f7;
+}
+
+.ContentTitleSection {
+   display: flex;
+   margin-bottom: 0.9375rem;
+   padding-left: 2rem;
+   padding-right: 2rem;
+}
+
+.Text-ContentTitleSection {
+   flex: 1 1 auto;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   word-break: break-all;
+   font-size: 18px;
+   font-weight: 700;
+   line-height: 18px;
+   color: #222;
+}
+
+.Text-ContentDetailTabContainer {
+   font-size: 13px;
+   font-weight: 400;
+   line-height: 18px;
+   color: #222;
+   display: block;
+   word-break: break-word;
+   white-space: pre-wrap;
+   padding-left: 2rem;
+   padding-right: 2rem;
+   padding-top: 0.5rem;
+}
+
+.ContentSeriesSection {
+   color: #222;
+   padding-top: 1.9375rem;
+   padding-bottom: 0.875rem;
+   background-color: #f7f7f7;
+   margin-top: 0.1875rem;
+   position: relative;
+}
+
+.ScrollableHorizontalList {
+   z-index: 0;
+   position: static;
+   padding-left: 2rem;
+   padding-right: 2rem;
+}
+
+.List-ScrollableHorizontalList {
+   display: flex;
+   flex-direction: row;
+   background-color: transparent;
+   z-index: 0;
+}
+
+.List-ScrollableHorizontalList:before {
+   content: "";
+   flex-shrink: 0;
+   width: 0px;
+   height: 1px;
+}
+
+.List-ScrollableHorizontalList>:not(:last-child) {
+   margin-right: 8px;
+}
+
+.List-ScrollableHorizontalList::after {
+   content: "";
+   flex-shrink: 0;
+   width: 0px;
+   height: 1px;
+}
+
+.PosterViewItem1 {
+   position: relative;
+   width: 5.875rem;
+   cursor: pointer
+}
+
+.PosterViewItem2 {
+   position: relative;
+}
+
+.PosterImage {
+   position: relative;
+   border-radius: 0.1875rem;
+   overflow: hidden;
+   width: 100%;
+   height: 100%;
+}
+
+.PosterImage2 {
+   position: absolute;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   user-select: none;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   background-color: rgba(153, 153, 153, 0.15);
+   display: none;
+}
+
+.PosterViewItem-PosterViewItem {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   border-radius: 0.1875rem;
+   border: 0.5px solid rgba(0, 0, 0, 0.07);
+}
+
+.Text-PosterViewItem {
+   width: 100%;
+   padding-top: 0.5rem;
+   padding-right: 0.5rem;
+   padding-bottom: 0.25rem;
+   height: 4.25rem;
+}
+
+.Text-PosterViewItem1 {
+   color: #222;
+   font-size: 13px;
+   font-weight: 400;
+   line-height: 18px;
+   word-break: break-all;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+}
+
+.Metadata-PosterViewItem {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   margin-top: 0.25rem;
+}
+
+.BadgesWithSpace {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   flex-shrink: 0;
+}
+
+.TextsWithSeparator-Metadata {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   color: #7a7a7a;
+   font-size: 11px;
+   font-weight: 400;
+   line-height: 16px;
+}
+
+.Text {
+   word-break: break-all;
+   vertical-align: middle;
+}
+
+.Separator {
+   display: inline;
+   vertical-align: middle;
+   cursor: default;
+   user-select: none;
+}
+
+.ContentCommentsContainer {
+   margin-top: 0.25rem;
+   background-color: #f7f7f7;
+}
+
+.ContentCommentsContainer2 {
+   padding-left: 1.0625rem;
+   padding-right: 1.0625rem;
+}
+
+.CommentsContainer {
+   display: flex;
+   flex-direction: column;
+   min-height: calc(756px);
+}
+
+.CommentsTab {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0);
+   margin-top: 1rem;
+   margin-bottom: 1.5rem;
+}
+
+.CommentsTab2 {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 100%;
+}
+
+.Commentsentire-Tab {
+   position: relative;
+   display: flex;
+   -webkit-box-pack: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   align-items: center;
+}
+
+.CommentsentireTab {
+   height: 2rem;
+   width: fit-content;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   padding: 0.4375rem 0.875rem;
+   border-radius: 1rem;
+   user-select: none;
+   background-color: rgba(0, 0, 0, 0);
+   z-index: 10;
+}
+
+.CommentsentireTab2 {
+   display: flex;
+   position: relative;
+   max-width: 100%;
+}
+
+.CommentsentireTab3 {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   text-overflow: ellipsis;
+   font-size: 18px;
+   font-weight: 700;
+   line-height: 18px;
+   color: #222;
+}
+
+.CommentInputField1 {
+   padding-bottom: 1rem;
+}
+
+.CommentInputField2 {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   padding-left: 1rem;
+   padding-right: 1rem;
+   width: 100%;
+}
+
+.CommentInputField3 {
+   flex: 1 1 0%;
+   border-radius: 1.25rem;
+   background-color: #eee;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   padding: 0.625rem 1rem;
+   border-width: 1px;
+   border-style: solid;
+   border-color: rgba(0, 0, 0, 0.05);
+}
+
+.CommentInputField4 {
+   display: flex;
+   flex: 1 1 0%;
+}
+
+.Textarea-CommentInputField:disabled {
+   color: #e0e0e0;
+}
+
+.Textarea-CommentInputField {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    resize: none;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    color: #222;
+    font-size: 13px;
+    font-weight: 400;
+    border: none;
+    width: 90%;
+}
+
+.Text-CommentInputField {
+   font-size: 13px;
+   font-weight: 400;
+   margin-left: 0.75rem;
+   color: #000;
+   cursor: pointer;
+}
+
+.Text-CommentsContainer {
+   flex: 1 1 0%;
+   display: flex;
+   flex-direction: column;
+}
+
+.Commnet {
+   padding: 0.9375rem;
+   display: flex;
+   width: 100%;
+}
+
+.Commnet2 {
+   display: flex;
+   flex: 1 1 0%;
+   flex-direction: column;
+}
+
+.CommentTitle {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+}
+
+
+
+.Username-Comment {
+   font-size: 13px;
+   font-weight: 700;
+   line-height: 18px;
+   color: #222;
+   flex: 1 1 0%;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   word-break: break-all;
+}
+
+.Date-Comment {
+   margin-left: 0.9375rem;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 16px;
+   color: #999;
+   flex-shrink: 0;
+}
+
+.Text-Comment {
+   color: #222;
+   font-size: 13px;
+   font-weight: 400;
+   line-height: 18px;
+   margin-top: 0.5rem;
+   word-break: break-word;
+   white-space: pre-wrap;
+}
+
+.Del-comment1 {
+   margin-top: 0.5rem;
+   
+}
+.Del-Comment2 {
+
+   font-size: 15px;
+   font-weight: 400;
+   color: #999;
+   text-align:center;
+   cursor: pointer;
+   float:right;
+   background-color:transparent;   
+   border: none;
+   
+}
+
+.LineComment {
+   padding-left: 3.8125rem;
+}
+
+.Divider-Line {
+   height: 1px;
+   background-color: rgba(0, 0, 0, 0.05);
+   width: 100%;
+}
+
+#review-form fieldset {
+   display: inline-block;
+   direction: rtl;
+   border: 0;
+}
+
+#review-form fieldset legend {
+   text-align: right;
+}
+
+#review-form input[type=radio] {
+   display: none;
+}
+
+#review-form label {
+   font-size: 3em;
+   color: transparent;
+   text-shadow: 0 0 0 #f0f0f0;
+}
+
+#review-form label:hover {
+   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review-form label:hover ~ label {
+   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review-form input[type=radio]:checked ~ label {
+   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="Thema">
+	
+	<insert id="th_in" parameterType="thema">
+		insert into thema(thema_title,thema_cont) values('${thema_title}','${thema_cont}')
+	</insert>
+	
+	<select id="thema_insertoption" resultType="webtoon">
+		select * from webtoon
+	</select>
+	
+	<resultMap type="webtoon" id="webtoonVo">
+		<result property="webtoon_no" column="webtoon_no"/>
+		<result property="webtoon_title" column="webtoon_title"/>
+		<result property="webtoon_writer" column="webtoon_writer"/>
+		<result property="webtoon_cont" column="webtoon_cont"/>
+		<result property="webtoon_platform" column="webtoon_paltform"/>
+		<result property="webtoon_complete" column="webtoon_complete"/>
+		<result property="webtoon_tag1" column="webtoon_tag1"/>
+		<result property="webtoon_tag2" column="webtoon_tag2"/>
+		<result property="webtoon_thumbnail" column="webtoon_thumbnail"/>
+		<result property="webtoon_image1" column="webtoon_image1"/>
+		<result property="webtoon_image2" column="webtoon_image2"/>
+		<result property="webtoon_image3" column="webtoon_image3"/>
+		<result property="webtoon_age" column="webtoon_age"/>
+	</resultMap>
+	
+	<resultMap type="thema" id="themaMap">
+		<result property="thema_title" column="thema_title"/>
+		<result property="thema_cont" column="thema_cont"/>
+		<collection property="webtoonVo" resultMap="webtoonVo"/>
+	</resultMap>
+	
+	<select id="themaList" parameterType="thema" resultMap="themaMap">
+		select * from webtoon w, thema t where w.webtoon_title = t.thema_title
+	</select>
+	
+	<delete id="th_del">
+		delete from thema where thema_title=#{thema_title} 
+	</delete>
+	
+	
+	
+</mapper>
