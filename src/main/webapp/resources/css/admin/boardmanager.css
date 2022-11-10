@@ -3,6 +3,33 @@
 	margin: 0;
 	padding:0;
 }
+.topchoice {
+	margin-top:30px;
+	background-color: white;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.topchoice a {
+	text-decoration: none;
+	border: 2px solid black;
+	font-weight: bold;
+	display: inline-block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 10px;
+	background-color: white;
+	margin-right: 15px;
+}
+
+.topchoice a:last-child {
+	margin-right: 0;
+}
+
+.topchoice a:hover {
+	opacity: 0.5;
+}
 .all{
 	border:1px solid black;
 	width:700px;
@@ -25,7 +52,12 @@
 	color: red;
 	cursor: pointer;
 }
-.boardMain{
+.board_title a{
+	text-decoration: none;
+	color: black;
+}
+.board_title a:visited{
+	color: black;
 }
 #board{
 	border-collapse:collapse;
@@ -43,5 +75,8 @@
 	width: 100px;
 }
 .headers th:last-child {
+	width: 100px;
+}
+.headers td:last-child {
 	width: 100px;
 }

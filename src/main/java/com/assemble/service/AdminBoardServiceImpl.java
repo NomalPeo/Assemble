@@ -77,6 +77,18 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		this.adminBoardDao.deleteUserAuth(user_no);
 	}
 
+	@Override
+	public void boardDel(int board_no) {
+		this.adminBoardDao.replyDel(board_no);
+		this.adminBoardDao.boardDel(board_no);
+	}
+
+	@Override
+	public void insertNotice(BoardVO bv) {
+		this.adminBoardDao.insertNotice(bv);
+	}
+
+
 
 	
 	

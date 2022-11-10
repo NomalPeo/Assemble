@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<link rel="stylesheet" type="text/css" href="../css/thema/thema-content.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/thema/thema-content.css">
 
 
 
@@ -38,54 +39,69 @@ var num=1;
 
 	<div class="thema-title">
 		<h1>ASSEMBLE이 추천하는 웹툰</h1>
-		<h3>내용</h3>
+		<br />
+		<h4>ASSEMBLE개발자들이 추천하는 웹툰입니다.</h4>
 	</div>
 
 	<div class="content-page">
-	
 
-<c:forEach var="themacon" items="${conlist}" varStatus="status">
+		<c:if test="${empty conlist1}">
+			<span class="wish-msg"><c:out value="${contmsg}" /></span>
+		</c:if>
 
-		<div class="content-box">
-			<div class="content-img">
-				<a class="content-a" href="/content?webtoon_thumbnail=${themacon.webtoonVo.webtoon_thumbnail}"><img
-					class="image" src="/resources/upload/${themacon.webtoonVo.webtoon_thumbnail}"></a>
-				<div class="text-hover" id="double-hover">웹툰 맛보기</div>
-			</div>
-			<div class="content-text">
-				<a href="/content?webtoon_thumbnail=${themacon.webtoonVo.webtoon_thumbnail}"><h2>${themacon.thema_title}</h2></a>
-				<br />
-				<div class="tag-box">
 
-					<div class="grade">평점 1.0 <i class="fa-regular fa-star"></i></div>
-					<button class="tag">${themacon.webtoonVo.webtoon_tag1}</button>
-					<button class="tag">${themacon.webtoonVo.webtoon_tag2}</button>
+		<c:forEach var="themacon" items="${conlist}" varStatus="status">
 
+			<div class="content-box">
+				<div class="content-img">
+					<a class="content-a"
+						href="/content?webtoon_thumbnail=${themacon.webtoonVo.webtoon_thumbnail}"><img
+						class="image"
+						src="/resources/upload/${themacon.webtoonVo.webtoon_thumbnail}"></a>
+					<div class="text-hover" id="double-hover">웹툰 맛보기</div>
 				</div>
-
-				<div class="text">
-					<p>${themacon.webtoonVo.webtoon_writer} 
-					<c:if test="${empty themacon.webtoonVo.webtoon_tag2}">${themacon.webtoonVo.webtoon_tag1}</c:if> 
-                    <c:if test="${!empty themacon.webtoonVo.webtoon_tag2}">${themacon.webtoonVo.webtoon_tag1} , ${themacon.webtoonVo.webtoon_tag2}</c:if> | ${themacon.webtoonVo.webtoon_complete}</p>
+				<div class="content-text">
+					<a
+						href="/content?webtoon_thumbnail=${themacon.webtoonVo.webtoon_thumbnail}"><h2>${themacon.thema_title}</h2></a>
 					<br />
-					<p>
-						${themacon.webtoonVo.webtoon_cont}
-					</p>
-					<br/>
-					<p>${themacon.thema_cont}</p>
-					<div class="thema_btn">
-					<input type="button" value="삭제" onclick="location='thema_del?thema_title=${themacon.thema_title}';"/>
+					<div class="tag-box">
+
+						<div class="grade">
+							평점 1.0 <i class="fa-regular fa-star"></i>
+						</div>
+						<a
+							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon4.webtoonVo.webtoon_tag1}"><button
+								class="tag">${themacon4.webtoonVo.webtoon_tag1}</button></a> <a
+							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon4.webtoonVo.webtoon_tag2}"><button
+								class="tag">${themacon4.webtoonVo.webtoon_tag2}</button></a>
+					</div>
+
+					<div class="text">
+						<p>${themacon.webtoonVo.webtoon_writer}
+							<c:if test="${empty themacon.webtoonVo.webtoon_tag2}">${themacon.webtoonVo.webtoon_tag1}</c:if>
+							<c:if test="${!empty themacon.webtoonVo.webtoon_tag2}">${themacon.webtoonVo.webtoon_tag1} , ${themacon.webtoonVo.webtoon_tag2}</c:if>
+							| ${themacon.webtoonVo.webtoon_complete}
+						</p>
+						<br />
+						<p>${themacon.webtoonVo.webtoon_cont}</p>
+						<br />
+						<h3>개발자 한줄평</h3>
+						<br />
+						<p>"${themacon.thema_cont}"</p>
+						<div class="thema_btn">
+							<input type="button" value="삭제"
+								onclick="location='thema_del?thema_title=${themacon.thema_title}';" />
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-</c:forEach>
+		</c:forEach>
 
 	</div>
 
 
-	
+
 </div>
 
 <!--  <div id="popup-layer">

@@ -138,27 +138,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="user_security_edit">
 		update users set user_nickname=#{user_nickname} where user_id=#{user_id}
 	</update>
-
-<!-- 	<update id="auth_username_edit">
-		update users_auth set user_id = #{user_id} where user_id=#{user_id}
-	</update>
 	
-	<update id="reply_username_edit">
-		update review set user_id =#{user_id}
-	</update>
-	
-	<update id="authoritiesname_edit">
-		update AUTHORITIES set username = #{user_id}
-	</update>
- -->
+	<delete id="admin_reply_del">
+		delete from reply where board_reply_bno = #{board_no}
+	</delete>
 
+	<delete id="admin_board_del">
+		delete from board where board_no = #{board_no}
+	</delete>
 
-
-
-
-
-
-
+	<insert id="admin_notice_in">
+		insert into board (board_no,board_title,board_cont,board_type,board_hit,board_date,board_writer)
+		values(board_seq.nextval,#{board_title},#{board_cont},4,0,sysdate,#{board_writer})
+	</insert>
 
 
 

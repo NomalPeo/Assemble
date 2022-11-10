@@ -74,8 +74,8 @@
 				</tr>
 				<tr>
 					<td><select name="webtoon_complete">
-							<option value="1">연재중</option>
-							<option value="2">완결</option>
+							<option value="미완결">연재중</option>
+							<option value="완결">완결</option>
 					</select></td>
 				</tr>
 				<tr>

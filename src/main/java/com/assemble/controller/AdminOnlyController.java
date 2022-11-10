@@ -41,16 +41,28 @@ public class AdminOnlyController {
 	private AdminBoardService adminBoardService;
 
 	@RequestMapping("/adminPage")
-	public void adminPage(){
-
-	}
+	public void adminPage(){}
 
 	@RequestMapping("/boardmanager")
-	public void boardmanager() {
+	public void boardmanager() {}
+	
 
-
+	@RequestMapping("/notice")
+	public void notice() {}
+	
+	@GetMapping("/noticeWrite")
+	public String noticeWrite(HttpServletRequest request,BoardVO bv, Principal principal) {
+		String board_title = request.getParameter("board_title");
+		String board_cont = request.getParameter("board_cont");
+		String board_writer = principal.getName();
+		bv.setBoard_title(board_title);
+		bv.setBoard_cont(board_cont);
+		bv.setBoard_writer(board_writer);
+		this.adminBoardService.insertNotice(bv);
+		
+		return "redirect:/admin/adminPage";
 	}
-	//자유게시판
+	
 	@RequestMapping(value="/boardmanager1",produces="application/json")
 	public ResponseEntity<List<BoardVO>> boardmanager(HttpServletRequest request, BoardVO vo ) {
 
@@ -155,7 +167,7 @@ public class AdminOnlyController {
 		return "/admin/boardCorriger";
 	}
 
-	@RequestMapping(value="/boardReply/{board_no}",produces="application/json") //GET방식으로 접근하는 매핑주소를 처리
+	@RequestMapping(value="/boardReply/{board_no}",produces="application/json")
 	public ResponseEntity<List<ReplyVO>> replyList(@PathVariable("board_no") int board_no){
 		ResponseEntity<List<ReplyVO>> entity=null;
 
@@ -173,7 +185,7 @@ public class AdminOnlyController {
 			entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
-	}//replyList()
+	}
 
 	//댓글 삭제
 	@RequestMapping(value="/boardDel/{board_rno}",method=RequestMethod.DELETE)
@@ -204,6 +216,15 @@ public class AdminOnlyController {
 		}
 		return entity;
 	}
+	
+	@RequestMapping("boardDel1")
+	public String boardDel1 (HttpServletRequest request) {
+		int board_no = Integer.parseInt(request.getParameter("board_no"));
+		this.adminBoardService.boardDel(board_no);
+		return "redirect:/admin/boardmanager";
+	}
+	
+
 
 
 	@PostMapping("/replyAdd1")
@@ -283,20 +304,18 @@ public class AdminOnlyController {
 	@GetMapping("/user_manager")
 	public String user_manager(UsersVO vo,Model m,Authentication auth,HttpServletRequest request) {
 		int page=1;
-		int limit=20;//한페이지 보여지는 목록개수
+		int limit=20;
 		if(request.getParameter("page") != null) {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
-		vo.setStartrow((page-1)*20+1);//시작행 번호
+		vo.setStartrow((page-1)*20+1);
 		vo.setEndrow(vo.getStartrow()+limit-1);//끝행
-		String find_name = request.getParameter("find_name");//검색어
-		String find_field = request.getParameter("find_field");//검색
+		String find_name = request.getParameter("find_name");
+		String find_field = request.getParameter("find_field");
 		vo.setFind_field(find_field);
 		vo.setFind_name("%" + find_name + "%");
 
-
-
-		int totalCount=this.adminBoardService.getUserRowCount();//총 레코드 개수
+		int totalCount=this.adminBoardService.getUserRowCount();
 		List<UsersVO> uList = this.adminBoardService.UserList(vo);
 
 		List<String> roleNames = new ArrayList<>();
@@ -304,10 +323,9 @@ public class AdminOnlyController {
 			roleNames.add(authority.getAuthority());
 		});
 
-
-		int maxpage=(int)((double)totalCount/limit+0.95);//총페이지수
-		int startpage=(((int)((double)page/10+0.9))-1)*10+1;//시작페이지
-		int endpage=maxpage;//현재 페이지에 보여질 마지막 페이지
+		int maxpage=(int)((double)totalCount/limit+0.95);
+		int startpage=(((int)((double)page/10+0.9))-1)*10+1;
+		int endpage=maxpage;
 		if(endpage > startpage+10-1) endpage=startpage+10-1;
 		m.addAttribute("totalCount",totalCount);
 		m.addAttribute("startpage",startpage);
@@ -320,7 +338,7 @@ public class AdminOnlyController {
 		return "/admin/user_manager";
 	}
 
-
+	
 
 
 

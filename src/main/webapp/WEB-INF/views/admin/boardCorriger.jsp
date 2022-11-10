@@ -35,15 +35,17 @@
 			$str+="<tr>"
 			+"<th>N</th>"
 			+"<th>작성자</th>"
-			+"<th colspan='2'>내용</th>"
-			+"<th>작성날짜</th>"
+			+"<th>내용</th>"
+			+"<th>등록날짜</th>"
+			+"<th style='width:200px;'></th>"
 			+"</tr>";
 			$(data).each(function(){
 				$str+="<tr>"
 					+"<td id='delRno'>"+this.board_reply_rno+"</td>"
 					+"<td>"+this.board_reply_writer+"</td>"
-					+"<td colspan='2'>"+this.board_reply_cont+"</td>"
-					+"<td>"+this.board_regdate+"&nbsp;<button type='button' id='delBtn' onclick='adminDel();'>삭제</button></td>"
+					+"<td>"+this.board_reply_cont+"</td>"
+					+"<td class='reply_date'>"+this.board_regdate+"</td>"
+					+"<td class='reply_btn'><button type='button' id='delBtn' onclick='adminDel();'>삭제</button></td>"
 					+"</tr>"; 		
 			});
 			$('#boardReply').html($str);
@@ -91,6 +93,7 @@
 			 }
 		 });
 	 }
+
 </script>
 </head>
 <body>
@@ -124,6 +127,8 @@
 		<div class="contContent">
 			<c:out value="${bc.board_cont }"></c:out>
 		</div>
+		
+		<button class="delBtn" type="button" onclick="location='/admin/boardDel1?board_no=${bc.board_no}'">삭제</button>
 	</div>
 	<table id="boardReply"></table>
 </body>

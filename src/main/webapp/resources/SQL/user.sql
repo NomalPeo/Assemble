@@ -18,9 +18,9 @@ ALTER TABLE users DROP COLUMN email_id;
 ALTER TABLE users DROP COLUMN email_domain;
 
 
-select * from users;
+select * from users order by user_no desc;
 
-delete from users where user_id = 'member11';
+delete from users 
 
 delete from users_auth where user_id = 'member11';
 

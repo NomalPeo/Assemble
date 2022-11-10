@@ -67,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from wish group by wish_title having count(wish_title) > 0)
 		where
 		webtoon_title = wish_title order by cnt desc) where rownum between 1
-		and 3
+		and 6
 	</select>
 
 	<!-- 테마 리스트3 -->
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from (select * from wish, (select * from users where user_gender = 1)
 		where wish_id = user_id)
 		group by wish_title having count(wish_title) > 0) where wish_title =
-		webtoon_title order by cnt desc) where rownum between 1 and 3
+		webtoon_title order by cnt desc) where rownum between 1 and 6
 	</select>
 	
 	<!-- 테마 리스트4 -->
@@ -89,7 +89,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from (select * from wish, (select * from users where user_gender = 2)
 		where wish_id = user_id)
 		group by wish_title having count(wish_title) > 0) where wish_title =
-		webtoon_title order by cnt desc) where rownum between 1 and 3
+		webtoon_title order by cnt desc) where rownum between 1 and 6
 	</select>
 
 </mapper>

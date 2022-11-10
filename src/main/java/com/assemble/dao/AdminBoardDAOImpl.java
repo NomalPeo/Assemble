@@ -71,5 +71,20 @@ public class AdminBoardDAOImpl implements AdminBoardDAO {
 		this.sqlSession.delete("admin_user_auth_del", user_no);
 	}
 
+	@Override
+	public void boardDel(int board_no) {
+		this.sqlSession.delete("admin_board_del", board_no);
+	}
+
+	@Override
+	public void replyDel(int board_no) {
+		this.sqlSession.delete("admin_reply_del", board_no);
+	}
+
+	@Override
+	public void insertNotice(BoardVO bv) {
+		this.sqlSession.insert("admin_notice_in", bv);
+	}
+
 
 }

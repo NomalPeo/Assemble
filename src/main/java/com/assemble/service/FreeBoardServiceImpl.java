@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.assemble.dao.FreeBoardDAO;
 import com.assemble.vo.BoardVO;
+import com.assemble.vo.ReplyVO;
 
 @Service
 public class FreeBoardServiceImpl implements FreeBoardService {
@@ -25,11 +26,6 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		return this.freeboardDao.getBoardList(b);
 	}
 
-	@Override
-	public int getRowCount() {
-		return this.freeboardDao.getRowCount();
-	}
-	
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO getFreeBoardCont(int board_no) {
@@ -52,7 +48,11 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	public void delFreeBoard(int board_no) {
 		this.freeboardDao.delFreeBoard(board_no);
 	}
-
-
+	
+	/*아래부터 검색관련*/
+	@Override
+	public int getRowCount(BoardVO b) {
+		return this.freeboardDao.getTotalCount(b);
+	} // 검색 전후 레코드 개수
 
 }

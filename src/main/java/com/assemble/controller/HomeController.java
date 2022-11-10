@@ -64,9 +64,6 @@ public class HomeController {
 		List<WebtoonVO> alist3= this.webtoonService.ActionWebtoonList3(wb);
 		List<WebtoonVO> alist4= this.webtoonService.ActionWebtoonList4(wb);
 
-
-
-
 		model.addAttribute("wlist1",wlist1);
 		model.addAttribute("wlist2",wlist2);
 		model.addAttribute("wlist3",wlist3);
@@ -81,10 +78,7 @@ public class HomeController {
 		model.addAttribute("alist2",alist2);
 		model.addAttribute("alist3",alist3);
 		model.addAttribute("alist4",alist4);
-
-		return "index_1";
-		
-	}
+		return "index_1"; }
 
     @GetMapping("/accessError") // get으로 접근하는 accessError 매핑주소가 실행
     public void accessDenied(Model model) {

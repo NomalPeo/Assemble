@@ -17,6 +17,8 @@
 			<a href="/main" class="home div">홈페이지 가기</a> 
 			<a href="/admin/webtooninsert"
 				class="webinsert div">웹툰 등록</a>
+				<a href="/admin/notice"
+				class="notice div">공지사항 등록</a>
 		</div>
 		<div class="bottom">
 			<a href="/admin/boardmanager" class="board div">게시물 관리</a> 

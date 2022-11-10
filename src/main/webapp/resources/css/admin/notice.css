@@ -1,0 +1,67 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	box-sizing: border-box;
+}
+.whale{
+}
+.total-form{
+	padding:10px;
+}
+.total{
+	margin: auto;
+	border-collapse: collapse;
+	border-top:1px solid black;
+	border-bottom: 1px solid black;
+}
+#input{
+	border:none;
+	padding:10px;
+}
+.total th{
+	height:50px;
+	width: 100px;
+	border-top:1px solid black;
+	border-bottom: 1px solid black;
+}
+.total td{
+	width: 400px;
+	border-top:1px solid black;	
+	border-bottom: 1px solid black;
+}
+.topchoice {
+	background-color: white;
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+#text{
+	padding:10px;
+	 resize: none;
+	 border:none;
+}
+.topchoice a {
+	text-decoration: none;
+	border: 2px solid black;
+	font-weight: bold;
+	display: inline-block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 10px;
+	background-color: white;
+	margin-right: 15px;
+}
+
+.topchoice a:last-child {
+	margin-right: 0;
+}
+
+.topchoice a:hover {
+	opacity: 0.5;
+}
+#submit{
+	text-align: center;
+	border:none;
+	padding: 20px;
+}

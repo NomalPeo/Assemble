@@ -57,6 +57,30 @@
 		}
 		alert('비번번호 변경!!');
 	}
+	$(document).ready(function() {
+
+		$('#box1').click(function() {
+			$('html, body').animate({
+				scrollTop : '0'
+			}, 500);
+		});
+		$('#box2').click(function() {
+			$('html, body').animate({
+				scrollTop : '400'
+			}, 500);
+		});
+		$('#box3').click(function() {
+			$('html, body').animate({
+				scrollTop : '1000'
+			}, 500);
+		});
+		$('#box4').click(function() {
+			$('html, body').animate({
+				scrollTop : '1000'
+			}, 500);
+		});
+
+	});
 </script>
 </head>
 <body>
@@ -69,8 +93,8 @@
 				</h2>
 				<div class="selector-menu">
 					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
-					<a href="thema/thema.jsp"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
-					<a href="FAQ/FAQ.jsp"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
+					<a href="/thema"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
+					<a href="/qna_list"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
 					<a href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<div class="login-join">
@@ -79,12 +103,9 @@
 							class="join"> 회원가입</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
-						<a href="/user/myPage" class="login_role">마이페이지 </a> |
-                    <form method="post" action="/user_logout"
-							class="logoutform">
-							<input type="hidden" name="${_csrf.parameterName}" class="logout"
-								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
-						</form>
+						<a href="/user/myPage" class="login_role">마이페이지 </a> |<a
+							href="/user_logout" class="join"> 로그아웃</a>
+                   
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a
@@ -105,11 +126,9 @@
 					<li><button class="Change-Password" type="button" id="box2">비밀번호
 							변경</button></li>
 					<li><button class="wishlist" type="button"
-							onclick="location.href='/wish';">찜 목록</button></li>
+							onclick="location.href='/user/wish';">찜 목록</button></li>
 					<li><button class="View-post" type="button"
 							onclick="location='#';">작성글 관리</button></li>
-					<li><button class="login-history" type="button" id="box3">로그인
-							이력</button></li>
 					<li><button class="Withdrawal" type="button" id="box4">회원
 							탈퇴</button></li>
 				</ul>
@@ -163,14 +182,6 @@
 						</div>
 					</div>
 				</form>
-				<!--  -->
-				<div class="look-page-title login-history-title">
-					<div class="look-page-first">
-						<div class="look-page-common">최근 로그인 이력</div>
-						<div>가장 최근에 로그인한 기록을 표시합니다.</div>
-					</div>
-					<div class="look-page-second login-history-content"></div>
-				</div>
 				<!--  -->
 				<div class="look-page-title Withdrawal-title">
 					<div class="look-page-first look-page-common">회원 탈퇴</div>

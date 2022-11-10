@@ -11,9 +11,6 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<meta http-equiv="Cache-Control" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-<meta http-equiv="Pragma" content="no-cache" />
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet"
@@ -74,8 +71,8 @@
 				</h2>
 				<div class="selector-menu">
 					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
-					<a href="#"><i class="fa-solid fa-play"></i><span>테마검색</span></a> <a
-						href="#"><i class="fa-solid fa-play"></i><span>FAQ</span></a> <a
+					<a href="/thema"><i class="fa-solid fa-play"></i><span>테마검색</span></a> <a
+						href="/qna_list"><i class="fa-solid fa-play"></i><span>FAQ</span></a> <a
 						href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<button class="header-plus-btn" name="header-plus-btn">
@@ -89,16 +86,12 @@
 							class="join"> 회원가입</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
-						<a href="/user/myPage" class="login_role">마이페이지 </a> |
-                    <form method="post" action="user_logout"
-							class="logoutform">
-							<input type="hidden" name="${_csrf.parameterName}" class="logout"
-								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
-						</form>
+						<a href="/user/myPage" class="login_role">마이페이지 </a> | <a
+							href="/user_logout" class="join">로그아웃</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a
-							href="/user_logout" class="join"> 회원가입</a>
+							href="/user_logout" class="join">로그아웃</a>
 					</sec:authorize>
 				</div>
 
@@ -194,17 +187,13 @@
 			<a class="robot-icon"
 				href="tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=SF"></a>
 		</div>
-		<!-- ------------------------------------------------------------------ -->
+
 		<div class="search">
 			<form action="tagpage_tag">
 				<select name="find_field">
 					<option value="webtoon_title"
 						<c:if test="${find_field=='webtoon_title'}">${'selected'}</c:if>>
 					</option>
-					<!-- <input type="text"
-					style="width: 600px; height: 40px; font-size: 30px; font-size: 15px;"
-					placeholder="웹툰 검색">
-					<a href="#"><i class="fa-solid fa-magnifying-glass"></i></a> -->
 				</select><input name="find_name" id="find_name" size="50" placeholder="웹툰 검색"
 					value="${find_name}" />
 				<button type="submit" class="search-btn">
@@ -212,7 +201,7 @@
 				</button>
 			</form>
 		</div>
-		<!-- ------------------------------------------------------------------ -->
+
 		<div class="monthbest">
 			<span>무섭다는 공포 웹툰</span>
 			<div class="introduce-monthbest-content">
@@ -228,7 +217,7 @@
 				<div class="monthbest-inner">
 					<c:forEach var="thriller2" items="${glist2 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+							<a href="/content?webtoon_thumbnail=${thriller2.webtoon_thumbnail}"><img
 								src="/resources/upload/${thriller2.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -237,7 +226,7 @@
 				<div class="monthbest-inner">
 					<c:forEach var="thriller3" items="${glist3 }" begin="0" end="5">
 						<div class="inner2">
-						<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+						<a href="/content?webtoon_thumbnail=${thriller3.webtoon_thumbnail}"><img
 								src="/resources/upload/${thriller3.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -246,7 +235,7 @@
 				<div class="monthbest-inner">
 					<c:forEach var="thriller4" items="${glist4 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="/content?webtoon_thumbnail=${thriller1.webtoon_thumbnail}"><img
+							<a href="/content?webtoon_thumbnail=${thriller4.webtoon_thumbnail}"><img
 								src="/resources/upload/${thriller4.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -273,7 +262,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance2" items="${wlist2 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
+							<a href="/content?webtoon_thumbnail=${romance2.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance2.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -282,7 +271,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance3" items="${wlist3 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
+							<a href="/content?webtoon_thumbnail=${romance3.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance3.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>
@@ -291,7 +280,7 @@
 				<div class="love-inner">
 					<c:forEach var="romance4" items="${wlist4 }" begin="0" end="5">
 						<div class="inner2">
-							<a href="/content?webtoon_thumbnail=${romance1.webtoon_thumbnail}"><img
+							<a href="/content?webtoon_thumbnail=${romance4.webtoon_thumbnail}"><img
 								src="/resources/upload/${romance4.webtoon_thumbnail}"
 								style="width: 200px; height: 250px;"></a>
 						</div>

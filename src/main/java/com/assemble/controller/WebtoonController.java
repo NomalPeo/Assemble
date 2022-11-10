@@ -96,30 +96,26 @@ public class WebtoonController {
 		}
 
 		int page = 1;
-		int limit = 150; // 한 페이지에 보여지는 목록 개수
+		int limit = 150;
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-
-		String find_name = request.getParameter("find_name"); // 검색어
-		String find_field = request.getParameter("find_field"); // 검색 필드
+		String find_name = request.getParameter("find_name");
+		String find_field = request.getParameter("find_field");
 		wb.setFind_name("%" + find_name + "%");
 		wb.setFind_field(find_field);
 
 		int totalCount = this.webtoonService.getListCount(wb);
-		// 검색 전 총 레코드 개수, 검색 후 총 레코드 개수
 
-		wb.setStartrow((page - 1) * 150 + 1); // 시작행 번호
-		wb.setEndrow(wb.getStartrow() + limit - 1); // 끝행 번호
+		wb.setStartrow((page - 1) * 150 + 1);
+		wb.setEndrow(wb.getStartrow() + limit - 1);
 
-		List<WebtoonVO> wblist = this.webtoonService.getWebtoonList1(wb); // 검색 전후 목록
+		List<WebtoonVO> wblist = this.webtoonService.getWebtoonList1(wb);
 
-		// 총 페이지수
 		int maxpage = (int) ((double) totalCount / limit + 0.95);
 
-		// 시작페이지(1, 11, 21, ...)
 		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
-		// 현재 페이지에 보여질 마지막 페이지(10,20 ..)
+
 		int endpage = maxpage;
 		if (endpage > startpage + 10 - 1)
 			endpage = startpage + 10 - 1;
@@ -133,8 +129,8 @@ public class WebtoonController {
 		listM.addAttribute("endpage", endpage);
 		listM.addAttribute("maxpage", maxpage);
 		listM.addAttribute("listcount", totalCount);
-		listM.addAttribute("find_field", find_field); // 검색 필드 저장
-		listM.addAttribute("find_name", find_name); // 검색어 저장
+		listM.addAttribute("find_field", find_field);
+		listM.addAttribute("find_name", find_name);
 
 		return "tagpage/tag";
 	}

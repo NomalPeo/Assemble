@@ -16,9 +16,12 @@
 <title></title>
 <link rel="stylesheet"
 	href="//http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/index/main.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/tagpage/tag.css">
-<script type="text/javascript" src="/resources/js/index/jquery.1.12.4.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/index/main.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/tagpage/tag.css">
+<script type="text/javascript"
+	src="/resources/js/index/jquery.1.12.4.js"></script>
 <script type="text/javascript"
 	src="/resources/plugins/bxslider/js/jquery.bxslider.js"></script>
 <link rel="stylesheet" type="text/css"
@@ -31,13 +34,13 @@
 		<header>
 			<div class="header-div">
 				<h2>
-					<a href="main"><img src="../images/index/logo.png"
-						width="150" height="65" alt="웹툰리뷰"></a>
+					<a href="main"><img src="../images/index/logo.png" width="150"
+						height="65" alt="웹툰리뷰"></a>
 				</h2>
 				<div class="selector-menu">
-					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a> 
-					<a href="thema/thema.jsp"><i class="fa-solid fa-play"></i><span>테마검색</span></a> 
-					<a href="FAQ/FAQ.jsp"><i class="fa-solid fa-play"></i><span>FAQ</span></a> 
+					<a href="/tagpage_tag"><i class="fa-solid fa-play"></i><span>태그검색</span></a>
+					<a href="/thema"><i class="fa-solid fa-play"></i><span>테마검색</span></a>
+					<a href="/qna_list"><i class="fa-solid fa-play"></i><span>FAQ</span></a>
 					<a href="/freeboard_list"><i class="fa-solid fa-play"></i><span>사사게</span></a>
 				</div>
 				<div class="login-join">
@@ -46,16 +49,13 @@
 							class="join"> 회원가입</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
-						<a href="user/myPage" class="login_role">마이페이지 </a> |
-                    <form method="post" action="user_logout"
-							class="logoutform">
-							<input type="hidden" name="${_csrf.parameterName}" class="logout"
-								value="${_csrf.token}" /> <input type="submit" value="로그아웃" />
-						</form>
+						<a href="/user/myPage" class="login_role">마이페이지 </a> |<a
+							href="/user_logout" class="join"> 로그아웃</a>
+
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
-						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a href="/user_logout"
-							class="join"> 로그아웃</a>
+						<a href="/admin/adminPage" class="login">관리자 페이지 </a> | <a
+							href="/user_logout" class="join"> 로그아웃</a>
 					</sec:authorize>
 				</div>
 			</div>

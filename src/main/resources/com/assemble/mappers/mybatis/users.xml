@@ -18,7 +18,6 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		<result property="user_date" column="user_date" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
-
 	<resultMap id="authMap" type="authvo">
 		<result property="user_id" column="user_id" />
 		<result property="auth" column="auth" />
@@ -31,6 +30,13 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		where mem.user_id = #{username}
 	</select>
 
+	<insert id="m_in">
+		insert into users (user_no, user_id, user_pwd,
+						   user_name, user_gender, user_nickname, user_date) values
+			(users_seq.nextval,#{user_id}, #{user_pwd}, #{user_name},
+			 #{user_gender}, #{user_nickname}, sysdate)
+	</insert>
+
 	<insert id="auth_in">
 		insert into users_auth(user_id,auth)
 		values(#{string},'ROLE_MEMBER')
@@ -40,13 +46,6 @@ PUBLIC "-//maybatis.org//DTD Mapper 3.0//EN"
 		select * from users where
 		user_id = #{user_id}
 	</select>
-
-	<insert id="m_in">
-		insert into users (user_no, user_id, user_pwd,
-		user_name, user_gender, user_nickname, user_date) values
-		(users_seq.nextval,#{user_id}, #{user_pwd}, #{user_name},
-		#{user_gender}, #{user_nickname}, sysdate)
-	</insert>
 
 	<select id="p_find" resultType="users">
 		select * from users where

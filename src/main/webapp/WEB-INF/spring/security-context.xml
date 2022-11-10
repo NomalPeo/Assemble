@@ -1,75 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/security
-http://www.springframework.org/schema/security/spring-security.xsd
-http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security" xsi:schemaLocation="http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="customAccessDenied"
 		class="com.assemble.security.CustomAccessDeniedHandler" />
-	<!-- bean단위가 자바에서는 하나의 클래스 단위이다. CustomAccessDeniedHandler빈아이디 객체명 CustomAccessDenied를 
-		생성 -->
-
 	<bean id="customLoginSuccess"
 		class="com.assemble.security.CustomLoginSuccessHandler" />
-
-
 	<bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	<!-- 1. 스프링 시큐리티에서 제공하는 BCryptPasswordEncoder 클래스를 이용해서 비밀번호를 암호화 한다. 2. 
-		bcrypt는 비밀번호를 저장하는 용도로 설계된 것으로 특정 문자열을 암호화한다. 체크하는 쪽에서는 암호화 된 패스워드인지 확인하고 
-		다시 원본비번으로 되돌리지는(복호화) 못한다. 3. 스프링 시큐리티 api안에 포함되어 있다. -->
-
 	<bean id="customUserDetailsService"
 		class="com.assemble.security.CustomUserDetailsService" />
-
-	<security:http> <!-- 스프링 시큐리티가 http프로토콜(통신규약)에서 알 수 있게 하는 시작지점 -->
-
-
+	<security:http>
 		<security:intercept-url pattern="/*"
 			access="permitAll" />
-		<!-- pattern에 지정한 /sample/all URL매핑주소에 접근할 때 스프링 시큐리티 인터셉터를 이용해서 중간에 자료를 
-			가로챈 다음 access속성에 접근권한 범위를 지정한다. permitAll은 모든 사용자 접근 권한을 허용한다. -->
-
 		<security:intercept-url
-			pattern="/user/*" access="hasRole('ROLE_MEMBER')" />
-		<!-- ROLE_MEMBER는 로그인한 일반회원만 접근 가능 -->
-
+			pattern="/user/*" access="hasAnyRole('ROLE_MEMBER','ROLE_ADMIN')" />
 		<security:intercept-url pattern="/admin/*"
 			access="hasRole('ROLE_ADMIN')" />
-
 		<security:csrf disabled="true"/>
-
 		<security:form-login login-page="/users_login"
 			authentication-success-handler-ref="customLoginSuccess" login-processing-url="/login_ok"
 			username-parameter="login_id" password-parameter="login_pwd"  />
-		<!-- 커스텀 로그인 페이지로 이동하는 매핑구조 cumstomLogin등록, authentication-success-handler-ref 
-			속성은 로그인 성공시 customLoginSuccess 빈아이디 호출 -->
-
 		<security:remember-me
 			data-source-ref="dataSource" token-validity-seconds="644800" />
-		<!-- remember-me는 자동로그인 기능. data-source-ref="dataSource"에서 DB연결, token-validity-senconds 
-			속성은 쿠키 유효시간(초단위) -->
-
 		<security:logout logout-url="/user_logout"
 			invalidate-session="true" delete-cookies="remember-me,JSESSIONID" />
-		<!-- 로그아웃시 customLogout 매핑주소가 실행, invalidate-session="true"는 세션을 무효화 즉 
-			로그아웃 시킴. delete-cookies="remember-me"는 자동로그인에서 사용하는 쿠키이름을 삭제 -->
-
 	</security:http>
 
-
-
-	<security:authentication-manager><!-- 인증관리자 -->
+	<security:authentication-manager>
 		<security:authentication-provider
 			user-service-ref="customUserDetailsService">
-			<!-- 인증 제공자에서 customUserDetailsService 빈아이디를 호출 -->
 
 			<security:password-encoder
 				ref="bcryptPasswordEncoder" />
-			<!-- 시큐리티 비번 암호화 => ref속성값 빈아이디 bcrypi89788iotPasswordEncoder 객체를 호출 -->
 
 		</security:authentication-provider>
 	</security:authentication-manager>

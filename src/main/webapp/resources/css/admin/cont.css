@@ -86,7 +86,7 @@
 	background-color: white;
 	height: 400px;
 	border:1px solid black;
-	margin:30px;
+	margin:20px 20px 0 20px;
 }
 #boardReply{
 	margin: auto;
@@ -103,11 +103,11 @@
 	width:100px;
 }
 #boardReply td:last-child{
-	width:200px;
+	width:300px;
 }
 
 #boardReply th:last-child{
-	width:200px;
+	width:300px;
 }
 
 #boardReply td, th{
@@ -121,7 +121,17 @@
 	background-color: white;
 	resize: none;
 }
-
+.reply_date{
+	width: 100px;
+}
+.reply_btn{
+	width: 300px;
+}
+.delBtn{
+	float: right;
+	margin-right: 20px;
+	border:1px solid black;
+}
 
 
 

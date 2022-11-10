@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+h2{
+	margin-left: 13%;
+	margin-top: 5%;
+}
+table {
+	width:75%;
+	border-top: none; /*게시판 목록 위에 줄*/
+	border-collapse: collapse;
+	margin-left: 13%;
+	position: relative;
+	margin-top:2%;
+	margin-bottom:2%;
+	border-bottom : none;
+	border-right: none;
+	border-left: none;
+}
+
+table tr board_cont{
+	height: 50em;
+}
+
+.board-name{
+	border-top: none;
+	border-left: none;
+}
+
+#newReplyText { /*댓글 입력창*/
+	width: 86.5%;
+	height: 5em;
+	resize: none;
+	
+}
+.replycont{
+	margin-left: 13%;
+}
+
+.board-title{
+	width:20%
+	
+}
+.board_title{
+	padding-left: 1%;
+	font-weight: bold;
+	height: 20px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	height: 30px;
+}
+.board_writer{
+	padding-left: 1%;
+	font-size: 13px;
+	border-left: none;
+	border-right: none;
+	height: 30px;
+}
+.board_cont{
+	padding-left: 1%;
+	font-size:15px;
+	height: 500px;
+    vertical-align : top;
+    border-left: none;
+	border-right: none;
+}
+.board_hit{
+	text-align:right;
+	border-left:none;
+	border-right:none;
+	padding-right: 1%;
+	font-size: 13px;
+}
+.board_cont_height{
+	height: 50%;
+}
+#replyAddBtn{
+	margin-left: 85%;
+}
+.cntreply{
+	margin-left: 13%;
+}
+.replylist{
+	margin-left: 13%;
+}
+.board_btn{
+	border-left: none;
+	border-right: none;
+}
+.board_btn_tr{
+	margin-left: 78%;
+	outline: 0;
+}

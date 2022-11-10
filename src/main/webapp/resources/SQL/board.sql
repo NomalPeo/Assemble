@@ -19,9 +19,9 @@ commit;
 select * from board;
 
 select board_seq.nextval from dual;
-insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',4,'인생존망_1.jpg',2,sysdate);
-insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',4,'인생존망_1.jpg',2,sysdate);
-insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',4,'인생존망_1.jpg',2,sysdate);
+insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',2,'인생존망_1.jpg',2,sysdate);
+insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',2,'인생존망_1.jpg',2,sysdate);
+insert into board (board_no,board_title,board_cont,board_type,board_image,board_hit,board_date) values(board_seq.nextval,'제목','내용',2,'인생존망_1.jpg',2,sysdate);
 commit;
 select *from board;
 alter table board add board_writer varchar(38);

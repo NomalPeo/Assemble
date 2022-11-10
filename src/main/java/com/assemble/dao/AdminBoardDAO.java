@@ -30,5 +30,11 @@ public interface AdminBoardDAO {
 
 	void deleteUserAuth(String user_no);
 
+	void boardDel(int board_no);
+
+	void replyDel(int board_no);
+
+	void insertNotice(BoardVO bv);
+
 
 }

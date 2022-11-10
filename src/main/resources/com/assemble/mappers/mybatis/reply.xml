@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+
+<!-- 댓글 저장-->
+<insert id="r_in">
+	insert into reply(board_reply_rno,board_no,board_reply_writer,board_reply_cont,board_regdate) 
+	values(rno_seq.nextval,#{board_no},#{board_reply_writer},#{board_reply_cont},sysdate)
+</insert>
+
+<!-- 댓글 목록 -->
+<select id="r_list" resultType="reply">
+	select * from reply where board_no = #{board_no} order by board_reply_rno desc
+</select>
+
+<!-- 댓글 수정 -->
+<update id="r_edit">
+	update reply set board_reply_cont=#{board_reply_cont} where board_reply_rno=#{board_reply_rno}
+</update>
+
+<!-- 댓글 삭제 -->
+<delete id="r_del">
+	delete reply where board_reply_rno=#{board_reply_rno}
+</delete>
+
+<!-- 댓글 번호로 게시판 번호 구하기 -->
+<select id="reply_bno" parameterType="int" resultType="int">
+	select board_no from reply where board_reply_rno=#{board_reply_rno}
+</select>
+
+</mapper>

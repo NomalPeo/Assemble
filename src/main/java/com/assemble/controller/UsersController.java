@@ -30,7 +30,6 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 
-	//반복적인 코드 하나로 줄이기
 	public static boolean isLogin(HttpServletResponse response, HttpSession session)
 			throws Exception {
 		PrintWriter out = response.getWriter();
@@ -58,7 +57,6 @@ public class UsersController {
 		if(logout != null) {
 			model.addAttribute("logout", "LogOut!!");
 		}
-
 		return "LoginJoin/Login/login";
 	}//login()
 
@@ -69,7 +67,6 @@ public class UsersController {
 		if(dm == null) {
 			session.invalidate();
 		}
-
 		return "index_1";
 	}
 
@@ -125,12 +122,9 @@ public class UsersController {
 			response, UsersVO m) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
 		m.setUser_id(pwd_id);
 		m.setUser_name(pwd_name);
-		UsersVO pm = this.usersService.pwdUsers(m); //아이디와 회원이름에 맞는 회원정보를 DB로 부터
-		// 검색
-
+		UsersVO pm = this.usersService.pwdUsers(m);
 		if (pm == null) {
 			out.println("<script>");
 			out.println("alert('회원정보를 찾을 수 없습니다.!\\n올바른 아이디와 이름을 입력하세요!');");
@@ -139,18 +133,15 @@ public class UsersController {
 		} else {
 			Random r = new Random();
 			int pwd_random = r.nextInt(100000);
-			String ran_pwd = Integer.toString(pwd_random); //정수숫자를 문자열로 변경
-
-
-			m.setUser_pwd(pwencoder.encode(ran_pwd)); //비번 암호화
-			this.usersService.updatePwd(m); //암호화된 비번 수정
-
+			String ran_pwd = Integer.toString(pwd_random);
+			m.setUser_pwd(pwencoder.encode(ran_pwd));
+			this.usersService.updatePwd(m);
 			ModelAndView fm = new ModelAndView("myPage/pwd/pwd_find_ok");
 			fm.addObject("ran_pwd", ran_pwd);
 			return fm;
 		}
 		return null;
-	}//pwd_find_ok()
+	}
 
 
 

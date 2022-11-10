@@ -21,9 +21,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		return (vo==null)?null:new CustomUser(vo);
 	}
-/* UserDetailsService가 별도의 인증/권한 체크를 하는 이유는 JSP등에서 단순히 사용자 아이디(스프링 시큐리티에서는 username)가
- * 아닌 이메일이나 사용자 이름과 같은 추가적인 정보를 이용하기 위해서 이다.
- */
 	public void setUserMapperDao(UserMapperDAO userMapperDao) {
 		this.userMapperDao = userMapperDao;
 	}

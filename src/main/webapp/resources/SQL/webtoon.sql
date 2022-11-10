@@ -18,7 +18,7 @@ alter table webtoon drop column webtoon_age;
 
 	select * from webtoon where webtoon_tag1 = '로맨스';
 select * from webtoon;
-delete from webtoon;
+delete from webtoon where webtoon_title='ccccc';
 create SEQUENCE webtoon_seq
 start with 1
 increment by 1

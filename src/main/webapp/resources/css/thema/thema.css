@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+a{
+	text-decoration:none;
+	color: inherit;
+}
+
+
 .all-thema-wrap{
 	position:relative;
 	width:100%;
@@ -23,7 +29,7 @@
 .thema-index{
 	margin-top: 70px;
 	margin-right : 40px;
-	margin-bottom:150px;
+	margin-bottom:50px;
 	padding: 1.25rem;
 	padding-bottom : 3.25rem;
 	width:350px;
@@ -47,7 +53,9 @@
 }
 
 .item-text{
+	margin-top:10px;
 	text-align:center;
+	font-weight:bold;
 }
 
 .item{
