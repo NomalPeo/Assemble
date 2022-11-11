@@ -94,8 +94,8 @@
 					<a href="join"><input type="button" value="회원가입" /></a>
 				</div>
 			</div>
-				<div>
-			<input type="checkbox" name="remember-me"/> Remember Me(자동로그인 기능)
+				<div style="text-align: center; padding-top: 10px;">
+			<input style="text-align: center; margin: auto;" type="checkbox" name="remember-me"/>자동로그인 기능
 			<%-- 자동 로그인 기능을 구현할 때 스프링 시큐리티에서는 네임파라미터 이름을 remember-me로 한다. --%>
 		</div>
 		</div>

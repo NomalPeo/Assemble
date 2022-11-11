@@ -10,11 +10,11 @@
 <%@include file="../../include/thema/header.jsp"%>
 
 <div class="all-page">
-	<div class="join-text">
+	<div class="join-text"style="margin:auto; margin-top:50px; text-align: center; padding:0;">
 		<img src="../images/index/join_logo.png" width="80" height="45"
 			alt="웹툰리뷰">회원가입
 	</div>
-	<div class="join-container">
+	<div class="join-container" style="margin:auto; margin-top:50px;">
 		<div class="join-container-content">
 			<form name="m" method="post" action="join_ok"
 				onsubmit="return join_check();">

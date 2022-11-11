@@ -147,7 +147,7 @@ public class MemberOnlyController {
 			if(!(user_id.equals(user_id_))) {
 				out.println("<script>");
 				out.println("alert('아이디가 틀립니다');");
-				out.println("location='/myPage/myPage';");
+				out.println("location='/user/myPage';");
 				out.println("</script>");
 			}else{
 				vo.setUser_id(user_id);
@@ -156,7 +156,7 @@ public class MemberOnlyController {
 
 				out.println("<script>"); 
 				out.println("alert('회원정보 변경');");
-				out.println("location='/myPage/myPage';");
+				out.println("location='/user/myPage';");
 				out.println("</script>");
 				}
 		}catch(Exception e) {

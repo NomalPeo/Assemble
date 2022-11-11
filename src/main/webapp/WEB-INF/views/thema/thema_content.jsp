@@ -70,10 +70,10 @@ var num=1;
 							평점 1.0 <i class="fa-regular fa-star"></i>
 						</div>
 						<a
-							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon4.webtoonVo.webtoon_tag1}"><button
-								class="tag">${themacon4.webtoonVo.webtoon_tag1}</button></a> <a
-							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon4.webtoonVo.webtoon_tag2}"><button
-								class="tag">${themacon4.webtoonVo.webtoon_tag2}</button></a>
+							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon.webtoonVo.webtoon_tag1}"><button
+								class="tag">${themacon.webtoonVo.webtoon_tag1}</button></a> <a
+							href="/tagpage_tag1?webtoon_platform=&webtoon_complete=&webtoon_tag1=${themacon.webtoonVo.webtoon_tag2}"><button
+								class="tag">${themacon.webtoonVo.webtoon_tag2}</button></a>
 					</div>
 
 					<div class="text">
